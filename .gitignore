@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+env/
+venv/
+ENV/
+.venv/
+pip-wheel-metadata/
+*.log
+
+# Jupyter notebooks
+.ipynb_checkpoints
+
+# Data files
+data/*
+!data/README.md
+
+# Env files
+.env
+
+# macOS
+.DS_Store
