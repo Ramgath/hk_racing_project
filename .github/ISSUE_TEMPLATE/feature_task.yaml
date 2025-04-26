@@ -1,0 +1,15 @@
+name: Feature / Task
+description: Use for new data tasks, pipelines, or features
+title: "[TASK] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: What & Why
+      description: Describe the goal, context, and acceptance criteria
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps
+      description: List concrete steps
