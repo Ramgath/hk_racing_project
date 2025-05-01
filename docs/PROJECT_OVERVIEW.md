@@ -60,7 +60,7 @@ This project is managed using a simple Markdown-based planning structure. We org
 
 | ID       | Decision Area      | Summary                                                   | Date       |
 |----------|--------------------|------------------------------------------------------------|------------|
-| ADR-0001 | Use PostgreSQL     | PostgreSQL preferred over BigQuery due to dataset size    | 2025-04-27 |
+| ADR-0001 | Storage Engine     | Continue using **BigQuery** due to ease of use and flexibility; PostgreSQL may be considered later if needed for local testing or specific workflows. | 2025-05-01 |
 | ADR-0002 | Model Target       | TBD – considering win vs. place vs. exotic classification | –          |
 
 ---
