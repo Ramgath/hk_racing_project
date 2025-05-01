@@ -1,75 +1,85 @@
-
-
 # HK Handicapper — Project Overview
-[![Open issues](https://img.shields.io/github/issues/Ramgath/hk_racing_project)](../../issues) 
-[![Last commit](https://img.shields.io/github/last-commit/Ramgath/hk_racing_project)](../../commits/main) 
-[![License](https://img.shields.io/github/license/Ramgath/hk_racing_project)](LICENSE)
 
-*A data-science pipeline for Hong Kong horse-racing analytics & ROI-focused wagering.*
+*A data science system for modeling, forecasting, and back-testing outcomes in Hong Kong horse racing.*
 
 ---
 
-## 🌍 High-Level Roadmap (Milestones)
+## 📍 Project Purpose
 
-| ID | Milestone | Status | Issues linked |
-|----|-----------|--------|---------------|
-| **M2** | **First end-to-end ingestion**  *(Scraper → Google Sheet → BigQuery)* | 🔄 0 / 8 closed | [#1](../../issues/1) [#2](../../issues/2) [#3](../../issues/3) [#4](../../issues/4) [#8](../../issues/8) [#9](../../issues/9) [#10](../../issues/10) [#11](../../issues/11) |
-| **M3** | **Clean EDA notebooks produced** | ⏳ 0 / 1 closed | [#5](../../issues/5) |
-| **M4** | **Baseline predictive model trained** *(win-probability)* | ⏳ 0 / 1 closed | [#6](../../issues/6) |
-| **M5** | **First positive ROI back-test** | ⏳ 0 / 0 closed | – |
-| **M6** | **Deployment of first wagering system** *(simulated bets)* | ⏳ 0 / 0 closed | – |
+This project aims to build an end-to-end pipeline for collecting, processing, analyzing, and modeling Hong Kong horse racing data to identify value-based wagering strategies. The primary focus is predictive performance modeling, ROI analysis, and deployment of algorithmic betting strategies.
 
 ---
 
-## 📋 Current Backlog & Sprint
+## 📅 Planning System
 
-<details>
-<summary>Open issues (10)</summary>
+This project is managed using a simple Markdown-based planning structure. We organize work using the following sections:
 
-| ID | Title | Labels | Milestone |
-|---:|-------|--------|-----------|
-| #11 | **[SCRAPER]** Write unit tests for parsing functions | `scraper` `testing` | M2 |
-| #10 | **[SCRAPER]** Validate output schema matches BQ ingestion | `bigquery` `data` | M2 |
-| #9  | **[SCRAPER]** Add retry logic and delay handling | `infra` `scraper` | M2 |
-| #8  | **[SCRAPER]** Parameterize notebook into Python module | `data` `scraper` | M2 |
-| #6  | **[DECISION]** ADR-0002 — Choose primary modeling target | `decision` `modeling` `docs` | M4 |
-| #5  | **[TASK]** Create EDA Notebook 01: Data Overview | `docs` `notebook` | M3 |
-| #4  | **[TASK]** Set up SQL / dbt for native tables | `bigquery` `infra` | M2 |
-| #3  | **[TASK]** Create BigQuery dataset & external table connection | `bigquery` `infra` | M2 |
-| #2  | **[TASK]** Push sample meeting into Google Sheet | `data` `scraper` | M2 |
-| #1  | **[TASK]** Scrape one recent HK race meeting into DataFrame | `data` `scraper` | M2 |
-
-</details>
+- **Milestones** – Key deliverables with rough deadlines.
+- **Tasks** – Concrete steps to complete under each milestone.
+- **Decisions** – Architectural, modeling, or strategy decisions with rationale.
+- **Accomplishments** – Completed items with dates and notes.
 
 ---
 
-## ✅ Recently Done
-| Date | PR / Issue | Summary |
-|------|-----------|---------|
-| _yyyy-mm-dd_ | #7 | **GitHub repo bootstrap** |
+## 🎯 Milestones
+
+| ID   | Name                                | Target Date | Status       |
+|------|-------------------------------------|-------------|--------------|
+| M1   | Project Bootstrap                   | ✅ Complete  | ✔ Done       |
+| M2   | End-to-End Data Ingestion Pipeline  | TBD         | 🔄 In Progress |
+| M3   | Exploratory Data Analysis           | TBD         | ⏳ Not Started |
+| M4   | First Baseline Model (Win/Place)    | TBD         | ⏳ Not Started |
+| M5   | ROI-Positive Backtest (3+ seasons)  | TBD         | ⏳ Not Started |
+| M6   | Deployment-Ready Betting Strategy   | TBD         | ⏳ Not Started |
 
 ---
 
-## 🏗️ Architecture Snapshot
-```
-┌────────────┐      daily          ┌──────────────┐
-│   Scraper  ├──────JSON──────────▶│ Google Sheet │
-└────────────┘                     └──────┬───────┘
-        ▲                                 ▼
-        │                       External table
-        │    batch load          ┌──────────────┐
-        └────────────────────────▶│  BigQuery    │
-                                  └─────┬────────┘
-                                        ▼
-                                Feature matrices ➜  ML / Back-test
-```
+## 🛠 Tasks (by Milestone)
+
+### 🔹 M2: End-to-End Ingestion
+
+- [ ] Scrape recent HKJC race meeting data
+- [ ] Push sample race to Google Sheets
+- [ ] Create BigQuery dataset and table schema
+- [ ] Upload historical race card JSONs
+- [ ] Write tests for parsing functions
+- [ ] Validate schema matches ingestion format
+- [ ] Add retry/delay logic to scraper
+- [ ] Convert notebook to CLI-friendly script
+
+### 🔹 M3: EDA
+
+- [ ] Create initial EDA notebook
+- [ ] Summarize data availability by field and by year
+- [ ] Compute race-level and runner-level distributions
+- [ ] Plot bias by barrier, rail, and track config
 
 ---
 
-## 🔄 How to update this file
-1. Close or open issues ➜ status bars & tables auto-refresh via badges / links.  
-2. Edit **`PROJECT_OVERVIEW.md`** when you add a milestone or restructure the board.  
-3. Big changes? Tag **@ChatGPT-helper** in a comment and paste the diff — I’ll regenerate the doc.
+## ⚖️ Decisions
+
+| ID       | Decision Area      | Summary                                                   | Date       |
+|----------|--------------------|------------------------------------------------------------|------------|
+| ADR-0001 | Use PostgreSQL     | PostgreSQL preferred over BigQuery due to dataset size    | 2025-04-27 |
+| ADR-0002 | Model Target       | TBD – considering win vs. place vs. exotic classification | –          |
 
 ---
 
+## ✅ Accomplishments
+
+| Date       | Item                               | Notes                             |
+|------------|------------------------------------|-----------------------------------|
+| 2025-04-26 | Repo initialized + docs structured | README, LICENSE, .gitignore added |
+| 2025-04-30 | Project overview file created      | Initial planning structure adopted|
+
+---
+
+## 📌 Notes
+
+- Historical discontinuity: major Happy Valley renovation in 1995; GPS tracking introduced in Nov 2022.
+- Pre-1995 data excluded from predictive model training to reduce noise.
+- Planning updates are managed in this file going forward.
+
+---
+
+*Last updated: 2025-05-01*
