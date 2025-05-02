@@ -1,4 +1,4 @@
-# HK Handicapper — Project Overview
+# HK Handicapper — Project Overview & System Architecture
 
 *A data science system for modeling, forecasting, and back-testing outcomes in Hong Kong horse racing.*
 
@@ -7,6 +7,41 @@
 ## 📍 Project Purpose
 
 This project aims to build an end-to-end pipeline for collecting, processing, analyzing, and modeling Hong Kong horse racing data to identify value-based wagering strategies. The primary focus is predictive performance modeling, ROI analysis, and deployment of algorithmic betting strategies.
+
+---
+
+## System Architecture Overview 🏗️
+
+### Overview
+
+This project builds a horse racing handicapping and wagering system based on Hong Kong horse races (2008-present).
+
+The **data flow** is structured for high version control, easy human correction, and scalable querying.
+
+---
+
+### High-Level Architecture
+
+```
+Web Scraping (VS Code Python)
+            ↓
+Google Sheets (corrected & versioned data)
+            ↓
+BigQuery External Table (connected to Sheets)
+            ↓
+BigQuery Native Tables (cleaned, transformed)
+            ↓
+VS Code (EDA)         Google Colab (Modeling)
+```
+
+---
+
+### Key Design Choices
+
+- Use **Google Sheets** as an intermediate version-controlled source of truth.
+- Ingest into **BigQuery** using **External Tables** first.
+- Later materialize cleaned data into **Native BigQuery Tables**.
+- Model and analyze using both **VS Code** and **Google Colab**.
 
 ---
 
@@ -74,7 +109,7 @@ This project is managed using a simple Markdown-based planning structure. We org
 
 ---
 
-## 📌 Notes
+## 📌 Notes & Considerations
 
 - Historical discontinuity: major Happy Valley renovation in 1995; GPS tracking introduced in Nov 2022.
 - Pre-1995 data excluded from predictive model training to reduce noise.
@@ -82,4 +117,4 @@ This project is managed using a simple Markdown-based planning structure. We org
 
 ---
 
-*Last updated: 2025-05-01*
+*Last updated: 2025-05-01 (Combined Document)*
