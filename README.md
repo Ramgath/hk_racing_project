@@ -17,35 +17,43 @@ Build a data-driven horse racing handicapping & wagering system based on Hong Ko
 ## Repo Layout
 ```
 hk_racing_project/
-├── data/              # Raw, processed, and external data files (not committed to Git)
-├── notebooks/         # EDA and modeling Jupyter notebooks
-├── src/               # Source code: pipelines, feature engineering, utils
-├── infra/             # Infrastructure as code: BigQuery SQL DDL, cloud configs
-├── docs/              # Architecture docs, decision records (ADRs), notes
-├── .github/           # CI workflows, issue templates
+├── data/
+│   ├── external/
+│   │   └── README.md
+│   ├── processed/
+│   │   └── README.md
+│   └── raw/
+│       └── README.md
+├── docs/
+│   ├── architecture/
+│   │   ├── overview.md
+│   │   └── README.md
+│   ├── decisions/
+│   │   └── README.md
+│   ├── meeting-notes/
+│   │   └── README.md
+│   └── PROJECT_OVERVIEW.md
+├── infra/
+│   ├── bigquery/
+│   │   └── README.md
+│   ├── gcloud/
+│   │   └── README.md
+│   └── README.md
+├── notebooks/
+│   ├── eda/
+│   │   └── README.md
+│   ├── modeling/
+│   │   └── README.md
+│   └── scraping/
+│       └── 01_results_scraper_dev.ipynb
+├── src/
+│   ├── features/
+│   │   └── README.md
+│   ├── pipelines/
+│   │   └── README.md
+│   ├── __init__.py
+│   └── README.md
+├── docs/
+│   └── project_structure.txt
+└── README.md
 ```
-
----
-
-## Getting Started
-
-```bash
-# Clone the repository
-git clone git@github.com:Ramgath/hk_racing_project.git
-cd hk_racing_project
-
-# Install requirements (coming soon)
-
-# Set up pre-commit hooks (coming soon)
-
-# Connect to Google Sheets and BigQuery (instructions coming soon)
-```
-
----
-
-## Status
-🚀 **Project bootstrapped**: Repository structure and guidelines are now in place.  
-🏗️ **Next steps**: 
-- Set up data ingestion scripts
-- Begin historical scraping
-- Create BigQuery pipelines
