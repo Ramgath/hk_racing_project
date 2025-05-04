@@ -6,7 +6,7 @@ The HK Racing Project is a data-driven initiative to ingest, model, and analyze 
 **Objectives**  
 - Ingest race results, horse and jockey data, and betting odds into BigQuery.  
 - Define a clear, version-controlled data model and dictionary.  
-- Build an automated pipeline (Airflow + GCS + BigQuery).  
+- Build an automated pipeline (Google Sheets+ GCS + BigQuery).  
 - Deliver KPI dashboards and exploratory notebooks for analytics and ML.
 
 **Table of Contents**  
