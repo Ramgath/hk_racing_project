@@ -1,0 +1,12 @@
+site_name: HK Racing Project
+docs_dir: docs
+theme:
+  name: material
+nav:
+  - Home: index.md
+  - Phase 1: phase-01-discovery.md
+  - Phase 2: phase-02-ingestion.md
+  - Phase 3: phase-03-data-model.md
+  - Phase 4: phase-04-pipeline-design.md
+  - Phase 5: phase-05-analytics-visualization.md
+  - Status: project-status.md
