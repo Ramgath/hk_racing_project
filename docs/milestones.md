@@ -5,7 +5,7 @@ A living log of project milestones and tasks, linked to GitHub issues. Update st
 ## Phase 1: Discovery
 | Task                                  | Issue | Status      | Due Date    |
 |---------------------------------------|-------|-------------|-------------|
-| Define objectives & success criteria  |https://github.com/Ramgath/hk_racing_project/issues/12       | In Progress | 2025-05-10  |
+| Define objectives & success criteria  |[12](https://github.com/Ramgath/hk_racing_project/issues/12)       | In Progress | 2025-05-10  |
 | Conduct stakeholder interviews        |       | Not Started | 2025-05-12  |
 | Audit data sources                    |       | Not Started | 2025-05-14  |
 | Assess technical constraints          |       | Not Started | 2025-05-16  |
