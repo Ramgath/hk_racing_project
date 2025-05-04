@@ -5,6 +5,7 @@ theme:
 nav:
   - Home: index.md
   - Decisions: decisions.md
+  - Milestones: milestones.md
   - Phase 1: phase-01-discovery.md
   - Phase 2: phase-02-ingestion.md
   - Phase 3: phase-03-data-model.md
