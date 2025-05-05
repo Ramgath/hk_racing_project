@@ -1,15 +1,2 @@
 # .github/ISSUE_TEMPLATE/config.yml
 blank_issues_enabled: false
-# Don’t show the “Get started by…” blank option
-
-contact_links:
-  - name: Task
-    about: Create a new project task or feature
-    title: "[Task] "
-    labels: ["Type: Task"]
-    template: "task.md"
-  - name: Bug Report
-    about: Report a problem or unexpected behavior
-    title: "[Bug] "
-    labels: ["Type: Bug"]
-    template: "bug_report.md"
