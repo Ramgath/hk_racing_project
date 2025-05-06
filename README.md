@@ -23,7 +23,7 @@ make setup
 | `make docs`                   | Build the MkDocs site into the `site/` directory |
 | `python -m src.ingestion.run` | Execute the ingestion pipeline                   |
 | `make lint`                   | Run code linting (Flake8)                        |
-| `make test`                   | Run unit and integration tests (pytest)          |
+| `make test`                   | Run unit and integration tests (pytest)           |
 
 ## 📦 Requirements
 
