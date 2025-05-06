@@ -12,4 +12,5 @@ This document tracks the major design and process decisions for the HK Racing Pr
 | 2025-05-06 | Establish branch protection rules on main               | Process      | Unrestricted direct pushes                                             | Ensure all changes are reviewed and pass CI before merge              |
 | 2025-05-06 | Create GitHub issue and PR templates                    | Process      | Freeform issues and PR descriptions                                    | Standardize issue reporting and PR reviews                            |
 | 2025-05-06 | Scaffold Makefile and setup scripts for environment     | Developer DX | Manual venv creation and pip installs                                  | Provide reproducible one-command environment bootstrapping            |
+| 2025-05-06 | Rolled back branch protection rules for personal repo      | Process      | Enforced PR and status checks                             | Simplify workflow for solo development; allow direct pushes  |
 | 2025-05-XX | (future decision)                          |                    |                                       |                                      |
