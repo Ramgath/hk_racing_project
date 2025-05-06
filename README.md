@@ -1,7 +1,6 @@
 ![CI](https://github.com/Ramgath/hk_racing_project/actions/workflows/ci.yml/badge.svg)
 ![Docs Deploy](https://github.com/Ramgath/hk_racing_project/actions/workflows/docs-deploy.yml/badge.svg)
 
-
 # HK Racing Project
 
 A modular, end-to-end pipeline for ingesting, modeling, and visualizing Hong Kong race data from the Hong Kong Jockey Club and related sources.
@@ -16,7 +15,7 @@ cd hk_racing_project
 make setup
 ```
 
-### Available commands
+### Available Commands
 
 | Command                       | Description                                      |
 |-------------------------------|--------------------------------------------------|
@@ -31,54 +30,57 @@ make setup
 - Python 3.8+
 - See [`requirements.txt`](requirements.txt) and [`requirements-dev.txt`](requirements-dev.txt)
 
-## 🗂️ Repository Structure
+## 📁 Project Layout
 
 ```
-/
-├── README.md
-├── LICENSE
-├── CONTRIBUTING.md
-├── .gitignore
+.
+├── .DS_Store
 ├── .editorconfig
-├── Makefile
-├── mkdocs.yml
-├── requirements.txt
-├── requirements-dev.txt
-├── pytest.ini
+├── .github
+│   └── workflows
+│       ├── ci.yml
+│       └── docs-deploy.yml
+├── .gitignore
 ├── .pre-commit-config.yaml
-├── CODEOWNERS
-├── docs/
+├── .vscode
+│   └── settings.json
+├── data
+│   ├── .DS_Store
+│   ├── processed
+│   └── raw
+├── docs
+│   ├── .DS_Store
+│   ├── decisions.md
 │   ├── index.md
+│   ├── milestones.md
 │   ├── phase-01-discovery.md
 │   ├── phase-02-ingestion.md
 │   ├── phase-03-data-model.md
 │   ├── phase-04-pipeline-design.md
 │   ├── phase-05-analytics-visualization.md
-│   ├── project-status.md
-│   ├── decisions.md
-│   └── milestones.md
-├── src/
-│   ├── ingestion/
-│   ├── modeling/
-│   └── visualization/
-├── notebooks/
+│   └── project-status.md
+├── Makefile
+├── mkdocs.yml
+├── notebooks
+│   ├── .DS_Store
 │   └── 01-race-eda.ipynb
-├── tests/
-│   └── test_sanity.py
-├── data/
-│   ├── raw/
-│   └── processed/
-├── scripts/
+├── README.md
+├── requirements-dev.txt
+├── requirements.txt
+├── scripts
+│   ├── deploy_docs.sh
 │   └── setup_env.sh
-└── .github/
-    ├── ISSUE_TEMPLATE/
-    │   ├── new_task.md
-    │   └── bug_report.md
-    ├── PULL_REQUEST_TEMPLATE.md
-    └── workflows/
-        ├── ci.yml
-        └── docs-deploy.yml
+├── src
+│   ├── .DS_Store
+│   ├── ingestion
+│   ├── modeling
+│   └── visualization
+└── tests
+    ├── pytest.ini
+    ├── test_ingestion.py
+    └── test_sanity.py
 ```
+
 
 ## 📜 License
 
