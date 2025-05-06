@@ -49,7 +49,15 @@ jobs:
         run: |
           flake8 .
 
-      # 6. Run tests
+      # 6. Check for test files
+      - name: Check for test files
+        run: |
+          if ! find tests -name 'test_*.py' | grep -q .; then
+            echo "❌ No test files found in tests/"
+            exit 1
+          fi
+
+      # 7. Run tests
       - name: Run pytest
         run: |
           pytest --maxfail=1 --disable-warnings -q
