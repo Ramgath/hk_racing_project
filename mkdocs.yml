@@ -4,11 +4,15 @@ theme:
   name: material
 nav:
   - Home: index.md
+  - Phase 1: phase-01-definition.md
+  - Phase 2: phase-02-collection.md
+  - Phase 3: phase-03-cleansing.md
+  - Phase 4: phase-04-eda.md
+  - Phase 5: phase-05-features.md
+  - Phase 6: phase-06-model.md
+  - Phase 7: phase-07-evaluation.md
+  - Phase 8: phase-08-deployment.md
+  - Phase 9: phase-09-management.md
+  - Project Status: project-status.md
   - Decisions: decisions.md
   - Milestones: milestones.md
-  - Phase 1: phase-01-discovery.md
-  - Phase 2: phase-02-ingestion.md
-  - Phase 3: phase-03-data-model.md
-  - Phase 4: phase-04-pipeline-design.md
-  - Phase 5: phase-05-analytics-visualization.md
-  - Status: project-status.md
