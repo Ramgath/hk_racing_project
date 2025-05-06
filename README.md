@@ -1,4 +1,5 @@
 ![CI](https://github.com/Ramgath/hk_racing_project/actions/workflows/ci.yml/badge.svg)
+
 # HK Racing Project
 
 A modular, end-to-end pipeline for ingesting, modeling, and visualizing Hong Kong race data from the Hong Kong Jockey Club and related sources.
