@@ -1,4 +1,6 @@
 ![CI](https://github.com/Ramgath/hk_racing_project/actions/workflows/ci.yml/badge.svg)
+![Docs Deploy](https://github.com/Ramgath/hk_racing_project/actions/workflows/docs-deploy.yml/badge.svg)
+
 
 # HK Racing Project
 
