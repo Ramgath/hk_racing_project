@@ -1,15 +1,30 @@
 repos:
+  # Basic hygiene hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+
+  # Black for code formatting
   - repo: https://github.com/psf/black
-    rev: 24.3.0
+    rev: 23.1.0
     hooks:
       - id: black
+        language_version: python3
 
-  - repo: https://github.com/pycqa/flake8
-    rev: 7.0.0
+  # Flake8 for linting
+  - repo: https://github.com/PyCQA/flake8
+    rev: 6.0.0
     hooks:
       - id: flake8
+        additional_dependencies: [flake8>=6.0.0]
 
+  # Strip outputs from notebooks
   - repo: https://github.com/kynan/nbstripout
-    rev: 0.6.1
+    rev: 0.5.0
     hooks:
       - id: nbstripout
+        files: \.ipynb$
