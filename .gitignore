@@ -29,3 +29,6 @@ data/*
 
 # VS Code local settings
 .vscode/
+
+# MkDocs build output
+/site/

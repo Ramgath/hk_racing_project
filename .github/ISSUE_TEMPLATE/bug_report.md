@@ -3,15 +3,15 @@ name: 🐛 Bug Report
 about: Report a bug in the project
 title: "[BUG]"
 labels: ["bug"]
-assignees: 
+assignees:
 ---
 
 **Description**
 A clear description of the problem.
 
 **Steps to Reproduce**
-1. Step one  
-2. Step two  
+1. Step one
+2. Step two
 3. …
 
 **Expected Behavior**

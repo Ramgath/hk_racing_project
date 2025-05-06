@@ -3,7 +3,7 @@ name: 📋 New Task
 about: Create a new project task
 title: "[TASK]"
 labels: ["task"]
-assignees: 
+assignees:
 ---
 
 **Task Description**
