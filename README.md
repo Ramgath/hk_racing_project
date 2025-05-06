@@ -35,31 +35,48 @@ make setup
 
 ```
 /
-├── README.md                   ← High-level intro & commands
-├── LICENSE                     ← Project license
-├── docs/                       ← Project documentation & phase plans
-│   ├── index.md                ← Executive Summary + TOC
+├── README.md
+├── LICENSE
+├── CONTRIBUTING.md
+├── .gitignore
+├── .editorconfig
+├── Makefile
+├── mkdocs.yml
+├── requirements.txt
+├── requirements-dev.txt
+├── pytest.ini
+├── .pre-commit-config.yaml
+├── CODEOWNERS
+├── docs/
+│   ├── index.md
 │   ├── phase-01-discovery.md
 │   ├── phase-02-ingestion.md
 │   ├── phase-03-data-model.md
 │   ├── phase-04-pipeline-design.md
 │   ├── phase-05-analytics-visualization.md
-│   └── project-status.md      ← Change log / status updates
-├── src/                        ← Production code modules
-│   ├── ingestion/              ← API clients & web scrapers
-│   ├── modeling/               ← Schema definitions & transforms
-│   └── visualization/          ← Dashboard & report scripts
-├── notebooks/                  ← Exploratory analysis & prototypes
+│   ├── project-status.md
+│   ├── decisions.md
+│   └── milestones.md
+├── src/
+│   ├── ingestion/
+│   ├── modeling/
+│   └── visualization/
+├── notebooks/
 │   └── 01-race-eda.ipynb
-├── tests/                      ← Unit & integration tests
-│   └── test_ingestion.py
-├── data/                       ← Schema files or sample data (no PII)
+├── tests/
+│   └── test_sanity.py
+├── data/
 │   ├── raw/
 │   └── processed/
-├── scripts/                    ← Utility scripts & helpers
+├── scripts/
 │   └── setup_env.sh
-└── .github/                    ← GitHub configuration & workflows
+└── .github/
+    ├── ISSUE_TEMPLATE/
+    │   ├── new_task.md
+    │   └── bug_report.md
+    ├── PULL_REQUEST_TEMPLATE.md
     └── workflows/
+        ├── ci.yml
         └── docs-deploy.yml
 ```
 
