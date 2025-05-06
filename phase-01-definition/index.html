@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../milestones/">
+        <link rel="prev" href="..">
       
       
-        <link rel="next" href="../phase-02-ingestion/">
+        <link rel="next" href="../phase-02-collection/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -213,50 +213,6 @@
       
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../decisions/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Decisions
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../milestones/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Milestones
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
     
   
   
@@ -378,7 +334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../phase-02-ingestion/" class="md-nav__link">
+      <a href="../phase-02-collection/" class="md-nav__link">
         
   
   
@@ -400,7 +356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../phase-03-data-model/" class="md-nav__link">
+      <a href="../phase-03-cleansing/" class="md-nav__link">
         
   
   
@@ -422,7 +378,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../phase-04-pipeline-design/" class="md-nav__link">
+      <a href="../phase-04-eda/" class="md-nav__link">
         
   
   
@@ -444,7 +400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../phase-05-analytics-visualization/" class="md-nav__link">
+      <a href="../phase-05-features/" class="md-nav__link">
         
   
   
@@ -466,12 +422,144 @@
   
   
     <li class="md-nav__item">
+      <a href="../phase-06-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 6
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase-07-evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 7
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase-08-deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 8
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase-09-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 9
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../project-status/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Status
+    Project Status
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../decisions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Decisions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../milestones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Milestones
     
   </span>
   
@@ -580,6 +668,23 @@
 <!-- docs/phase-01-discovery.md -->
 <h1 id="phase-1-discovery">Phase 1: Discovery</h1>
 <h2 id="11-objectives-success-criteria">1.1 Objectives &amp; Success Criteria</h2>
+<p><strong>Objectives</strong></p>
+<ul>
+<li>Ingest historical and live race data (results, horses, jockeys, odds) from the Hong Kong Jockey Club into BigQuery.</li>
+<li>Define and publish a comprehensive, version‑controlled data dictionary covering all ingested datasets.</li>
+<li>Design and validate a conceptual and logical data model (ERDs) to support downstream analytics.</li>
+<li>Implement an automated ingestion pipeline (e.g., Airflow) with daily updates and alerting on failures.</li>
+<li>Deliver an exploratory data analysis notebook highlighting key metrics (e.g., average finish times, win rates).</li>
+<li>Establish CI/CD processes for code, tests, and documentation to ensure reproducibility.</li>
+</ul>
+<p><strong>Success Criteria</strong></p>
+<ul>
+<li>≥ 95% of historical races (2008–present) ingested with no critical data discrepancies.</li>
+<li>100% field coverage in the data dictionary, tracked in version control.</li>
+<li>Pipeline reliability with &lt; 1% daily failure rate; alerts triggered and resolved within 1 hour.</li>
+<li>Exploratory notebook includes at least 3 key performance indicators visualized and documented.</li>
+<li>Live documentation site available via GitHub Pages with ≥ 99% uptime.</li>
+</ul>
 <h2 id="12-stakeholder-interviews-use-cases">1.2 Stakeholder Interviews &amp; Use Cases</h2>
 <h2 id="13-current-state-architecture">1.3 Current-State Architecture</h2>
 <h2 id="14-data-source-inventory-audit">1.4 Data Source Inventory &amp; Audit</h2>

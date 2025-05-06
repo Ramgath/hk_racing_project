@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../phase-04-pipeline-design/">
+        <link rel="prev" href="../phase-01-definition/">
       
       
-        <link rel="next" href="../project-status/">
+        <link rel="next" href="../phase-03-cleansing/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Phase 5 - HK Racing Project</title>
+        <title>Phase 2 - HK Racing Project</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#phase-5-analytics-visualization" class="md-skip">
+        <a href="#phase-2-data-ingestion" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Phase 5
+              Phase 2
             
           </span>
         </div>
@@ -216,6 +216,394 @@
   
   
     <li class="md-nav__item">
+      <a href="../phase-01-definition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Phase 2
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 2
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#21-source-identification-access-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Source Identification &amp; Access Patterns
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-api-integrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 API Integrations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 API Integrations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-authentication-rate-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.1 Authentication &amp; Rate Limits
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-pagination-throttling" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.2 Pagination &amp; Throttling
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-web-scraping-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Web-Scraping Design
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 Web-Scraping Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231-scraper-framework-eg-beautifulsoup-selenium" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.1 Scraper Framework (e.g. BeautifulSoup / Selenium)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232-error-handling-retries" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.2 Error-Handling &amp; Retries
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-schema-validation-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 Schema Validation &amp; Mapping
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25-scheduling-orchestration" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 Scheduling &amp; Orchestration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.5 Scheduling &amp; Orchestration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#251-cron-vs-event-driven" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.1 Cron vs. Event-Driven
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#252-retry-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.2 Retry Policies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26-monitoring-logging-alerting" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6 Monitoring, Logging &amp; Alerting
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase-03-cleansing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase-04-eda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase-05-features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 5
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase-06-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 6
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase-07-evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 7
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase-08-deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 8
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase-09-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 9
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project-status/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Status
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../decisions/" class="md-nav__link">
         
   
@@ -253,282 +641,6 @@
   
 
     
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../phase-01-discovery/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Phase 1
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../phase-02-ingestion/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Phase 2
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../phase-03-data-model/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Phase 3
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../phase-04-pipeline-design/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Phase 4
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Phase 5
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    Phase 5
-    
-  </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#51-kpi-definition-metric-calculations" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.1 KPI Definition &amp; Metric Calculations
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#52-bi-tool-selection-integration" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.2 BI Tool Selection &amp; Integration
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5.2 BI Tool Selection &amp; Integration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#521-looker-data-studio-setup" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.2.1 Looker / Data Studio Setup
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#522-automated-report-delivery" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.2.2 Automated Report Delivery
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#53-dashboard-report-wireframes" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.3 Dashboard &amp; Report Wireframes
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#54-advanced-analytics-ml-use-cases" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.4 Advanced Analytics &amp; ML Use Cases
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5.4 Advanced Analytics &amp; ML Use Cases">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#541-feature-engineering" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.4.1 Feature Engineering
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#542-model-training-evaluation" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.4.2 Model Training &amp; Evaluation
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#55-user-training-handoff" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.5 User Training &amp; Handoff
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#56-maintenance-continuous-improvement" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.6 Maintenance &amp; Continuous Improvement
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../project-status/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Status
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
   </ul>
 </nav>
                   </div>
@@ -556,37 +668,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#51-kpi-definition-metric-calculations" class="md-nav__link">
+  <a href="#21-source-identification-access-patterns" class="md-nav__link">
     <span class="md-ellipsis">
-      5.1 KPI Definition &amp; Metric Calculations
+      2.1 Source Identification &amp; Access Patterns
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#52-bi-tool-selection-integration" class="md-nav__link">
+  <a href="#22-api-integrations" class="md-nav__link">
     <span class="md-ellipsis">
-      5.2 BI Tool Selection &amp; Integration
+      2.2 API Integrations
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="5.2 BI Tool Selection &amp; Integration">
+    <nav class="md-nav" aria-label="2.2 API Integrations">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#521-looker-data-studio-setup" class="md-nav__link">
+  <a href="#221-authentication-rate-limits" class="md-nav__link">
     <span class="md-ellipsis">
-      5.2.1 Looker / Data Studio Setup
+      2.2.1 Authentication &amp; Rate Limits
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#522-automated-report-delivery" class="md-nav__link">
+  <a href="#222-pagination-throttling" class="md-nav__link">
     <span class="md-ellipsis">
-      5.2.2 Automated Report Delivery
+      2.2.2 Pagination &amp; Throttling
     </span>
   </a>
   
@@ -598,37 +710,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#53-dashboard-report-wireframes" class="md-nav__link">
+  <a href="#23-web-scraping-design" class="md-nav__link">
     <span class="md-ellipsis">
-      5.3 Dashboard &amp; Report Wireframes
+      2.3 Web-Scraping Design
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#54-advanced-analytics-ml-use-cases" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.4 Advanced Analytics &amp; ML Use Cases
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5.4 Advanced Analytics &amp; ML Use Cases">
+    <nav class="md-nav" aria-label="2.3 Web-Scraping Design">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#541-feature-engineering" class="md-nav__link">
+  <a href="#231-scraper-framework-eg-beautifulsoup-selenium" class="md-nav__link">
     <span class="md-ellipsis">
-      5.4.1 Feature Engineering
+      2.3.1 Scraper Framework (e.g. BeautifulSoup / Selenium)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#542-model-training-evaluation" class="md-nav__link">
+  <a href="#232-error-handling-retries" class="md-nav__link">
     <span class="md-ellipsis">
-      5.4.2 Model Training &amp; Evaluation
+      2.3.2 Error-Handling &amp; Retries
     </span>
   </a>
   
@@ -640,18 +743,51 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#55-user-training-handoff" class="md-nav__link">
+  <a href="#24-schema-validation-mapping" class="md-nav__link">
     <span class="md-ellipsis">
-      5.5 User Training &amp; Handoff
+      2.4 Schema Validation &amp; Mapping
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#56-maintenance-continuous-improvement" class="md-nav__link">
+  <a href="#25-scheduling-orchestration" class="md-nav__link">
     <span class="md-ellipsis">
-      5.6 Maintenance &amp; Continuous Improvement
+      2.5 Scheduling &amp; Orchestration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.5 Scheduling &amp; Orchestration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#251-cron-vs-event-driven" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.1 Cron vs. Event-Driven
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#252-retry-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.2 Retry Policies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26-monitoring-logging-alerting" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6 Monitoring, Logging &amp; Alerting
     </span>
   </a>
   
@@ -673,18 +809,20 @@
 
 
 
-<!-- docs/phase-05-analytics-visualization.md -->
-<h1 id="phase-5-analytics-visualization">Phase 5: Analytics &amp; Visualization</h1>
-<h2 id="51-kpi-definition-metric-calculations">5.1 KPI Definition &amp; Metric Calculations</h2>
-<h2 id="52-bi-tool-selection-integration">5.2 BI Tool Selection &amp; Integration</h2>
-<h3 id="521-looker-data-studio-setup">5.2.1 Looker / Data Studio Setup</h3>
-<h3 id="522-automated-report-delivery">5.2.2 Automated Report Delivery</h3>
-<h2 id="53-dashboard-report-wireframes">5.3 Dashboard &amp; Report Wireframes</h2>
-<h2 id="54-advanced-analytics-ml-use-cases">5.4 Advanced Analytics &amp; ML Use Cases</h2>
-<h3 id="541-feature-engineering">5.4.1 Feature Engineering</h3>
-<h3 id="542-model-training-evaluation">5.4.2 Model Training &amp; Evaluation</h3>
-<h2 id="55-user-training-handoff">5.5 User Training &amp; Handoff</h2>
-<h2 id="56-maintenance-continuous-improvement">5.6 Maintenance &amp; Continuous Improvement</h2>
+<!-- docs/phase-02-ingestion.md -->
+<h1 id="phase-2-data-ingestion">Phase 2: Data Ingestion</h1>
+<h2 id="21-source-identification-access-patterns">2.1 Source Identification &amp; Access Patterns</h2>
+<h2 id="22-api-integrations">2.2 API Integrations</h2>
+<h3 id="221-authentication-rate-limits">2.2.1 Authentication &amp; Rate Limits</h3>
+<h3 id="222-pagination-throttling">2.2.2 Pagination &amp; Throttling</h3>
+<h2 id="23-web-scraping-design">2.3 Web-Scraping Design</h2>
+<h3 id="231-scraper-framework-eg-beautifulsoup-selenium">2.3.1 Scraper Framework (e.g. BeautifulSoup / Selenium)</h3>
+<h3 id="232-error-handling-retries">2.3.2 Error-Handling &amp; Retries</h3>
+<h2 id="24-schema-validation-mapping">2.4 Schema Validation &amp; Mapping</h2>
+<h2 id="25-scheduling-orchestration">2.5 Scheduling &amp; Orchestration</h2>
+<h3 id="251-cron-vs-event-driven">2.5.1 Cron vs. Event-Driven</h3>
+<h3 id="252-retry-policies">2.5.2 Retry Policies</h3>
+<h2 id="26-monitoring-logging-alerting">2.6 Monitoring, Logging &amp; Alerting</h2>
 
 
 

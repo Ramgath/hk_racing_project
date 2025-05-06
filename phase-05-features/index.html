@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../phase-02-ingestion/">
+        <link rel="prev" href="../phase-04-eda/">
       
       
-        <link rel="next" href="../phase-04-pipeline-design/">
+        <link rel="next" href="../phase-06-model/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Phase 3 - HK Racing Project</title>
+        <title>Phase 5 - HK Racing Project</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#phase-3-data-modeling-dictionary" class="md-skip">
+        <a href="#phase-5-analytics-visualization" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Phase 3
+              Phase 5
             
           </span>
         </div>
@@ -216,6 +216,370 @@
   
   
     <li class="md-nav__item">
+      <a href="../phase-01-definition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase-02-collection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase-03-cleansing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase-04-eda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Phase 5
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 5
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#51-kpi-definition-metric-calculations" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 KPI Definition &amp; Metric Calculations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52-bi-tool-selection-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 BI Tool Selection &amp; Integration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.2 BI Tool Selection &amp; Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#521-looker-data-studio-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2.1 Looker / Data Studio Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#522-automated-report-delivery" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2.2 Automated Report Delivery
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#53-dashboard-report-wireframes" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Dashboard &amp; Report Wireframes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#54-advanced-analytics-ml-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4 Advanced Analytics &amp; ML Use Cases
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.4 Advanced Analytics &amp; ML Use Cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#541-feature-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4.1 Feature Engineering
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#542-model-training-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4.2 Model Training &amp; Evaluation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#55-user-training-handoff" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5 User Training &amp; Handoff
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#56-maintenance-continuous-improvement" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.6 Maintenance &amp; Continuous Improvement
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase-06-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 6
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase-07-evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 7
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase-08-deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 8
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase-09-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 9
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project-status/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Status
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../decisions/" class="md-nav__link">
         
   
@@ -253,282 +617,6 @@
   
 
     
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../phase-01-discovery/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Phase 1
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../phase-02-ingestion/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Phase 2
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Phase 3
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    Phase 3
-    
-  </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#31-conceptual-data-model-erds" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.1 Conceptual Data Model (ERDs)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#32-logical-model-normalization-rules" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.2 Logical Model &amp; Normalization Rules
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#33-physical-schema-design" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.3 Physical Schema Design
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3.3 Physical Schema Design">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#331-bigquery-table-layouts" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.3.1 BigQuery Table Layouts
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#332-partitioning-clustering" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.3.2 Partitioning &amp; Clustering
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#34-detailed-data-dictionary" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.4 Detailed Data Dictionary
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3.4 Detailed Data Dictionary">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#341-field-definitions" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.4.1 Field Definitions
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#342-source-target-mappings" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.4.2 Source ↔ Target Mappings
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#343-transformation-logic" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.4.3 Transformation Logic
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#35-versioning-ownership-governance" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.5 Versioning, Ownership &amp; Governance
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../phase-04-pipeline-design/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Phase 4
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../phase-05-analytics-visualization/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Phase 5
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../project-status/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Status
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
   </ul>
 </nav>
                   </div>
@@ -556,46 +644,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#31-conceptual-data-model-erds" class="md-nav__link">
+  <a href="#51-kpi-definition-metric-calculations" class="md-nav__link">
     <span class="md-ellipsis">
-      3.1 Conceptual Data Model (ERDs)
+      5.1 KPI Definition &amp; Metric Calculations
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#32-logical-model-normalization-rules" class="md-nav__link">
+  <a href="#52-bi-tool-selection-integration" class="md-nav__link">
     <span class="md-ellipsis">
-      3.2 Logical Model &amp; Normalization Rules
+      5.2 BI Tool Selection &amp; Integration
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#33-physical-schema-design" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.3 Physical Schema Design
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3.3 Physical Schema Design">
+    <nav class="md-nav" aria-label="5.2 BI Tool Selection &amp; Integration">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#331-bigquery-table-layouts" class="md-nav__link">
+  <a href="#521-looker-data-studio-setup" class="md-nav__link">
     <span class="md-ellipsis">
-      3.3.1 BigQuery Table Layouts
+      5.2.1 Looker / Data Studio Setup
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#332-partitioning-clustering" class="md-nav__link">
+  <a href="#522-automated-report-delivery" class="md-nav__link">
     <span class="md-ellipsis">
-      3.3.2 Partitioning &amp; Clustering
+      5.2.2 Automated Report Delivery
     </span>
   </a>
   
@@ -607,37 +686,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#34-detailed-data-dictionary" class="md-nav__link">
+  <a href="#53-dashboard-report-wireframes" class="md-nav__link">
     <span class="md-ellipsis">
-      3.4 Detailed Data Dictionary
+      5.3 Dashboard &amp; Report Wireframes
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="3.4 Detailed Data Dictionary">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#54-advanced-analytics-ml-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4 Advanced Analytics &amp; ML Use Cases
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.4 Advanced Analytics &amp; ML Use Cases">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#341-field-definitions" class="md-nav__link">
+  <a href="#541-feature-engineering" class="md-nav__link">
     <span class="md-ellipsis">
-      3.4.1 Field Definitions
+      5.4.1 Feature Engineering
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#342-source-target-mappings" class="md-nav__link">
+  <a href="#542-model-training-evaluation" class="md-nav__link">
     <span class="md-ellipsis">
-      3.4.2 Source ↔ Target Mappings
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#343-transformation-logic" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.4.3 Transformation Logic
+      5.4.2 Model Training &amp; Evaluation
     </span>
   </a>
   
@@ -649,9 +728,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#35-versioning-ownership-governance" class="md-nav__link">
+  <a href="#55-user-training-handoff" class="md-nav__link">
     <span class="md-ellipsis">
-      3.5 Versioning, Ownership &amp; Governance
+      5.5 User Training &amp; Handoff
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#56-maintenance-continuous-improvement" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.6 Maintenance &amp; Continuous Improvement
     </span>
   </a>
   
@@ -673,18 +761,18 @@
 
 
 
-<!-- docs/phase-03-data-model.md -->
-<h1 id="phase-3-data-modeling-dictionary">Phase 3: Data Modeling &amp; Dictionary</h1>
-<h2 id="31-conceptual-data-model-erds">3.1 Conceptual Data Model (ERDs)</h2>
-<h2 id="32-logical-model-normalization-rules">3.2 Logical Model &amp; Normalization Rules</h2>
-<h2 id="33-physical-schema-design">3.3 Physical Schema Design</h2>
-<h3 id="331-bigquery-table-layouts">3.3.1 BigQuery Table Layouts</h3>
-<h3 id="332-partitioning-clustering">3.3.2 Partitioning &amp; Clustering</h3>
-<h2 id="34-detailed-data-dictionary">3.4 Detailed Data Dictionary</h2>
-<h3 id="341-field-definitions">3.4.1 Field Definitions</h3>
-<h3 id="342-source-target-mappings">3.4.2 Source ↔ Target Mappings</h3>
-<h3 id="343-transformation-logic">3.4.3 Transformation Logic</h3>
-<h2 id="35-versioning-ownership-governance">3.5 Versioning, Ownership &amp; Governance</h2>
+<!-- docs/phase-05-analytics-visualization.md -->
+<h1 id="phase-5-analytics-visualization">Phase 5: Analytics &amp; Visualization</h1>
+<h2 id="51-kpi-definition-metric-calculations">5.1 KPI Definition &amp; Metric Calculations</h2>
+<h2 id="52-bi-tool-selection-integration">5.2 BI Tool Selection &amp; Integration</h2>
+<h3 id="521-looker-data-studio-setup">5.2.1 Looker / Data Studio Setup</h3>
+<h3 id="522-automated-report-delivery">5.2.2 Automated Report Delivery</h3>
+<h2 id="53-dashboard-report-wireframes">5.3 Dashboard &amp; Report Wireframes</h2>
+<h2 id="54-advanced-analytics-ml-use-cases">5.4 Advanced Analytics &amp; ML Use Cases</h2>
+<h3 id="541-feature-engineering">5.4.1 Feature Engineering</h3>
+<h3 id="542-model-training-evaluation">5.4.2 Model Training &amp; Evaluation</h3>
+<h2 id="55-user-training-handoff">5.5 User Training &amp; Handoff</h2>
+<h2 id="56-maintenance-continuous-improvement">5.6 Maintenance &amp; Continuous Improvement</h2>
 
 
 
