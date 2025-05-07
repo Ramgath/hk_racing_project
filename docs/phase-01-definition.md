@@ -27,17 +27,18 @@
   - Target a sustained positive EV in HK betting pools
 
 **Success Criteria**
-- 100% of scheduled race meetings scraped, with ≥ 95% of races ingested without critical gaps
+
+- 100% of scheduled race meetings scraped, with ≥ 95% of races ingested without critical gaps
 - Pipeline runs twice weekly (per HKJC calendar) capturing all core datasets
-- Annualized ROI ≥ 20%, exceeding 6–10% benchmark and major indices (e.g. S&P 500)
-- Maximum simulated drawdown ≤ 50% with Kelly-criterion sizing (max 10% per race)
+- Annualized ROI ≥ 20%, exceeding 6–10% benchmark and major indices (e.g. S&P 500)
+- Maximum simulated drawdown ≤ 50% with Kelly‑criterion sizing (max 10% per race)
 - Streamlit MVP that:
-  - Shows scraped data, EDA insights & model outputs
-  - Refreshes odds data within 1 minute in 15 minutes pre-race
-- EDA notebook published by August 2025, with ≥ 3 actionable insights
-- Ingestion pipeline in production (BigQuery) by September 2025, with < 1% failure rate
-- Documentation site uptime ≥ 99%; data freshness guaranteed on racedays
-- Live betting readiness by September 2026
+    - Shows scraped data, EDA insights & model outputs
+    - Refreshes odds data within 1 minute in the 15 minutes pre‑race
+- EDA notebook published by **August 2025**, with ≥ 3 actionable insights
+- Ingestion pipeline in production (BigQuery) by **September 2025**, with < 1% failure rate
+- Documentation site uptime ≥ 99%; data freshness guaranteed on racedays
+- Live betting readiness by **September 2026**
 
 ---
 
