@@ -1,13 +1,10 @@
 <!-- docs/phase-03-data-model.md -->
-# Phase 3: Data Modeling & Dictionary
+Phase 3 – Data Cleansing & Pre‑processing (phase-03-cleansing.md)
 
-## 3.1 Conceptual Data Model (ERDs)
-## 3.2 Logical Model & Normalization Rules
-## 3.3 Physical Schema Design
-### 3.3.1 BigQuery Table Layouts
-### 3.3.2 Partitioning & Clustering
-## 3.4 Detailed Data Dictionary
-### 3.4.1 Field Definitions
-### 3.4.2 Source ↔ Target Mappings
-### 3.4.3 Transformation Logic
-## 3.5 Versioning, Ownership & Governance
+3.1 Data Profiling & Quality Checks
+3.2 Standardization Rules
+3.3 Handling Missing & Anomalous Values
+3.4 Normalization & Encoding
+3.5 Partitioning Strategy (BigQuery)
+3.6 Automated Validation Tests
+3.7 Cleansed Layer KPIs

@@ -1,13 +1,9 @@
 <!-- docs/phase-05-analytics-visualization.md -->
-# Phase 5: Analytics & Visualization
+Phase 5 – Feature Engineering (phase-05-features.md)
 
-## 5.1 KPI Definition & Metric Calculations
-## 5.2 BI Tool Selection & Integration
-### 5.2.1 Looker / Data Studio Setup
-### 5.2.2 Automated Report Delivery
-## 5.3 Dashboard & Report Wireframes
-## 5.4 Advanced Analytics & ML Use Cases
-### 5.4.1 Feature Engineering
-### 5.4.2 Model Training & Evaluation
-## 5.5 User Training & Handoff
-## 5.6 Maintenance & Continuous Improvement
+5.1 Feature List & Definitions
+5.2 Rolling Window Calculations
+5.3 Categorical Encodings
+5.4 Target Variable Construction
+5.5 Feature Store Schema
+5.6 Feature Quality Metrics

@@ -1,13 +1,9 @@
 <!-- docs/phase-04-pipeline-design.md -->
-# Phase 4: Pipeline Design & Infrastructure
+Phase 4 – Exploratory Data Analysis (phase-04-eda.md)
 
-## 4.1 High-Level Architecture Diagram
-## 4.2 Batch vs. Streaming Decisions
-## 4.3 Workflow Orchestration
-### 4.3.1 Airflow / Cloud Composer DAGs
-### 4.3.2 Dependency Management
-## 4.4 Compute & Storage Sizing
-### 4.4.1 Colab TPU vs. GCP VM
-### 4.4.2 BigQuery Slots
-## 4.5 Security, IAM & Encryption
-## 4.6 Observability: Metrics, Tracing & Dashboards
+4.1 Exploration Notebook Index
+4.2 Descriptive Statistics
+4.3 Race & Horse Performance Trends
+4.4 Correlation Heatmaps
+4.5 Feature Importance Probes
+4.6 EDA Findings Summary
