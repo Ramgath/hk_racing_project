@@ -1,4 +1,3 @@
-<!-- docs/project-status.md -->
 # Project Status
 
 - **2025-04-26**: Repo initialized
@@ -12,3 +11,5 @@
 - **2025-05-06**: Set up CI and Docs deploy workflows (GitHub Actions)
 - **2025-05-06**: Scaffolded Makefile and environment setup scripts
 - **2025-05-06**: Rolled back branch protection and removed CODEOWNERS
+- **2025-05-07**: Updated GitHub Pages setup to reflect new structure and removed outdated content
+- **2025-05-08**: Refined milestone tracking with task-based markdown and added completion checkboxes
