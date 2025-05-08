@@ -3,19 +3,19 @@
 .PHONY: setup docs serve lint test clean
 
 setup:
-    scripts/setup_env.sh
+	scripts/setup_env.sh
 
 docs:
-    .venv/bin/mkdocs build --site-dir site
+	.venv/bin/mkdocs build --site-dir site
 
 serve:
-    .venv/bin/mkdocs serve
+	.venv/bin/mkdocs serve
 
 lint:
-    .venv/bin/flake8 .
+	.venv/bin/flake8 .
 
 test:
-    .venv/bin/pytest
+	.venv/bin/pytest
 
 clean:
-    rm -rf site .venv
+	rm -rf site .venv
