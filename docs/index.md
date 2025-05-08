@@ -25,3 +25,4 @@ The HK Racing Project is a data-driven initiative to ingest, model, and analyze 
 10. [Project Status](project-status.md)
 11. [Decisions](decisions.md)
 12. [Milestones](milestones.md)
+13. [Project Plan](project-plan.md)
