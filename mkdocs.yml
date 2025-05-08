@@ -4,6 +4,7 @@ theme:
   name: material
 nav:
   - Home: index.md
+  - Project Plan: project-plan.md
   - Phase 1: phase-01-definition.md
   - Phase 2: phase-02-collection.md
   - Phase 3: phase-03-cleansing.md

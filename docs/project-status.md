@@ -6,213 +6,159 @@
 
 *Initial setup and planning are progressing well. The new project structure and documentation plan are being finalized.*
 
-**Key Focus for This Week (ending 2025-05-09):**
-- [ ] Complete the first draft of `project_plan.md` by incorporating all relevant content from the Google Doc.
-- [ ] Update the repository structure:
-
-    - [ ] Rename `docs/index.md` to `docs/project_plan.md`.
-    - [ ] Update `mkdocs.yml` to reflect `project_plan.md` as the new home.
-    - [ ] Rename existing `docs/phase-XX-*.md` files to align with the new phase numbering (e.g., `phase-02-collection.md` becomes `phase-01-collection.md`) and their role as *reports*.
-    - [ ] Delete the old `docs/milestones.md` file.
-- [ ] Review and confirm the proposed structure for this `project-status.md` file.
+**Key Focus for This Week (ending 2005-05-09):**
+| Status | Task / Issue Description | Milestone |
+|--------|---------------------------|-----------|
+| 🔄     | Final review and sign-off on `project_plan.md`. | M2 |
 
 ---
 
 ## General Project Setup
 *(Tasks related to overall project infrastructure, documentation, and planning)*
 
-**Key Milestones:**
+**Major Milestones:**
+- ✅ M1: Initial project repository configured (Completed: YYYY-MM-DD)
+- ⬜ M2: `project_plan.md` created and populated from Google Doc (Completed: YYYY-MM-DD)
+- ⬜ M3: `mkdocs.yml` updated for new site structure (Target: YYYY-MM-DD)
+- ⬜ M4: All phase report Markdown files named and structured (Target: YYYY-MM-DD)
+- ⬜ M5: This `project-status.md` file structure finalized (Target: YYYY-MM-DD)
 
-- [x] Initial project repository configured (`2025-05-06`)
-- [ ] `project_plan.md` created and populated from Google Doc (`YYYY-MM-DD`)
-- [ ] `mkdocs.yml` updated for new site structure (Target: `YYYY-MM-DD`)
-- [ ] All phase report Markdown files named and structured (Target: `YYYY-MM-DD`)
+**Detailed Tasks & Issues:**
 
-**Current Tasks & TODOs:**
-
-- [ ] Final review and sign-off on `project_plan.md`.
-- [ ] Rename existing `docs/phase-XX-*.md` files to new phase numbers and report focus.
-- [ ] Create template/outline for content expected in each phase report.
-
-**Open Issues / Blockers:**
-
-- *None currently*
+| Status | Task / Issue Description                         | Milestone | Notes / Resolution                               |
+|--------|-------------------------------------------------|-----------|-------------------------------------------------|
+| ✅     | Draft initial `project_plan.md` content.         | M2        | Moved content from Google Doc.                   |
+| 🔄     | Final review and sign-off on `project_plan.md`.  | M2        |                                                  |
+| ⬜     | Rename `docs/index.md` to `project_plan.md`.     | M2        |                                                  |
+| ⬜     | Update `nav` section in `mkdocs.yml`.            | M3        | Point home to `project_plan.md`.                  |
+| ⬜     | Delete old `docs/milestones.md`.                 | M6        |                                                  |
+| ⬜     | Rename phase files (e.g., `phase-01-collection.md`)| M4        | Reflect new numbering & report focus.             |
 
 ---
 
 ## Phase 1: Data Collection
 *(Objective: To gather all necessary raw data from defined sources - see `project_plan.md` for details)*
 
-**Key Milestones:**
+**Major Milestones:**
+- ⬜ M1: All data sources and specific data fields fully identified and documented in `project_plan.md`. (Target: YYYY-MM-DD)
+- ⬜ M2: Web scraping scripts for HKJC racecards developed and robustly tested. (Target: YYYY-MM-DD)
+- ⬜ M3: Web scraping scripts for HKJC race results developed and robustly tested. (Target: YYYY-MM-DD)
+- ⬜ M4: Historical data (target: X seasons/Y race days) successfully collected. (Target: YYYY-MM-DD)
+- ⬜ M5: Initial storage solution for raw data implemented and populated. (Target: YYYY-MM-DD)
+- ⬜ M6: **Report:** `docs/phase-01-collection.md` completed and reviewed. (Target: YYYY-MM-DD)
 
-- [ ] All data sources and specific data fields fully identified and documented in `project_plan.md`. (Target: `YYYY-MM-DD`)
-- [ ] Web scraping scripts for HKJC racecards developed and tested. (Target: `YYYY-MM-DD`)
-- [ ] Web scraping scripts for HKJC race results developed and tested. (Target: `YYYY-MM-DD`)
-- [ ] Historical data (target: X seasons/Y race days) successfully collected. (Target: `YYYY-MM-DD`)
-- [ ] Initial storage solution for raw data implemented (e.g., GCS buckets, specific BigQuery raw tables). (Target: `YYYY-MM-DD`)
-- [ ] **Report:** `docs/phase-01-collection.md` completed and reviewed. (Target: `YYYY-MM-DD`)
+**Detailed Tasks & Issues:**
 
-**Current Tasks & TODOs:**
-
-- [ ] Draft `docs/phase-01-collection.md` structure.
-- [ ] Research and select Python library for web scraping (e.g., BeautifulSoup, Playwright).
-- [ ] Implement `scrape_race_dates()` function.
-- [ ] Begin initial scraping runs for a small sample of race days.
-- [ ] Define schema for raw racecard data.
-
-**Open Issues / Blockers:**
-
-- [ ] Uncertainty about HKJC website's tolerance for scraping frequency.
-- [ ] Need to define error handling and retry logic for scrapers.
+| Status | Task / Issue Description                                     | Milestone | Notes / Resolution                                         |
+|--------|--------------------------------------------------------------|-----------|------------------------------------------------------------|
+| ⬜     | Draft structure for `docs/phase-01-collection.md` report.    | M6        |                                                            |
+| ⬜     | Research and select Python library for web scraping.         | M2        | Options: BeautifulSoup, Playwright, Scrapy.                |
+| ⬜     | Implement `scrape_race_dates()` function.                    | M2        |                                                            |
+| ⬜     | Implement `scrape_racecard(race_date_url)` function.         | M2        |                                                            |
+| ⬜     | Implement `scrape_results(race_date_url)` function.          | M3        |                                                            |
+| ⬜     | Define error handling and retry logic for scrapers.          | M7        | E.g., for network issues, unexpected page structure.       |
+| ⬜     | Test scrapers on a diverse sample of 5-10 race days.         | M8        | Include different tracks, number of races.                  |
+| ⬜     | Address Issue: Potential for IP blocking during scraping.    | You       | Monitor, implement delays, consider proxy/VPN if necessary.|
+| ⬜     | Define schema for raw racecard data (JSON/CSV).              | M9        |                                                            |
+| ⬜     | Define schema for raw results data (JSON/CSV).               | M10       |                                                            |
 
 ---
 
 ## Phase 2: Data Cleansing & Preprocessing
 *(Objective: To transform raw data into a clean, consistent, and usable format - see `project_plan.md` for details)*
 
-**Key Milestones:**
+**Major Milestones:**
+- ⬜ M1: Data quality issues from raw data fully profiled and documented. (Target: YYYY-MM-DD)
+- ⬜ M2: Comprehensive data cleansing rules and procedures defined. (Target: YYYY-MM-DD)
+- ⬜ M3: Scripts for all data type conversions and value standardizations developed. (Target: YYYY-MM-DD)
+- ⬜ M4: Strategy for handling missing values and outliers defined and implemented. (Target: YYYY-MM-DD)
+- ⬜ M5: Cleansed dataset validated against defined quality criteria and schema. (Target: YYYY-MM-DD)
+- ⬜ M6: **Report:** `docs/phase-02-cleansing.md` completed and reviewed. (Target: YYYY-MM-DD)
 
-- [ ] Data quality issues and required cleansing steps defined. (Target: `YYYY-MM-DD`)
-- [ ] Scripts for data type conversion and standardization developed. (Target: `YYYY-MM-DD`)
-- [ ] Strategy for handling missing values and outliers defined and implemented. (Target: `YYYY-MM-DD`)
-- [ ] Cleansed dataset validated against defined quality criteria. (Target: `YYYY-MM-DD`)
-- [ ] **Report:** `docs/phase-02-cleansing.md` completed and reviewed. (Target: `YYYY-MM-DD`)
+**Detailed Tasks & Issues:**
 
-**Current Tasks & TODOs:**
-
-- [ ] Profile raw data to identify anomalies.
-- [ ] Develop script to convert date/time fields to consistent format.
-- [ ] Research imputation techniques for missing `HORSE_WEIGHT`.
-
-**Open Issues / Blockers:**
-
-- *None currently*
+| Status | Task / Issue Description                                     | Milestone | Notes / Resolution                               |
+|--------|--------------------------------------------------------------|-----------|-------------------------------------------------|
+| ⬜     | Draft structure for `docs/phase-02-cleansing.md` report.     | M6        |                                                 |
+| ⬜     | Perform data profiling on raw collected data (from Phase 1). | M1        | Use Pandas Profiling or custom scripts.          |
+| ⬜     | Develop script for converting date/time fields.              | M3        | Ensure consistent `YYYY-MM-DD HH:MM:SS` format.  |
+| ⬜     | Script to standardize categorical values (e.g., track conditions).| M3        |                                                 |
+| ⬜     | Research and select imputation techniques for `HORSE_WEIGHT`.| M4        | Mean, median, model-based?                       |
+| ⬜     | Implement chosen imputation for `HORSE_WEIGHT`.              | M4        |                                                 |
+| ⬜     | Identify and handle outliers in `FINISH_TIME`.               | M4        | E.g., Capping, removal based on IQR.             |
 
 ---
 
 ## Phase 3: Exploratory Data Analysis (EDA)
 *(Objective: To understand data patterns, relationships, and formulate initial hypotheses - see `project_plan.md` for details)*
 
-**Key Milestones:**
+**Major Milestones:**
+- ⬜ M1: Descriptive statistics generated and analyzed for all key variables. (Target: YYYY-MM-DD)
+- ⬜ M2: Key visualizations (distributions, correlations, time series) created and interpreted. (Target: YYYY-MM-DD)
+- ⬜ M3: Significant patterns, anomalies, and relationships documented. (Target: YYYY-MM-DD)
+- ⬜ M4: Initial hypotheses about predictive factors formulated and listed. (Target: YYYY-MM-DD)
+- ⬜ M5: **Report:** `docs/phase-03-eda.md` completed and reviewed. (Target: YYYY-MM-DD)
 
-- [ ] Initial descriptive statistics generated for all key variables. (Target: `YYYY-MM-DD`)
-- [ ] Key visualizations (distributions, correlations, etc.) created. (Target: `YYYY-MM-DD`)
-- [ ] Initial hypotheses about predictive factors documented. (Target: `YYYY-MM-DD`)
-- [ ] **Report:** `docs/phase-03-eda.md` completed and reviewed. (Target: `YYYY-MM-DD`)
+**Detailed Tasks & Issues:**
 
-**Current Tasks & TODOs:**
-
-- [ ] Set up EDA Jupyter notebook (`notebooks/01-race-eda.ipynb`).
-- [ ] Generate histograms for numerical features.
-- [ ] Calculate correlation matrix.
-
-**Open Issues / Blockers:**
-
-- *None currently*
+| Status | Task / Issue Description                                      | Milestone | Notes / Resolution                                  |
+|--------|---------------------------------------------------------------|-----------|----------------------------------------------------|
+| ⬜     | Draft structure for `docs/phase-03-eda.md` report.            | M5        |                                                    |
+| ⬜     | Set up EDA Jupyter notebook (`notebooks/01-race-eda.ipynb`).  | M1        | Load cleansed data.                                 |
+| ⬜     | Generate histograms and density plots for numerical features. | M2        | E.g., `FINISH_TIME`, `STARTING_ODDS`.              |
+| ⬜     | Create bar charts for categorical feature frequencies.        | M2        | E.g., `COURSE`, `GOING`.                            |
+| ⬜     | Calculate and visualize correlation matrix.                   | M2        | Identify highly correlated features.                |
+| ⬜     | Box plots for numerical features grouped by key categories.   | M2        | E.g., `FINISH_TIME` by `CLASS`.                     |
+| ⬜     | Investigate any surprising findings from initial plots.       | M3        |                                                    |
 
 ---
 
 ## Phase 4: Feature Engineering
 *(Objective: To create new predictive features from the cleansed data - see `project_plan.md` for details)*
 
-**Key Milestones:**
+**Major Milestones:**
+- ⬜ M1: List of potential engineered features brainstormed and prioritized. (Target: YYYY-MM-DD)
+- ⬜ M2: Initial set of ~20-30 engineered features designed and documented. (Target: YYYY-MM-DD)
+- ⬜ M3: Scripts to generate these engineered features implemented and tested. (Target: YYYY-MM-DD)
+- ⬜ M4: Engineered feature set validated and stored. (Target: YYYY-MM-DD)
+- ⬜ M5: **Report:** `docs/phase-04-features.md` completed and reviewed. (Target: YYYY-MM-DD)
 
-- [ ] Initial set of engineered features designed and documented. (Target: `YYYY-MM-DD`)
-- [ ] Scripts to generate engineered features implemented. (Target: `YYYY-MM-DD`)
-- [ ] Feature set validated and stored. (Target: `YYYY-MM-DD`)
-- [ ] **Report:** `docs/phase-04-features.md` completed and reviewed. (Target: `YYYY-MM-DD`)
+**Detailed Tasks & Issues:**
 
-**Current Tasks & TODOs:**
-
-- [ ] Brainstorm potential features based on EDA insights.
-- [ ] Implement rolling average calculations for horse performance.
-
-**Open Issues / Blockers:**
-
-- *None currently*
+| Status | Task / Issue Description                                     | Milestone | Notes / Resolution                               |
+|--------|--------------------------------------------------------------|-----------|-------------------------------------------------|
+| ⬜     | Draft structure for `docs/phase-04-features.md` report.      | M5        |                                                 |
+| ⬜     | Create rolling average features for horse past performance.  | M3        | E.g., avg finish pos last 3/5 races.             |
+| ⬜     | Calculate speed figures based on time and distance.          | M3        |                                                 |
+| ⬜     | Encode categorical variables (e.g., one-hot, target encoding).| M3        |                                                 |
+| ⬜     | Create interaction features (e.g., jockey-trainer win rate). | M3        |                                                 |
 
 ---
 
 ## Phase 5: Model Development
 *(Objective: To train and select predictive models - see `project_plan.md` for details)*
-
-**Key Milestones:**
-
-- [ ] Baseline model(s) developed and evaluated. (Target: `YYYY-MM-DD`)
-- [ ] Advanced model(s) explored and trained. (Target: `YYYY-MM-DD`)
-- [ ] Hyperparameter tuning performed. (Target: `YYYY-MM-DD`)
-- [ ] **Report:** `docs/phase-05-modeling.md` completed and reviewed. (Target: `YYYY-MM-DD`)
-
-**Current Tasks & TODOs:**
-
-- [ ] Select initial algorithm for baseline model (e.g., Logistic Regression).
-- [ ] Split data into training and testing sets.
-
-**Open Issues / Blockers:**
-
-- *None currently*
+*(Structure: Major Milestones list, then Detailed Tasks & Issues table)*
+... *(Content to be filled similarly)* ...
 
 ---
 
 ## Phase 6: Model Evaluation
 *(Objective: To rigorously assess model performance and potential profitability - see `project_plan.md` for details)*
-
-**Key Milestones:**
-
-- [ ] Comprehensive backtesting strategy implemented. (Target: `YYYY-MM-DD`)
-- [ ] Key performance metrics (ROI, accuracy, etc.) calculated. (Target: `YYYY-MM-DD`)
-- [ ] Wagering strategy simulated and analyzed. (Target: `YYYY-MM-DD`)
-- [ ] **Report:** `docs/phase-06-evaluation.md` completed and reviewed. (Target: `YYYY-MM-DD`)
-
-**Current Tasks & TODOs:**
-
-- [ ] Define metrics for successful model evaluation.
-- [ ] Develop backtesting framework.
-
-**Open Issues / Blockers:**
-
-- *None currently*
+*(Structure: Major Milestones list, then Detailed Tasks & Issues table)*
+... *(Content to be filled similarly)* ...
 
 ---
 
 ## Phase 7: Deployment
 *(Objective: To set up a system for generating predictions on new races - see `project_plan.md` for details)*
-*(This phase might be more about setting up a repeatable prediction pipeline than a live betting system initially)*
-
-**Key Milestones:**
-
-- [ ] Prediction generation pipeline designed. (Target: `YYYY-MM-DD`)
-- [ ] Pipeline implemented and tested. (Target: `YYYY-MM-DD`)
-- [ ] System for monitoring prediction performance outlined. (Target: `YYYY-MM-DD`)
-- [ ] **Report:** `docs/phase-07-deployment.md` completed and reviewed. (Target: `YYYY-MM-DD`)
-
-**Current Tasks & TODOs:**
-
-- [ ] Design script to take new racecard data and output predictions.
-
-**Open Issues / Blockers:**
-
-- *None currently*
+*(Structure: Major Milestones list, then Detailed Tasks & Issues table)*
+... *(Content to be filled similarly)* ...
 
 ---
 
 ## Phase 8: Ongoing Management & Iteration
 *(Objective: To maintain the system, monitor performance, and plan for future improvements - see `project_plan.md` for details)*
+*(Structure: Major Milestones list, then Detailed Tasks & Issues table)*
+... *(Content to be filled similarly)* ...
 
-**Key Milestones:**
-
-- [ ] Retraining schedule and triggers defined. (Target: `YYYY-MM-DD`)
-- [ ] Long-term performance monitoring plan in place. (Target: `YYYY-MM-DD`)
-- [ ] Roadmap for future enhancements outlined. (Target: `YYYY-MM-DD`)
-- [ ] **Report:** `docs/phase-08-management.md` completed and reviewed. (Target: `YYYY-MM-DD`)
-
-**Current Tasks & TODOs:**
-
-- [ ] Review project outcomes against initial objectives.
-- [ ] Document lessons learned.
-
-**Open Issues / Blockers:**
-
-- *None currently*
-
----
+---</file>
