@@ -506,9 +506,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#phase-1-discovery" class="md-nav__link">
+  <a href="#phase-1-project-definition" class="md-nav__link">
     <span class="md-ellipsis">
-      Phase 1: Discovery
+      Phase 1 – Project Definition
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-2-data-collection-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 2 – Data Collection &amp; Storage
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-3-data-cleansing-pre-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 3 – Data Cleansing &amp; Pre-processing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#future-phases-to-be-defined-later" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future Phases (To be defined later)
     </span>
   </a>
   
@@ -549,9 +576,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#phase-1-discovery" class="md-nav__link">
+  <a href="#phase-1-project-definition" class="md-nav__link">
     <span class="md-ellipsis">
-      Phase 1: Discovery
+      Phase 1 – Project Definition
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-2-data-collection-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 2 – Data Collection &amp; Storage
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-3-data-cleansing-pre-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 3 – Data Cleansing &amp; Pre-processing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#future-phases-to-be-defined-later" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future Phases (To be defined later)
     </span>
   </a>
   
@@ -574,26 +628,70 @@
 
 
 <h1 id="milestones-tasks">Milestones &amp; Tasks</h1>
-<p>A living log of project milestones and tasks, linked to GitHub issues. Update statuses, due dates, and issue numbers as you progress.</p>
-<h2 id="phase-1-discovery">Phase 1: Discovery</h2>
-<table>
-<thead>
-<tr>
-<th>Task</th>
-<th>Issue</th>
-<th>Status</th>
-<th>Due Date</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Define objectives &amp; success criteria</td>
-<td><a href="https://github.com/Ramgath/hk_racing_project/issues/12">1</a></td>
-<td>In</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<p>This document tracks the key milestones and tasks for the HK Racing project. Each task is broken down with goals, reasons for the task, tags, and expected output. As tasks are completed, links to corresponding GitHub Issues will be added.</p>
+<hr />
+<h2 id="phase-1-project-definition">Phase 1 – Project Definition</h2>
+<ul>
+<li>[ ] <strong>Define Objectives &amp; Success Criteria</strong></li>
+<li><strong>Goal</strong>: Outline the project's primary objectives and success criteria.</li>
+<li><strong>Why</strong>: To clearly define the project’s direction and measurable outcomes.</li>
+<li><strong>Tags</strong>: project, objectives, success criteria</li>
+<li>
+<p><strong>Output</strong>: A documented list of objectives and success criteria.</p>
+</li>
+<li>
+<p>[ ] <strong>Configure Local &amp; Cloud Environments</strong></p>
+</li>
+<li><strong>Goal</strong>: Set up local development environment, GCP project, and associated services.</li>
+<li><strong>Why</strong>: Ensures all dependencies and cloud services are ready for the project.</li>
+<li><strong>Tags</strong>: setup, environment, GCP, local</li>
+<li><strong>Output</strong>: Fully configured local dev environment and GCP project with necessary access.</li>
+</ul>
+<hr />
+<h2 id="phase-2-data-collection-storage">Phase 2 – Data Collection &amp; Storage</h2>
+<ul>
+<li>[ ] <strong>Implement Basic Race Results Scraper</strong></li>
+<li><strong>Goal</strong>: Develop a scraper to retrieve race results from HKJC’s website.</li>
+<li><strong>Why</strong>: This scraper will serve as the foundation for data collection.</li>
+<li><strong>Tags</strong>: scraping, race results, HTML</li>
+<li>
+<p><strong>Output</strong>: A working scraper saving data in raw format (CSV/JSON).</p>
+</li>
+<li>
+<p>[ ] <strong>Create Raw Data Storage Schema</strong></p>
+</li>
+<li><strong>Goal</strong>: Design the folder structure for storing raw scraped data.</li>
+<li><strong>Why</strong>: Consistent organization of data will simplify processing.</li>
+<li><strong>Tags</strong>: storage, data management, schema</li>
+<li>
+<p><strong>Output</strong>: Defined directory structure for raw data in BigQuery/GCS.</p>
+</li>
+<li>
+<p>[ ] <strong>Implement Retry Logic for Scraper Functions</strong></p>
+</li>
+<li><strong>Goal</strong>: Add retry mechanisms (e.g., tenacity, exponential backoff) to scraper functions.</li>
+<li><strong>Why</strong>: To make the scraper more resilient to network failures and HTML structure changes.</li>
+<li><strong>Tags</strong>: scraping, retry logic, resilience</li>
+<li><strong>Output</strong>: A retry decorator or class that can be reused across scrapers.</li>
+</ul>
+<hr />
+<h2 id="phase-3-data-cleansing-pre-processing">Phase 3 – Data Cleansing &amp; Pre-processing</h2>
+<ul>
+<li>[ ] <strong>Implement Data Validation Checks</strong></li>
+<li><strong>Goal</strong>: Ensure the scraped data is valid and clean before processing.</li>
+<li><strong>Why</strong>: To ensure that we work with high-quality data from the start.</li>
+<li><strong>Tags</strong>: data quality, validation, cleansing</li>
+<li><strong>Output</strong>: Validation scripts for data checking.</li>
+</ul>
+<hr />
+<h2 id="future-phases-to-be-defined-later">Future Phases (To be defined later)</h2>
+<ul>
+<li>[ ] <strong>Exploratory Data Analysis (EDA)</strong></li>
+<li><strong>Goal</strong>: Perform initial analysis to understand trends and patterns.</li>
+<li><strong>Why</strong>: EDA will guide the feature engineering and modeling steps.</li>
+<li><strong>Tags</strong>: analysis, EDA, data exploration</li>
+<li><strong>Output</strong>: EDA notebook with key insights.</li>
+</ul>
 
 
 
