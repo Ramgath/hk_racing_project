@@ -18,22 +18,6 @@
 
 ---
 
----
-
-## Table of Contents
-_This can be manually created or you can rely on MkDocs' auto-generated TOC for the page if your theme supports it well for long pages._
-- [General Project Setup](#general-project-setup)
-- [Phase 1: Data Collection](#phase-1-data-collection)
-- [Phase 2: Data Cleansing & Preprocessing](#phase-2-data-cleansing--preprocessing)
-- [Phase 3: Exploratory Data Analysis (EDA)](#phase-3-exploratory-data-analysis-eda)
-- [Phase 4: Feature Engineering](#phase-4-feature-engineering)
-- [Phase 5: Model Development](#phase-5-model-development)
-- [Phase 6: Model Evaluation](#phase-6-model-evaluation)
-- [Phase 7: Deployment](#phase-7-deployment)
-- [Phase 8: Ongoing Management & Iteration](#phase-8-ongoing-management--iteration)
-
----
-
 ## General Project Setup
 *(Tasks related to overall project infrastructure, documentation, and planning)*
 
