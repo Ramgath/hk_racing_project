@@ -6,16 +6,14 @@ extra_css:
   - css/overrides.css
 nav:
   - Home: index.md
-  - Phase 1: phase-01-definition.md
-  - Phase 2: phase-02-collection.md
-  - Phase 3: phase-03-cleansing.md
-  - Phase 4: phase-04-eda.md
-  - Phase 5: phase-05-features.md
-  - Phase 6: phase-06-model.md
-  - Phase 7: phase-07-evaluation.md
-  - Phase 8: phase-08-deployment.md
-  - Phase 9: phase-09-management.md
-  - Project Status: project-status.md
-  - Decisions: decisions.md
-  - Milestones: milestones.md
   - Project Plan: project-plan.md
+  - Decisions: decisions.md
+  - Project Status: project-status.md
+  - Phase 1: phase-01-collection.md
+  - Phase 2: phase-02-cleansing.md
+  - Phase 3: phase-03-eda.md
+  - Phase 4: phase-04-features.md
+  - Phase 5: phase-05-model.md
+  - Phase 6: phase-06-evaluation.md
+  - Phase 7: phase-07-deployment.md
+  - Phase 8: phase-08-management.md
