@@ -544,6 +544,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#detailed-tasks-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detailed Tasks &amp; Issues:
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -725,6 +734,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#detailed-tasks-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detailed Tasks &amp; Issues:
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -773,55 +791,6 @@
 <li>⬜ M4: All phase report Markdown files named and structured (Target: YYYY-MM-DD)</li>
 <li>⬜ M5: This <code>project-status.md</code> file structure finalized (Target: YYYY-MM-DD)</li>
 </ul>
-<p><strong>Detailed Tasks &amp; Issues:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Status</th>
-<th>Task / Issue Description</th>
-<th>Milestone</th>
-<th>Notes / Resolution</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>✅</td>
-<td>Draft initial <code>project_plan.md</code> content.</td>
-<td>M2</td>
-<td>Moved content from Google Doc.</td>
-</tr>
-<tr>
-<td>🔄</td>
-<td>Final review and sign-off on <code>project_plan.md</code>.</td>
-<td>M2</td>
-<td></td>
-</tr>
-<tr>
-<td>⬜</td>
-<td>Rename <code>docs/index.md</code> to <code>project_plan.md</code>.</td>
-<td>M2</td>
-<td></td>
-</tr>
-<tr>
-<td>⬜</td>
-<td>Update <code>nav</code> section in <code>mkdocs.yml</code>.</td>
-<td>M3</td>
-<td>Point home to <code>project_plan.md</code>.</td>
-</tr>
-<tr>
-<td>⬜</td>
-<td>Delete old <code>docs/milestones.md</code>.</td>
-<td>M6</td>
-<td></td>
-</tr>
-<tr>
-<td>⬜</td>
-<td>Rename phase files (e.g., <code>phase-01-collection.md</code>)</td>
-<td>M4</td>
-<td>Reflect new numbering &amp; report focus.</td>
-</tr>
-</tbody>
-</table>
 <hr />
 <h2 id="phase-1-data-collection">Phase 1: Data Collection</h2>
 <p><em>(Objective: To gather all necessary raw data from defined sources - see <code>project_plan.md</code> for details)</em></p>
@@ -834,79 +803,6 @@
 <li>⬜ M5: Initial storage solution for raw data implemented and populated. (Target: YYYY-MM-DD)</li>
 <li>⬜ M6: <strong>Report:</strong> <code>docs/phase-01-collection.md</code> completed and reviewed. (Target: YYYY-MM-DD)</li>
 </ul>
-<p><strong>Detailed Tasks &amp; Issues:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Status</th>
-<th>Task / Issue Description</th>
-<th>Milestone</th>
-<th>Notes / Resolution</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>⬜</td>
-<td>Draft structure for <code>docs/phase-01-collection.md</code> report.</td>
-<td>M6</td>
-<td></td>
-</tr>
-<tr>
-<td>⬜</td>
-<td>Research and select Python library for web scraping.</td>
-<td>M2</td>
-<td>Options: BeautifulSoup, Playwright, Scrapy.</td>
-</tr>
-<tr>
-<td>⬜</td>
-<td>Implement <code>scrape_race_dates()</code> function.</td>
-<td>M2</td>
-<td></td>
-</tr>
-<tr>
-<td>⬜</td>
-<td>Implement <code>scrape_racecard(race_date_url)</code> function.</td>
-<td>M2</td>
-<td></td>
-</tr>
-<tr>
-<td>⬜</td>
-<td>Implement <code>scrape_results(race_date_url)</code> function.</td>
-<td>M3</td>
-<td></td>
-</tr>
-<tr>
-<td>⬜</td>
-<td>Define error handling and retry logic for scrapers.</td>
-<td>M7</td>
-<td>E.g., for network issues, unexpected page structure.</td>
-</tr>
-<tr>
-<td>⬜</td>
-<td>Test scrapers on a diverse sample of 5-10 race days.</td>
-<td>M8</td>
-<td>Include different tracks, number of races.</td>
-</tr>
-<tr>
-<td>⬜</td>
-<td>Address Issue: Potential for IP blocking during scraping.</td>
-<td>You</td>
-<td>Monitor, implement delays, consider proxy/VPN if necessary.</td>
-</tr>
-<tr>
-<td>⬜</td>
-<td>Define schema for raw racecard data (JSON/CSV).</td>
-<td>M9</td>
-<td></td>
-</tr>
-<tr>
-<td>⬜</td>
-<td>Define schema for raw results data (JSON/CSV).</td>
-<td>M10</td>
-<td></td>
-</tr>
-</tbody>
-</table>
 <hr />
 <h2 id="phase-2-data-cleansing-preprocessing">Phase 2: Data Cleansing &amp; Preprocessing</h2>
 <p><em>(Objective: To transform raw data into a clean, consistent, and usable format - see <code>project_plan.md</code> for details)</em></p>
@@ -919,61 +815,6 @@
 <li>⬜ M5: Cleansed dataset validated against defined quality criteria and schema. (Target: YYYY-MM-DD)</li>
 <li>⬜ M6: <strong>Report:</strong> <code>docs/phase-02-cleansing.md</code> completed and reviewed. (Target: YYYY-MM-DD)</li>
 </ul>
-<p><strong>Detailed Tasks &amp; Issues:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Status</th>
-<th>Task / Issue Description</th>
-<th>Milestone</th>
-<th>Notes / Resolution</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>⬜</td>
-<td>Draft structure for <code>docs/phase-02-cleansing.md</code> report.</td>
-<td>M6</td>
-<td></td>
-</tr>
-<tr>
-<td>⬜</td>
-<td>Perform data profiling on raw collected data (from Phase 1).</td>
-<td>M1</td>
-<td>Use Pandas Profiling or custom scripts.</td>
-</tr>
-<tr>
-<td>⬜</td>
-<td>Develop script for converting date/time fields.</td>
-<td>M3</td>
-<td>Ensure consistent <code>YYYY-MM-DD HH:MM:SS</code> format.</td>
-</tr>
-<tr>
-<td>⬜</td>
-<td>Script to standardize categorical values (e.g., track conditions).</td>
-<td>M3</td>
-<td></td>
-</tr>
-<tr>
-<td>⬜</td>
-<td>Research and select imputation techniques for <code>HORSE_WEIGHT</code>.</td>
-<td>M4</td>
-<td>Mean, median, model-based?</td>
-</tr>
-<tr>
-<td>⬜</td>
-<td>Implement chosen imputation for <code>HORSE_WEIGHT</code>.</td>
-<td>M4</td>
-<td></td>
-</tr>
-<tr>
-<td>⬜</td>
-<td>Identify and handle outliers in <code>FINISH_TIME</code>.</td>
-<td>M4</td>
-<td>E.g., Capping, removal based on IQR.</td>
-</tr>
-</tbody>
-</table>
 <hr />
 <h2 id="phase-3-exploratory-data-analysis-eda">Phase 3: Exploratory Data Analysis (EDA)</h2>
 <p><em>(Objective: To understand data patterns, relationships, and formulate initial hypotheses - see <code>project_plan.md</code> for details)</em></p>
@@ -985,61 +826,6 @@
 <li>⬜ M4: Initial hypotheses about predictive factors formulated and listed. (Target: YYYY-MM-DD)</li>
 <li>⬜ M5: <strong>Report:</strong> <code>docs/phase-03-eda.md</code> completed and reviewed. (Target: YYYY-MM-DD)</li>
 </ul>
-<p><strong>Detailed Tasks &amp; Issues:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Status</th>
-<th>Task / Issue Description</th>
-<th>Milestone</th>
-<th>Notes / Resolution</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>⬜</td>
-<td>Draft structure for <code>docs/phase-03-eda.md</code> report.</td>
-<td>M5</td>
-<td></td>
-</tr>
-<tr>
-<td>⬜</td>
-<td>Set up EDA Jupyter notebook (<code>notebooks/01-race-eda.ipynb</code>).</td>
-<td>M1</td>
-<td>Load cleansed data.</td>
-</tr>
-<tr>
-<td>⬜</td>
-<td>Generate histograms and density plots for numerical features.</td>
-<td>M2</td>
-<td>E.g., <code>FINISH_TIME</code>, <code>STARTING_ODDS</code>.</td>
-</tr>
-<tr>
-<td>⬜</td>
-<td>Create bar charts for categorical feature frequencies.</td>
-<td>M2</td>
-<td>E.g., <code>COURSE</code>, <code>GOING</code>.</td>
-</tr>
-<tr>
-<td>⬜</td>
-<td>Calculate and visualize correlation matrix.</td>
-<td>M2</td>
-<td>Identify highly correlated features.</td>
-</tr>
-<tr>
-<td>⬜</td>
-<td>Box plots for numerical features grouped by key categories.</td>
-<td>M2</td>
-<td>E.g., <code>FINISH_TIME</code> by <code>CLASS</code>.</td>
-</tr>
-<tr>
-<td>⬜</td>
-<td>Investigate any surprising findings from initial plots.</td>
-<td>M3</td>
-<td></td>
-</tr>
-</tbody>
-</table>
 <hr />
 <h2 id="phase-4-feature-engineering">Phase 4: Feature Engineering</h2>
 <p><em>(Objective: To create new predictive features from the cleansed data - see <code>project_plan.md</code> for details)</em></p>
@@ -1051,49 +837,6 @@
 <li>⬜ M4: Engineered feature set validated and stored. (Target: YYYY-MM-DD)</li>
 <li>⬜ M5: <strong>Report:</strong> <code>docs/phase-04-features.md</code> completed and reviewed. (Target: YYYY-MM-DD)</li>
 </ul>
-<p><strong>Detailed Tasks &amp; Issues:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Status</th>
-<th>Task / Issue Description</th>
-<th>Milestone</th>
-<th>Notes / Resolution</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>⬜</td>
-<td>Draft structure for <code>docs/phase-04-features.md</code> report.</td>
-<td>M5</td>
-<td></td>
-</tr>
-<tr>
-<td>⬜</td>
-<td>Create rolling average features for horse past performance.</td>
-<td>M3</td>
-<td>E.g., avg finish pos last 3/5 races.</td>
-</tr>
-<tr>
-<td>⬜</td>
-<td>Calculate speed figures based on time and distance.</td>
-<td>M3</td>
-<td></td>
-</tr>
-<tr>
-<td>⬜</td>
-<td>Encode categorical variables (e.g., one-hot, target encoding).</td>
-<td>M3</td>
-<td></td>
-</tr>
-<tr>
-<td>⬜</td>
-<td>Create interaction features (e.g., jockey-trainer win rate).</td>
-<td>M3</td>
-<td></td>
-</tr>
-</tbody>
-</table>
 <hr />
 <h2 id="phase-5-model-development">Phase 5: Model Development</h2>
 <p><em>(Objective: To train and select predictive models - see <code>project_plan.md</code> for details)</em>
@@ -1114,6 +857,317 @@
 <p><em>(Objective: To maintain the system, monitor performance, and plan for future improvements - see <code>project_plan.md</code> for details)</em>
 <em>(Structure: Major Milestones list, then Detailed Tasks &amp; Issues table)</em>
 ... <em>(Content to be filled similarly)</em> ...</p>
+<hr />
+<h2 id="detailed-tasks-issues">Detailed Tasks &amp; Issues:</h2>
+<!-- TASKS_START -->
+<table>
+<thead>
+<tr>
+<th>Task / Issue Description</th>
+<th>Milestone</th>
+<th>Notes / Resolution</th>
+<th>Date Due</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Genaral Project Setup</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Draft initial project_plan.md content.</td>
+<td>M2</td>
+<td>Moved content from Google Doc.</td>
+<td></td>
+</tr>
+<tr>
+<td>Final review and sign-off on project_plan.md.</td>
+<td>M2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Rename docs/index.md to project_plan.md.</td>
+<td>M2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Update nav section in mkdocs.yml.</td>
+<td>M3</td>
+<td>Point home to project_plan.md.</td>
+<td></td>
+</tr>
+<tr>
+<td>Delete old docs/milestones.md.</td>
+<td>M6</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Rename phase files (e.g., phase-01-collection.md)</td>
+<td>M4</td>
+<td>Reflect new numbering &amp; report focus.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Phase 1: Data Collection and Storage</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Draft structure for docs/phase-01-collection.md report.</td>
+<td>M6</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Research and select Python library for web scraping.</td>
+<td>M2</td>
+<td>Options: BeautifulSoup, Playwright, Scrapy.</td>
+<td></td>
+</tr>
+<tr>
+<td>Implement scrape_race_dates() function.</td>
+<td>M2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Implement scrape_racecard(race_date_url) function.</td>
+<td>M2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Implement scrape_results(race_date_url) function.</td>
+<td>M3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Define error handling and retry logic for scrapers.</td>
+<td>M7</td>
+<td>E.g., for network issues, unexpected page structure.</td>
+<td></td>
+</tr>
+<tr>
+<td>Test scrapers on a diverse sample of 5-10 race days.</td>
+<td>M8</td>
+<td>Include different tracks, number of races.</td>
+<td></td>
+</tr>
+<tr>
+<td>Address Issue: Potential for IP blocking during scraping.</td>
+<td>You</td>
+<td>Monitor, implement delays, consider proxy/VPN if necessary.</td>
+<td></td>
+</tr>
+<tr>
+<td>Define schema for raw racecard data (JSON/CSV).</td>
+<td>M9</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Define schema for raw results data (JSON/CSV).</td>
+<td>M10</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Phase 2: Data Cleansing and Preprocessing</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Draft structure for docs/phase-02-cleansing.md report.</td>
+<td>M6</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Perform data profiling on raw collected data (from Phase 1).</td>
+<td>M1</td>
+<td>Use Pandas Profiling or custom scripts.</td>
+<td></td>
+</tr>
+<tr>
+<td>Develop script for converting date/time fields.</td>
+<td>M3</td>
+<td>Ensure consistent YYYY-MM-DD HH:MM:SS format.</td>
+<td></td>
+</tr>
+<tr>
+<td>Script to standardize categorical values (e.g., track conditions).</td>
+<td>M3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Research and select imputation techniques for HORSE_WEIGHT.</td>
+<td>M4</td>
+<td>Mean, median, model-based?</td>
+<td></td>
+</tr>
+<tr>
+<td>Implement chosen imputation for HORSE_WEIGHT.</td>
+<td>M4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Identify and handle outliers in FINISH_TIME.</td>
+<td>M4</td>
+<td>E.g., Capping, removal based on IQR.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Phase 3: Exploratory Data Analysis (EDA)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Draft structure for docs/phase-03-eda.md report.</td>
+<td>M5</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Set up EDA Jupyter notebook (notebooks/01-race-eda.ipynb).</td>
+<td>M1</td>
+<td>Load cleansed data.</td>
+<td></td>
+</tr>
+<tr>
+<td>Generate histograms and density plots for numerical features.</td>
+<td>M2</td>
+<td>E.g., FINISH_TIME, STARTING_ODDS.</td>
+<td></td>
+</tr>
+<tr>
+<td>Create bar charts for categorical feature frequencies.</td>
+<td>M2</td>
+<td>E.g., COURSE, GOING.</td>
+<td></td>
+</tr>
+<tr>
+<td>Calculate and visualize correlation matrix.</td>
+<td>M2</td>
+<td>Identify highly correlated features.</td>
+<td></td>
+</tr>
+<tr>
+<td>Box plots for numerical features grouped by key categories.</td>
+<td>M2</td>
+<td>E.g., FINISH_TIME by CLASS.</td>
+<td></td>
+</tr>
+<tr>
+<td>Investigate any surprising findings from initial plots.</td>
+<td>M3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Phase 4: Feature Engineering</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Draft structure for docs/phase-04-features.md report.</td>
+<td>M5</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Create rolling average features for horse past performance.</td>
+<td>M3</td>
+<td>E.g., avg finish pos last 3/5 races.</td>
+<td></td>
+</tr>
+<tr>
+<td>Calculate speed figures based on time and distance.</td>
+<td>M3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Encode categorical variables (e.g., one-hot, target encoding).</td>
+<td>M3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Create interaction features (e.g., jockey-trainer win rate).</td>
+<td>M3</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<!-- TASKS_END -->
+
 <p>---</file></p>
 
 
