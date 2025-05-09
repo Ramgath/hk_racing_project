@@ -17,6 +17,7 @@
 *(Tasks related to overall project infrastructure, documentation, and planning)*
 
 **Major Milestones:**
+
 - ✅ M1: Initial project repository configured (Completed: YYYY-MM-DD)
 - ⬜ M2: `project_plan.md` created and populated from Google Doc (Completed: YYYY-MM-DD)
 - ⬜ M3: `mkdocs.yml` updated for new site structure (Target: YYYY-MM-DD)
