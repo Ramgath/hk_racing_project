@@ -7,6 +7,7 @@
 *Initial setup and planning are progressing well. The new project structure and documentation plan are being finalized.*
 
 **Key Focus for This Week (ending 2005-05-09):**
+
 | Status | Task / Issue Description | Milestone |
 |--------|---------------------------|-----------|
 | 🔄     | Final review and sign-off on `project_plan.md`. | M2 |
@@ -41,6 +42,7 @@
 *(Objective: To gather all necessary raw data from defined sources - see `project_plan.md` for details)*
 
 **Major Milestones:**
+
 - ⬜ M1: All data sources and specific data fields fully identified and documented in `project_plan.md`. (Target: YYYY-MM-DD)
 - ⬜ M2: Web scraping scripts for HKJC racecards developed and robustly tested. (Target: YYYY-MM-DD)
 - ⬜ M3: Web scraping scripts for HKJC race results developed and robustly tested. (Target: YYYY-MM-DD)
@@ -69,6 +71,7 @@
 *(Objective: To transform raw data into a clean, consistent, and usable format - see `project_plan.md` for details)*
 
 **Major Milestones:**
+
 - ⬜ M1: Data quality issues from raw data fully profiled and documented. (Target: YYYY-MM-DD)
 - ⬜ M2: Comprehensive data cleansing rules and procedures defined. (Target: YYYY-MM-DD)
 - ⬜ M3: Scripts for all data type conversions and value standardizations developed. (Target: YYYY-MM-DD)
@@ -94,6 +97,7 @@
 *(Objective: To understand data patterns, relationships, and formulate initial hypotheses - see `project_plan.md` for details)*
 
 **Major Milestones:**
+
 - ⬜ M1: Descriptive statistics generated and analyzed for all key variables. (Target: YYYY-MM-DD)
 - ⬜ M2: Key visualizations (distributions, correlations, time series) created and interpreted. (Target: YYYY-MM-DD)
 - ⬜ M3: Significant patterns, anomalies, and relationships documented. (Target: YYYY-MM-DD)
@@ -118,6 +122,7 @@
 *(Objective: To create new predictive features from the cleansed data - see `project_plan.md` for details)*
 
 **Major Milestones:**
+
 - ⬜ M1: List of potential engineered features brainstormed and prioritized. (Target: YYYY-MM-DD)
 - ⬜ M2: Initial set of ~20-30 engineered features designed and documented. (Target: YYYY-MM-DD)
 - ⬜ M3: Scripts to generate these engineered features implemented and tested. (Target: YYYY-MM-DD)
