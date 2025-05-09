@@ -25,16 +25,6 @@
 - ⬜ M4: All phase report Markdown files named and structured (Target: YYYY-MM-DD)
 - ⬜ M5: This `project-status.md` file structure finalized (Target: YYYY-MM-DD)
 
-**Detailed Tasks & Issues:**
-
-| Status | Task / Issue Description                         | Milestone | Notes / Resolution                               |
-|--------|-------------------------------------------------|-----------|-------------------------------------------------|
-| ✅     | Draft initial `project_plan.md` content.         | M2        | Moved content from Google Doc.                   |
-| 🔄     | Final review and sign-off on `project_plan.md`.  | M2        |                                                  |
-| ⬜     | Rename `docs/index.md` to `project_plan.md`.     | M2        |                                                  |
-| ⬜     | Update `nav` section in `mkdocs.yml`.            | M3        | Point home to `project_plan.md`.                  |
-| ⬜     | Delete old `docs/milestones.md`.                 | M6        |                                                  |
-| ⬜     | Rename phase files (e.g., `phase-01-collection.md`)| M4        | Reflect new numbering & report focus.             |
 
 ---
 
@@ -50,21 +40,6 @@
 - ⬜ M5: Initial storage solution for raw data implemented and populated. (Target: YYYY-MM-DD)
 - ⬜ M6: **Report:** `docs/phase-01-collection.md` completed and reviewed. (Target: YYYY-MM-DD)
 
-**Detailed Tasks & Issues:**
-
-| Status | Task / Issue Description                                     | Milestone | Notes / Resolution                                         |
-|--------|--------------------------------------------------------------|-----------|------------------------------------------------------------|
-| ⬜     | Draft structure for `docs/phase-01-collection.md` report.    | M6        |                                                            |
-| ⬜     | Research and select Python library for web scraping.         | M2        | Options: BeautifulSoup, Playwright, Scrapy.                |
-| ⬜     | Implement `scrape_race_dates()` function.                    | M2        |                                                            |
-| ⬜     | Implement `scrape_racecard(race_date_url)` function.         | M2        |                                                            |
-| ⬜     | Implement `scrape_results(race_date_url)` function.          | M3        |                                                            |
-| ⬜     | Define error handling and retry logic for scrapers.          | M7        | E.g., for network issues, unexpected page structure.       |
-| ⬜     | Test scrapers on a diverse sample of 5-10 race days.         | M8        | Include different tracks, number of races.                  |
-| ⬜     | Address Issue: Potential for IP blocking during scraping.    | You       | Monitor, implement delays, consider proxy/VPN if necessary.|
-| ⬜     | Define schema for raw racecard data (JSON/CSV).              | M9        |                                                            |
-| ⬜     | Define schema for raw results data (JSON/CSV).               | M10       |                                                            |
-
 ---
 
 ## Phase 2: Data Cleansing & Preprocessing
@@ -79,18 +54,6 @@
 - ⬜ M5: Cleansed dataset validated against defined quality criteria and schema. (Target: YYYY-MM-DD)
 - ⬜ M6: **Report:** `docs/phase-02-cleansing.md` completed and reviewed. (Target: YYYY-MM-DD)
 
-**Detailed Tasks & Issues:**
-
-| Status | Task / Issue Description                                     | Milestone | Notes / Resolution                               |
-|--------|--------------------------------------------------------------|-----------|-------------------------------------------------|
-| ⬜     | Draft structure for `docs/phase-02-cleansing.md` report.     | M6        |                                                 |
-| ⬜     | Perform data profiling on raw collected data (from Phase 1). | M1        | Use Pandas Profiling or custom scripts.          |
-| ⬜     | Develop script for converting date/time fields.              | M3        | Ensure consistent `YYYY-MM-DD HH:MM:SS` format.  |
-| ⬜     | Script to standardize categorical values (e.g., track conditions).| M3        |                                                 |
-| ⬜     | Research and select imputation techniques for `HORSE_WEIGHT`.| M4        | Mean, median, model-based?                       |
-| ⬜     | Implement chosen imputation for `HORSE_WEIGHT`.              | M4        |                                                 |
-| ⬜     | Identify and handle outliers in `FINISH_TIME`.               | M4        | E.g., Capping, removal based on IQR.             |
-
 ---
 
 ## Phase 3: Exploratory Data Analysis (EDA)
@@ -104,18 +67,6 @@
 - ⬜ M4: Initial hypotheses about predictive factors formulated and listed. (Target: YYYY-MM-DD)
 - ⬜ M5: **Report:** `docs/phase-03-eda.md` completed and reviewed. (Target: YYYY-MM-DD)
 
-**Detailed Tasks & Issues:**
-
-| Status | Task / Issue Description                                      | Milestone | Notes / Resolution                                  |
-|--------|---------------------------------------------------------------|-----------|----------------------------------------------------|
-| ⬜     | Draft structure for `docs/phase-03-eda.md` report.            | M5        |                                                    |
-| ⬜     | Set up EDA Jupyter notebook (`notebooks/01-race-eda.ipynb`).  | M1        | Load cleansed data.                                 |
-| ⬜     | Generate histograms and density plots for numerical features. | M2        | E.g., `FINISH_TIME`, `STARTING_ODDS`.              |
-| ⬜     | Create bar charts for categorical feature frequencies.        | M2        | E.g., `COURSE`, `GOING`.                            |
-| ⬜     | Calculate and visualize correlation matrix.                   | M2        | Identify highly correlated features.                |
-| ⬜     | Box plots for numerical features grouped by key categories.   | M2        | E.g., `FINISH_TIME` by `CLASS`.                     |
-| ⬜     | Investigate any surprising findings from initial plots.       | M3        |                                                    |
-
 ---
 
 ## Phase 4: Feature Engineering
@@ -128,16 +79,6 @@
 - ⬜ M3: Scripts to generate these engineered features implemented and tested. (Target: YYYY-MM-DD)
 - ⬜ M4: Engineered feature set validated and stored. (Target: YYYY-MM-DD)
 - ⬜ M5: **Report:** `docs/phase-04-features.md` completed and reviewed. (Target: YYYY-MM-DD)
-
-**Detailed Tasks & Issues:**
-
-| Status | Task / Issue Description                                     | Milestone | Notes / Resolution                               |
-|--------|--------------------------------------------------------------|-----------|-------------------------------------------------|
-| ⬜     | Draft structure for `docs/phase-04-features.md` report.      | M5        |                                                 |
-| ⬜     | Create rolling average features for horse past performance.  | M3        | E.g., avg finish pos last 3/5 races.             |
-| ⬜     | Calculate speed figures based on time and distance.          | M3        |                                                 |
-| ⬜     | Encode categorical variables (e.g., one-hot, target encoding).| M3        |                                                 |
-| ⬜     | Create interaction features (e.g., jockey-trainer win rate). | M3        |                                                 |
 
 ---
 
@@ -166,5 +107,62 @@
 *(Objective: To maintain the system, monitor performance, and plan for future improvements - see `project_plan.md` for details)*
 *(Structure: Major Milestones list, then Detailed Tasks & Issues table)*
 ... *(Content to be filled similarly)* ...
+
+----
+
+## Detailed Tasks & Issues:
+<!-- TASKS_START -->
+| Task / Issue Description                                           | Milestone   | Notes / Resolution                                          | Date Due   |
+|--------------------------------------------------------------------|-------------|-------------------------------------------------------------|------------|
+| Genaral Project Setup                                              |             |                                                             |            |
+|                                                                    |             |                                                             |            |
+| Draft initial project_plan.md content.                             | M2          | Moved content from Google Doc.                              |            |
+| Final review and sign-off on project_plan.md.                      | M2          |                                                             |            |
+| Rename docs/index.md to project_plan.md.                           | M2          |                                                             |            |
+| Update nav section in mkdocs.yml.                                  | M3          | Point home to project_plan.md.                              |            |
+| Delete old docs/milestones.md.                                     | M6          |                                                             |            |
+| Rename phase files (e.g., phase-01-collection.md)                  | M4          | Reflect new numbering & report focus.                       |            |
+|                                                                    |             |                                                             |            |
+| Phase 1: Data Collection and Storage                               |             |                                                             |            |
+|                                                                    |             |                                                             |            |
+| Draft structure for docs/phase-01-collection.md report.            | M6          |                                                             |            |
+| Research and select Python library for web scraping.               | M2          | Options: BeautifulSoup, Playwright, Scrapy.                 |            |
+| Implement scrape_race_dates() function.                            | M2          |                                                             |            |
+| Implement scrape_racecard(race_date_url) function.                 | M2          |                                                             |            |
+| Implement scrape_results(race_date_url) function.                  | M3          |                                                             |            |
+| Define error handling and retry logic for scrapers.                | M7          | E.g., for network issues, unexpected page structure.        |            |
+| Test scrapers on a diverse sample of 5-10 race days.               | M8          | Include different tracks, number of races.                  |            |
+| Address Issue: Potential for IP blocking during scraping.          | You         | Monitor, implement delays, consider proxy/VPN if necessary. |            |
+| Define schema for raw racecard data (JSON/CSV).                    | M9          |                                                             |            |
+| Define schema for raw results data (JSON/CSV).                     | M10         |                                                             |            |
+|                                                                    |             |                                                             |            |
+| Phase 2: Data Cleansing and Preprocessing                          |             |                                                             |            |
+|                                                                    |             |                                                             |            |
+| Draft structure for docs/phase-02-cleansing.md report.             | M6          |                                                             |            |
+| Perform data profiling on raw collected data (from Phase 1).       | M1          | Use Pandas Profiling or custom scripts.                     |            |
+| Develop script for converting date/time fields.                    | M3          | Ensure consistent YYYY-MM-DD HH:MM:SS format.               |            |
+| Script to standardize categorical values (e.g., track conditions). | M3          |                                                             |            |
+| Research and select imputation techniques for HORSE_WEIGHT.        | M4          | Mean, median, model-based?                                  |            |
+| Implement chosen imputation for HORSE_WEIGHT.                      | M4          |                                                             |            |
+| Identify and handle outliers in FINISH_TIME.                       | M4          | E.g., Capping, removal based on IQR.                        |            |
+|                                                                    |             |                                                             |            |
+| Phase 3: Exploratory Data Analysis (EDA)                           |             |                                                             |            |
+|                                                                    |             |                                                             |            |
+| Draft structure for docs/phase-03-eda.md report.                   | M5          |                                                             |            |
+| Set up EDA Jupyter notebook (notebooks/01-race-eda.ipynb).         | M1          | Load cleansed data.                                         |            |
+| Generate histograms and density plots for numerical features.      | M2          | E.g., FINISH_TIME, STARTING_ODDS.                           |            |
+| Create bar charts for categorical feature frequencies.             | M2          | E.g., COURSE, GOING.                                        |            |
+| Calculate and visualize correlation matrix.                        | M2          | Identify highly correlated features.                        |            |
+| Box plots for numerical features grouped by key categories.        | M2          | E.g., FINISH_TIME by CLASS.                                 |            |
+| Investigate any surprising findings from initial plots.            | M3          |                                                             |            |
+|                                                                    |             |                                                             |            |
+| Phase 4: Feature Engineering                                       |             |                                                             |            |
+|                                                                    |             |                                                             |            |
+| Draft structure for docs/phase-04-features.md report.              | M5          |                                                             |            |
+| Create rolling average features for horse past performance.        | M3          | E.g., avg finish pos last 3/5 races.                        |            |
+| Calculate speed figures based on time and distance.                | M3          |                                                             |            |
+| Encode categorical variables (e.g., one-hot, target encoding).     | M3          |                                                             |            |
+| Create interaction features (e.g., jockey-trainer win rate).       | M3          |                                                             |            |
+<!-- TASKS_END -->
 
 ---</file>
