@@ -3,8 +3,7 @@ title: HK Racing Project Plan
 description: Comprehensive plan for the Hong Kong Racing Project, covering objectives, methodology, and all planned phases.
 ---
 
-<h1 style="color:darkblue;">Hong Kong Racing Project: Master Plan</h1>
-
+# Hong Kong Racing Project: Master Plan
 
 This document outlines the technical plan for building a handicapping and wagering system for thoroughbred horse racing in Hong Kong, with the primary objective of achieving sustainable financial gain through data-driven strategies. It serves as the central reference for project scope, methodology, and planned execution across all phases.
 

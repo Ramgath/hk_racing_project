@@ -2,6 +2,8 @@ site_name: HK Racing Project
 docs_dir: docs
 theme:
   name: material
+extra_css:
+  - css/overrides.css
 nav:
   - Home: index.md
   - Phase 1: phase-01-definition.md
