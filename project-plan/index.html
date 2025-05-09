@@ -11,7 +11,7 @@
       
       
       
-        <link rel="prev" href="../milestones/">
+        <link rel="prev" href="../decisions/">
       
       
       
@@ -218,7 +218,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../phase-01-definition/" class="md-nav__link">
+      <a href="../phase-01-definition.md" class="md-nav__link">
         
   
   
@@ -240,7 +240,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../phase-02-collection/" class="md-nav__link">
+      <a href="../phase-02-collection.md" class="md-nav__link">
         
   
   
@@ -262,7 +262,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../phase-03-cleansing/" class="md-nav__link">
+      <a href="../phase-03-cleansing.md" class="md-nav__link">
         
   
   
@@ -284,7 +284,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../phase-04-eda/" class="md-nav__link">
+      <a href="../phase-04-eda.md" class="md-nav__link">
         
   
   
@@ -306,7 +306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../phase-05-features/" class="md-nav__link">
+      <a href="../phase-05-features.md" class="md-nav__link">
         
   
   
@@ -328,7 +328,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../phase-06-model/" class="md-nav__link">
+      <a href="../phase-06-model.md" class="md-nav__link">
         
   
   
@@ -350,7 +350,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../phase-07-evaluation/" class="md-nav__link">
+      <a href="../phase-07-evaluation.md" class="md-nav__link">
         
   
   
@@ -372,7 +372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../phase-08-deployment/" class="md-nav__link">
+      <a href="../phase-08-deployment.md" class="md-nav__link">
         
   
   
@@ -394,7 +394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../phase-09-management/" class="md-nav__link">
+      <a href="../phase-09-management.md" class="md-nav__link">
         
   
   
@@ -460,7 +460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../milestones/" class="md-nav__link">
+      <a href="../milestones.md" class="md-nav__link">
         
   
   
@@ -1846,11 +1846,13 @@
 <li><strong>Broader Context</strong>: This project focuses on the technical development of a predictive system for financial gain within the domain of horse race wagering. It's acknowledged that this operates within the context of gambling, and responsible practices should guide any potential future application of the system's outputs.</li>
 </ul>
 <h4 id="112-document-purpose">1.1.2. Document Purpose</h4>
-<p>This <code>project_plan.md</code> (and the accompanying MkDocs site) serves several key purposes:
-* <strong>Centralized Record</strong>: Acts as the primary repository for documenting all project plans, methodologies, data sources, and strategic decisions made throughout the project lifecycle.
-* <strong>Shared Context for AI Collaboration</strong>: Functions as a persistent memory and context for ongoing work and discussions with AI assistants. Referencing and updating this plan and related phase reports ensures continuity.
-* <strong>Single Source of Truth</strong>: Establishes a definitive reference point for the project's scope, workflow, tools, and challenges.
-* <strong>Tracking Evolution</strong>: While this document outlines the plan, individual phase reports (<code>docs/phase-XX-name.md</code>) will track the execution and evolution of the project.</p>
+<p>This <code>project_plan.md</code> (and the accompanying MkDocs site) serves several key purposes:</p>
+<ul>
+<li><strong>Centralized Record</strong>: Acts as the primary repository for documenting all project plans, methodologies, data sources, and strategic decisions made throughout the project lifecycle.</li>
+<li><strong>Shared Context for AI Collaboration</strong>: Functions as a persistent memory and context for ongoing work and discussions with AI assistants. Referencing and updating this plan and related phase reports ensures continuity.</li>
+<li><strong>Single Source of Truth</strong>: Establishes a definitive reference point for the project's scope, workflow, tools, and challenges.</li>
+<li><strong>Tracking Evolution</strong>: While this document outlines the plan, individual phase reports (<code>docs/phase-XX-name.md</code>) will track the execution and evolution of the project.</li>
+</ul>
 <h3 id="12-resource-and-environment-configuration">1.2. Resource and Environment Configuration</h3>
 <h4 id="121-hardware">1.2.1. Hardware</h4>
 <ul>
@@ -1883,13 +1885,15 @@
 <h3 id="13-proposed-workflow-outline-original-hybrid-concept">1.3. Proposed Workflow Outline (Original Hybrid Concept)</h3>
 <h4 id="131-rationale-for-hybrid-workflow-sheets-bigquery-colab">1.3.1. Rationale for Hybrid Workflow (Sheets -&gt; BigQuery -&gt; Colab)</h4>
 <p><em>(This section reflects the original thinking from the Google Doc. The actual implementation might evolve and will be documented in phase reports.)</em>
-The initially chosen workflow utilized a hybrid approach: Google Sheets (for easily editable data), BigQuery (External Tables linking to Sheets, then materializing into Native Tables for performance), and Google Colab for analysis and ML.
-* <strong>Ease of Data Correction</strong>: Sheets as the primary editable source.
-* <strong>Analytical Performance</strong>: Native BigQuery tables for querying.
-* <strong>Scalability</strong>: BigQuery's inherent scalability.
-* <strong>Resource Efficiency</strong>: Colab for computation.
-* <strong>Integration &amp; Control</strong>: Google ecosystem synergy.
-* <strong>Cost-Effectiveness</strong>: Leveraging free tiers.</p>
+The initially chosen workflow utilized a hybrid approach: Google Sheets (for easily editable data), BigQuery (External Tables linking to Sheets, then materializing into Native Tables for performance), and Google Colab for analysis and ML.</p>
+<ul>
+<li><strong>Ease of Data Correction</strong>: Sheets as the primary editable source.</li>
+<li><strong>Analytical Performance</strong>: Native BigQuery tables for querying.</li>
+<li><strong>Scalability</strong>: BigQuery's inherent scalability.</li>
+<li><strong>Resource Efficiency</strong>: Colab for computation.</li>
+<li><strong>Integration &amp; Control</strong>: Google ecosystem synergy.</li>
+<li><strong>Cost-Effectiveness</strong>: Leveraging free tiers.</li>
+</ul>
 <h4 id="132-alternative-methodologies-considered-original-assessment">1.3.2. Alternative Methodologies Considered (Original Assessment)</h4>
 <ul>
 <li><strong>DuckDB (Local) + Colab</strong>: Rejected due to local RAM limits and less straightforward data correction than Sheets.</li>
@@ -2183,11 +2187,13 @@ The initially chosen workflow utilized a hybrid approach: Google Sheets (for eas
 <li>Commits should be descriptive and atomic.</li>
 </ul>
 <h3 id="86-references">8.6. References</h3>
-<p><em>(Placeholder for links to key documentation, research papers, articles, etc., consulted during the project.)</em>
-* HKJC Website: <code>[Link to be added]</code>
-* Pandas Documentation: <code>https://pandas.pydata.org/pandas-docs/stable/</code>
-* Scikit-learn Documentation: <code>https://scikit-learn.org/stable/</code>
-* MkDocs Material Theme: <code>https://squidfunk.github.io/mkdocs-material/</code></p>
+<p><em>(Placeholder for links to key documentation, research papers, articles, etc., consulted during the project.)</em></p>
+<ul>
+<li>HKJC Website: <code>[Link to be added]</code></li>
+<li>Pandas Documentation: <code>https://pandas.pydata.org/pandas-docs/stable/</code></li>
+<li>Scikit-learn Documentation: <code>https://scikit-learn.org/stable/</code></li>
+<li>MkDocs Material Theme: <code>https://squidfunk.github.io/mkdocs-material/</code></li>
+</ul>
 <hr />
 <h2 id="appendix-a-data-dictionary">Appendix A: Data Dictionary</h2>
 <p><em>(This defines the planned schema for data stored in BigQuery. It may evolve.)</em></p>
@@ -2369,16 +2375,18 @@ The initially chosen workflow utilized a hybrid approach: Google Sheets (for eas
 </tr>
 </tbody>
 </table>
-<p><strong>Gear Key (Example - to be confirmed from HKJC source):</strong>
-* <code>B</code>: Blinkers
-* <code>CP</code>: Sheepskin Cheek Pieces
-* <code>TT</code>: Tongue Tie
-* <code>XB</code>: Crossed Nose Band
-* <code>P</code>: Pacifier
-* <code>V</code>: Visor
-* <code>H</code>: Hood
-* <code>E</code>: Ear Plugs
-* <code>1</code> (suffix): First time using this gear.</p>
+<p><strong>Gear Key (Example - to be confirmed from HKJC source):</strong></p>
+<ul>
+<li><code>B</code>: Blinkers</li>
+<li><code>CP</code>: Sheepskin Cheek Pieces</li>
+<li><code>TT</code>: Tongue Tie</li>
+<li><code>XB</code>: Crossed Nose Band</li>
+<li><code>P</code>: Pacifier</li>
+<li><code>V</code>: Visor</li>
+<li><code>H</code>: Hood</li>
+<li><code>E</code>: Ear Plugs</li>
+<li><code>1</code> (suffix): First time using this gear.</li>
+</ul>
 <h3 id="a3-table-race_results">A.3. Table: <code>race_results</code></h3>
 <p><em>(Contains the official results for each horse in a race)</em></p>
 <table>
