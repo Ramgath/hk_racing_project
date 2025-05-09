@@ -1,4 +1,4 @@
-/* docs/css/overrides.css */
-h1 { color: blue; }
-h2 { color: orange; }
-h3 { color: green; }
+h1 { color: #5e4fa2 !important; }   /* Indigo - strong for project title */
+h2 { color: #377eb8 !important; }   /* Blue - clear for section headers */
+h3 { color: #f7811f !important; }   /* Orange - good contrast for sub-sections */
+h4 { color: #4daf4a !important; }   /* Green - gentle for finer detail */

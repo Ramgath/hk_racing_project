@@ -15,4 +15,6 @@ This document tracks the major design and process decisions for the HK Racing Pr
 | 2025-05-06 | Rolled back branch protection rules for personal repo      | Process      | Enforced PR and status checks                             | Simplify workflow for solo development; allow direct pushes  |
 | 2025-05-08 | Updated GitHub Pages setup and streamlined milestone tracking | Documentation, Project Management | Manual tracking, individual project boards | Simplify the process with GitHub Issues and checkboxes for clarity and task management |
 | 2025-05-08 | Remove GitHub Project board and house issues in Markdown    | Process      | Online project board                                 | Centralize issue tracking within repository docs        |
-| 2025-05-XX | (future decision)                          |                    |                                       |                                      |
+| 2025-05-09 | Consolidate all phases plans into 1 master plan| Project Managment |Have each phase plan in each phase md file| Centralize plan|
+| 2025-05-09 | Phase .md files to house reports and findings only | Project Management| Treat each phase as a separate project with a dedicated plan | Separates plan from results.
+| 2025-05-XX | (future decision) | | | |

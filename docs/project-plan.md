@@ -17,7 +17,9 @@ This document outlines the technical plan for building a handicapping and wageri
 * **Broader Context**: This project focuses on the technical development of a predictive system for financial gain within the domain of horse race wagering. It's acknowledged that this operates within the context of gambling, and responsible practices should guide any potential future application of the system's outputs.
 
 #### 1.1.2. Document Purpose
+
 This `project_plan.md` (and the accompanying MkDocs site) serves several key purposes:
+
 * **Centralized Record**: Acts as the primary repository for documenting all project plans, methodologies, data sources, and strategic decisions made throughout the project lifecycle.
 * **Shared Context for AI Collaboration**: Functions as a persistent memory and context for ongoing work and discussions with AI assistants. Referencing and updating this plan and related phase reports ensures continuity.
 * **Single Source of Truth**: Establishes a definitive reference point for the project's scope, workflow, tools, and challenges.
@@ -53,6 +55,7 @@ This `project_plan.md` (and the accompanying MkDocs site) serves several key pur
 #### 1.3.1. Rationale for Hybrid Workflow (Sheets -> BigQuery -> Colab)
 *(This section reflects the original thinking from the Google Doc. The actual implementation might evolve and will be documented in phase reports.)*
 The initially chosen workflow utilized a hybrid approach: Google Sheets (for easily editable data), BigQuery (External Tables linking to Sheets, then materializing into Native Tables for performance), and Google Colab for analysis and ML.
+
 * **Ease of Data Correction**: Sheets as the primary editable source.
 * **Analytical Performance**: Native BigQuery tables for querying.
 * **Scalability**: BigQuery's inherent scalability.
@@ -319,6 +322,7 @@ The dataset will encompass:
 
 ### 8.6. References
 *(Placeholder for links to key documentation, research papers, articles, etc., consulted during the project.)*
+
 * HKJC Website: `[Link to be added]`
 * Pandas Documentation: `https://pandas.pydata.org/pandas-docs/stable/`
 * Scikit-learn Documentation: `https://scikit-learn.org/stable/`
@@ -367,6 +371,7 @@ The dataset will encompass:
 | `GEAR`         | STRING    | Symbols representing gear used by the horse.                                   | e.g., `PC/XB/TT`. See Gear Key below.                                                                     |
 
 **Gear Key (Example - to be confirmed from HKJC source):**
+
 * `B`: Blinkers
 * `CP`: Sheepskin Cheek Pieces
 * `TT`: Tongue Tie
