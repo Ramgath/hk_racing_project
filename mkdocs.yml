@@ -5,8 +5,7 @@ theme:
 extra_css:
   - css/overrides.css
 nav:
-  - Home: index.md
-  - Project Plan: project-plan.md
+  - Project Plan: master-plan.md
   - Decisions: decisions.md
   - Project Status: project-status.md
   - Phase 1: phase-01-collection.md

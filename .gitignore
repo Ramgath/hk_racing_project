@@ -32,3 +32,6 @@ data/*
 
 # MkDocs build output
 /site/
+
+# Configuration - IMPORTANT!
+config/config.yaml
