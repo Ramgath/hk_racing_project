@@ -7,68 +7,118 @@ description: Comprehensive plan for the Hong Kong Racing Project, covering objec
 
 This document outlines the technical plan for building a handicapping and wagering system for thoroughbred horse racing in Hong Kong, with the primary objective of achieving sustainable financial gain through data-driven strategies. It serves as the central reference for project scope, methodology, and planned execution across all phases.
 
-## 1. Project Definition and Establishment
+## 0. Project Definition and Establishment
 
-### 1.1. Introduction and Aims
+*(This foundational phase covers the project's aims, documentation strategy, resource configuration, core development environment, and the overall workflow. It is numbered '0' to distinguish it from the sequential execution phases that follow.)*
 
-#### 1.1.1. Project Objective
+### 0.1. Introduction and Aims
+
+#### 0.1.1. Project Objective
 * **Goal**: Develop and implement a machine learning-based handicapping and wagering system aimed at generating a positive return on investment (ROI) from Hong Kong horse racing.
 * **Team**: Solo project with assistance from AI (e.g., Google Gemini).
 * **Broader Context**: This project focuses on the technical development of a predictive system for financial gain within the domain of horse race wagering. It's acknowledged that this operates within the context of gambling, and responsible practices should guide any potential future application of the system's outputs.
 
-#### 1.1.2. Document Purpose
+#### 0.1.2. Document Purpose
 
-This `project_plan.md` (and the accompanying MkDocs site) serves several key purposes:
+This `master-plan.md` (and the accompanying MkDocs site) serves several key purposes:
 
 * **Centralized Record**: Acts as the primary repository for documenting all project plans, methodologies, data sources, and strategic decisions made throughout the project lifecycle.
 * **Shared Context for AI Collaboration**: Functions as a persistent memory and context for ongoing work and discussions with AI assistants. Referencing and updating this plan and related phase reports ensures continuity.
 * **Single Source of Truth**: Establishes a definitive reference point for the project's scope, workflow, tools, and challenges.
 * **Tracking Evolution**: While this document outlines the plan, individual phase reports (`docs/phase-XX-name.md`) will track the execution and evolution of the project.
 
-### 1.2. Resource and Environment Configuration
+### 0.2. Resource and Environment Configuration
 
-#### 1.2.1. Hardware
+#### 0.2.1. Hardware
 * **Local machine**: MacBook Air, 8GB RAM, Apple Silicon (M1 chip).
 * **Online**: Standard Colab CPU Environment (e.g., Intel Xeon, ~13 GB RAM). Google Colab free tier also provides variable access to GPU and TPU accelerators.
 
-#### 1.2.2. Software and Cloud Services (Primarily Google Ecosystem)
-* **Google BigQuery**: Central data warehouse for storing historical and current race data. Chosen for scalability, Colab integration, and cost-effectiveness within its free tier.
-* **Google Colab**: Primary environment for data scraping, cleaning, analysis, feature engineering, visualization, and ML model development.
-* **Google Sheets**: Used as an intermediary data hub, for manual input/correction if necessary, and potentially for controlling updates via Apps Script (original plan).
-* **Google Apps Script**: Planned for automating data update processes (e.g., Sheets to BigQuery).
-* **Google Cloud Storage (GCS)**: Considered for intermediary data storage (e.g., Parquet files) to optimize data transfer between BigQuery and Colab.
+#### 0.2.2. Software and Cloud Services (Primarily Google Ecosystem)
+* **Google BigQuery**: Central data warehouse for storing historical and current race data (raw, cleaned, and processed).
+    * **Rationale**: Chosen for its scalability, powerful SQL interface, direct integration with Python and Colab, and generous free tier (1TB queries/month, 10GB storage/month), making it cost-effective for this project.
+* **Google Cloud Storage (GCS)**: For storing model artifacts (e.g., pickled models, TensorFlow SavedModel directories) and potentially intermediary data files if needed.
+    * **Rationale**: Provides a robust, versionable, and accessible storage solution. The free tier (5GB-months standard storage) is expected to be sufficient for model files, offering a significant improvement over local storage or Google Drive for MLOps practices at minimal to no cost.
+* **Vertex AI Model Registry**: For registering, versioning, and managing trained machine learning models.
+    * **Rationale**: Offers a centralized system to track model lineage and metadata, which is crucial for reproducibility and governance. The core model registration functionality is free and integrates with models stored in GCS. Costs would only be incurred if deploying models to Vertex AI Endpoints, which is not the primary plan.
 * **Python Libraries**:
-    * Data Acquisition: Beautiful Soup (or potentially Playwright/Selenium if dynamic content requires it).
-    * Data Manipulation & Analysis: pandas, NumPy, Polars.
-    * Cloud Interaction: `google-cloud-bigquery`, `gspread`.
-    * Visualization: Plotly, Matplotlib, Seaborn.
-    * Machine Learning: Scikit-learn, TensorFlow, PyTorch, XGBoost, LightGBM (specific choices in modeling phase).
+    * Data Acquisition & Interaction: `requests`, `beautifulsoup4` (for scraping), `google-cloud-bigquery`, `google-cloud-storage`, `pandas-gbq`.
+    * Data Manipulation & Analysis: `pandas`, `numpy`, `polars` (for exploration).
+    * Visualization: `plotly`, `matplotlib`, `seaborn`.
+    * Machine Learning: `scikit-learn`, potentially `tensorflow`, `pytorch`, `xgboost`, `lightgbm` (specific choices to be made in the modeling phase).
+    * Web Application (Future Consideration): `streamlit`.
 * **Version Control**: Git, managed via a GitHub repository.
 * **Documentation**: MkDocs with the Material theme.
+* **Configuration Management**: YAML files within a `config/` directory, with sensitive values gitignored.
 
-#### 1.2.3. Development Environment
-* **Google Colab**: Primary for computationally intensive tasks (data processing, ML).
-* **Visual Studio Code (VS Code) - Local**: For developing helper scripts, managing the project repository, and MkDocs site generation/preview.
+#### 0.2.3. Development Environment Roles
+The development environment will leverage the strengths of both local and cloud-based tools:
 
-### 1.3. Proposed Workflow Outline (Original Hybrid Concept)
+* **Visual Studio Code (VS Code) - Local**:
+    * **Primary Role**: Core development environment for most Python scripts, including data ingestion (scraping), data processing, feature engineering modules, utility functions, and the prediction pipeline. Also used for managing the project repository, Git workflows, local testing, and MkDocs site generation/preview.
+    * **Rationale**: Provides a robust and feature-rich local IDE with strong Git integration, debugging capabilities, and direct access to the project's file structure. This is suitable for developing the persistent, production-oriented code in the `src/` directory.
+* **Google Colab**:
+    * **Primary Role**: Environment for computationally intensive tasks, iterative Exploratory Data Analysis (EDA), rapid prototyping of machine learning models, and training models that benefit from free-tier GPU/TPU access.
+    * **Rationale**: Offers a convenient, browser-based environment with pre-installed libraries and easy access to cloud resources (BigQuery, GCS) and hardware acceleration, making it ideal for experimentation and tasks exceeding local hardware capabilities.
+* **Rationale for Hybrid Approach**: This delineation allows for structured code development and project management in VS Code, while retaining the flexibility and power of Colab for research, experimentation, and heavy computation. Data exchange will primarily occur via BigQuery and GCS, ensuring consistency.
 
-#### 1.3.1. Rationale for Hybrid Workflow (Sheets -> BigQuery -> Colab)
-*(This section reflects the original thinking from the Google Doc. The actual implementation might evolve and will be documented in phase reports.)*
-The initially chosen workflow utilized a hybrid approach: Google Sheets (for easily editable data), BigQuery (External Tables linking to Sheets, then materializing into Native Tables for performance), and Google Colab for analysis and ML.
+### 0.3. Proposed Workflow Outline
 
-* **Ease of Data Correction**: Sheets as the primary editable source.
-* **Analytical Performance**: Native BigQuery tables for querying.
-* **Scalability**: BigQuery's inherent scalability.
-* **Resource Efficiency**: Colab for computation.
-* **Integration & Control**: Google ecosystem synergy.
-* **Cost-Effectiveness**: Leveraging free tiers.
+This workflow outlines the end-to-end process from data acquisition to prediction generation, leveraging the defined tools and environments.
 
-#### 1.3.2. Alternative Methodologies Considered (Original Assessment)
-* **DuckDB (Local) + Colab**: Rejected due to local RAM limits and less straightforward data correction than Sheets.
-* **Pandas/Polars (Local only)**: Rejected due to RAM limits and lack of persistence/scalability.
-* **SQLite (Local)**: Rejected due to performance for analytical queries and local resource limits.
-* **PostgreSQL (Local)**: Rejected due to overhead on local hardware.
-* **Snowflake (Cloud)**: Rejected due to lack of a comparable free tier to BigQuery.
+#### 0.3.1. Data Ingestion (Scraping)
+* **Environment**: Python scripts developed and executed in VS Code.
+* **Process**:
+    1. Scrape race data (racecards, results, horse details, etc.) from the Hong Kong Jockey Club (HKJC) website using libraries like `requests` and `BeautifulSoup`.
+    2. Perform initial light cleaning and structuring of scraped data within the Python script.
+    3. Directly load the structured raw data into designated "raw" tables in Google BigQuery using the `google-cloud-bigquery` Python library (e.g., via `pandas-gbq` or direct API calls).
+* **Data Correction**: If discrepancies are found in BigQuery data post-ingestion, they will be addressed by:
+    * Prioritized Method: Dedicated Python scripts (developed in VS Code, stored in `src/data_management/`) to execute targeted `UPDATE` statements in BigQuery based on unique row identifiers (e.g., `RACE_ID`, `RUNNER_ID`). This ensures changes are auditable and version-controlled.
+    * Secondary/Visual Aid (Consideration): A controlled Google Sheet could be used to *log* desired corrections, which a script then reads to apply to BigQuery. This is not for direct ingestion but as a UI for correction logging if purely script-based updates become cumbersome for many edits.
+* **Rationale for Direct BQ Ingestion**:
+    * **Robustness & Scalability**: Directly loading to BigQuery from Python scripts is more robust and scalable for automated, periodic scraping tasks compared to using Google Sheets as an intermediary. It reduces potential points of failure, schema mismatch issues, and manual intervention.
+    * **Efficiency**: Eliminates the overhead and potential API limitations of writing to and then reading from Sheets.
+    * **Control**: Keeps data handling logic within Python scripts, which are version controlled and part of the main project codebase.
+
+#### 0.3.2. Data Cleansing, Preprocessing, and EDA
+* **Environment**: Primarily VS Code (using Jupyter notebooks or Python scripts in `src/`) for systematic cleansing and preprocessing; Google Colab for extensive EDA requiring more interactivity or computational power.
+* **Process**:
+    1. Query raw data from BigQuery into VS Code (or Colab) for analysis.
+    2. Perform thorough data cleansing (handling missing values, standardizing categories, type enforcement) and preprocessing (encoding, scaling). This logic will be developed as reusable Python functions/modules in `src/data_processing/` and `src/features/`.
+    3. Conduct Exploratory Data Analysis (EDA) to understand data characteristics, identify patterns, and formulate hypotheses. Findings and visualizations will be documented in the relevant `docs/phase-XX-name.md` files (e.g., `docs/phase-03-eda.md`).
+    4. Store cleansed and preprocessed data back into new, dedicated tables/views in BigQuery for use in model development.
+    5. Store relevant data quality metrics or EDA summary statistics in BigQuery if beneficial for tracking.
+
+#### 0.3.3. Feature Engineering
+* **Environment**: Primarily VS Code for defining and scripting feature engineering logic (in `src/features/`); Colab for iterative development and testing of complex features.
+* **Process**:
+    1. Develop new features based on domain knowledge, EDA insights, and model requirements.
+    2. Implement feature creation logic as reusable Python functions.
+    3. Apply feature engineering to the cleansed data from BigQuery, storing the engineered feature sets in new BigQuery tables/views.
+
+#### 0.3.4. Model Development and Training
+* **Environment**: Google Colab (leveraging GPU/TPU access as needed).
+* **Process**:
+    1. Load preprocessed data and engineered features from BigQuery into Colab.
+    2. Experiment with various machine learning algorithms (from simple baselines to more complex models).
+    3. Train models, perform hyperparameter tuning, and use rigorous validation techniques (e.g., time-series aware backtesting).
+    4. Save trained model artifacts (e.g., pickled files, SavedModel formats) to **Google Cloud Storage (GCS)**.
+        * **Rationale for GCS over Google Drive**: GCS provides better versioning capabilities, programmatic access, and integration with other MLOps tools (like Vertex AI Model Registry). It's a more professional and robust solution for model persistence, and the free tier should cover storage needs.
+    5. Register model versions, along with relevant metadata and performance metrics, in **Vertex AI Model Registry**, pointing to the model artifacts in GCS.
+        * **Rationale for Vertex AI Model Registry**: Provides a centralized, free-to-use (for registration) service for managing the lifecycle of models, improving organization and reproducibility.
+
+#### 0.3.5. Prediction Generation
+* **Environment**: Python scripts developed and executed in VS Code.
+* **Process**:
+    1. Scrape the latest racecard data (similar to 0.3.1).
+    2. Preprocess this new data using the same cleansing and feature engineering logic developed in `src/` and used during training.
+    3. Load the desired trained model from Google Cloud Storage (its location potentially retrieved via Vertex AI Model Registry).
+    4. Generate predictions for the upcoming races.
+    5. Store predictions (e.g., locally as CSV/JSON, or push to a dedicated BigQuery table).
+
+#### 0.3.6. Results Presentation (Future Consideration)
+* **Initial**: Predictions might be reviewed via generated files (CSV, text) or simple HTML outputs published to GitHub Pages.
+* **Future Enhancement**: Consider developing a simple interactive dashboard using **Streamlit** (run locally or deployed) to display predictions, analyze results, or even provide a UI for specific data management tasks.
+    * **Rationale for Streamlit**: Offers a Python-native way to quickly build data-centric web applications without requiring web development expertise, suitable for creating internal tools or simple dashboards as the project matures.
 
 ---
 

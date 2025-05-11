@@ -1,168 +1,98 @@
 # Project Status
 
-**Last Manually Updated:** 2025-05-09
+**Last Manually Updated:** 2025-05-11
 
 **Overall Project Health:** Green
 
-*Initial setup and planning are progressing well. The new project structure and documentation plan are being finalized.*
+*Initial setup and planning are progressing well. The new project structure and documentation plan are being finalized. only polishing touches to be done*
 
-**Key Focus for This Week (ending 2005-05-09):**
+**Key Focus for This Week (ending 2005-05-10):**
 
-| Status | Task / Issue Description | Milestone |
-|--------|---------------------------|-----------|
-| 🔄     | Final review and sign-off on `project_plan.md`. | M2 |
+**M5: Development Environment and Tooling Configured**
+    * *Objective*: Set up local (VS Code) and cloud (Google Colab) development environments, including Python, necessary libraries, and IDE configurations.
 
 ---
 
 ## General Project Setup
-*(Tasks related to overall project infrastructure, documentation, and planning)*
+*(Tasks related to overall project infrastructure, documentation, planning, and core technical setup before specific data work begins)*
 
 **Major Milestones:**
 
-- ✅ M1: Initial project repository configured (Completed: YYYY-MM-DD)
-- ⬜ M2: `project_plan.md` created and populated from Google Doc (Completed: YYYY-MM-DD)
-- ⬜ M3: `mkdocs.yml` updated for new site structure (Target: YYYY-MM-DD)
-- ⬜ M4: All phase report Markdown files named and structured (Target: YYYY-MM-DD)
-- ⬜ M5: This `project-status.md` file structure finalized (Target: YYYY-MM-DD)
+✅ **M1: Project Repository and Core Structure Established**
+    * *Objective*: Ensure the GitHub repository is correctly set up with a logical folder structure for code, docs, data, etc.
 
+    opened: 08 May 2005
+    completed: 08 May 2025
+
+✅ **M2: Master Plan Document (`master-plan.md`) Finalized**
+    * *Objective*: Complete and finalize the comprehensive General Project Setup plan in `master-plan.md` incorporating all decisions from the initial planning phase.
+
+    opened: 08 May 2005
+    completed: 09 May 2025
+
+✅ **M3: Documentation Site (MkDocs) Configured and Operational**
+    * *Objective*: Set up MkDocs with the chosen theme, configure navigation in `mkdocs.yml`, and ensure the site builds and deploys correctly (e.g., to GitHub Pages).
+
+    opened: 08 May 2005
+    completed: 09 May 2025
+
+✅  **M4: Standard Project Documentation Shells Created**
+    * *Objective*: Create placeholder markdown files for all planned phases (e.g., `phase-01-collection.md`, `phase-02-cleansing.md`, etc.), a `decisions.md` log, and any other key supporting documentation. Finalize `docs/project-status.md` structure (current working version).
+
+    opened: 08 May 2005
+    completed: 09 May 2025
+
+* **M5: Development Environment and Tooling Configured**
+    * *Objective*: Set up local (VS Code) and cloud (Google Colab) development environments, including Python, necessary libraries, and IDE configurations.
+
+    opened: 08 May 2005
+
+* **M6: Cloud Services (GCP) Initial Setup and Access Confirmed**
+    * *Objective*: Set up the Google Cloud Project, enable necessary APIs (BigQuery, Cloud Storage, IAM), and confirm programmatic access (e.g., service account credentials).
+
+    opened: 08 May 2005
+
+* **M7: Configuration Management Strategy Implemented**
+    * *Objective*: Establish the `config/` directory structure with example configuration files and ensure sensitive configurations are correctly handled (e.g., via `.gitignore`).
+
+    opened: 08 May 2005
 
 ---
 
-## Phase 1: Data Collection
-*(Objective: To gather all necessary raw data from defined sources - see `project_plan.md` for details)*
+### Task and Issues
 
-**Major Milestones:**
+| Status | Task / Issue Description                                       | Milestone | Notes / Resolution                                                                                                | Priority | Date Due   | Tags                                  |
+|--------|----------------------------------------------------------------|-----------|-------------------------------------------------------------------------------------------------------------------|----------|------------|---------------------------------------|
+| ✅     | Set up local Python virtual environment (e.g., `venv`).          | M5        |                                                                                                                   | High     |            | Python; Setup                         |
+| ⬜     | Install core Python libraries from `requirements.txt` (e.g., pandas, requests, google-cloud-*) | M5        | Create initial `requirements.txt`.                                                                                | High     |            | Python; Setup                         |
+| ⬜     | Install development libraries from `requirements-dev.txt` (e.g., pytest, mkdocs, black/flake8). | M5        | Create initial `requirements-dev.txt`.                                                                            | Medium   |            | Python; Setup                         |
+| ⬜     | Configure VS Code for Python development (interpreter, linter, formatter). | M5        |                                                                                                                   | Medium   |            | Tooling; Setup                        |
+| ⬜     | Confirm access to Google Colab and ability to connect to GCP services. | M5        |                                                                                                                   | Medium   |            | Tooling; GCP                          |
+| ✅     | Create Google Cloud Platform (GCP) project if not already done. | M6        |                                                                                                                   | High     |            | GCP; Setup                            |
+| ⬜     | Enable BigQuery API and Cloud Storage API in GCP console.      | M6        | Also IAM API if managing service accounts.                                                                        | High     |            | GCP; Setup                            |
+| ✅     | Create a GCP Service Account with necessary roles for BigQuery and GCS access. | M6        | E.g., BigQuery Data Editor, Storage Object Admin.                                                                 | High     |            | GCP; Security                         |
+| ⬜     | Download service account JSON key and store securely (e.g., in `~/gcp/credentials/`). | M6        | Ensure path is gitignored if ever placed near project. Set `GOOGLE_APPLICATION_CREDENTIALS` env var.            | High     |            | GCP; Security                         |
+| ✅     | Create `config/` directory at project root.                    | M7        |                                                                                                                   | High     |            | Config; Setup                         |
+| ✅      | Create `config/config.yaml.example` with placeholder structure for data sources, GCP project ID, BQ dataset/table names. | M7        |                                                                                                                   | High     |            | Config; Setup                         |
+| ✅     | Create `config/config.yaml` (gitignored) by copying example and add placeholder values. | M7       |                                                                                                                   | High     |            | Config; Setup                         |
+| ✅     | Add `config/config.yaml` to `.gitignore`.                      | M7        | Already covered in M1 if done comprehensively.                                                                    | High     |            | Git; Config                           |
+| ⬜     | Write basic Python function in `src/common/config_loader.py` to load `config.yaml`. | M7        |                                                                                                                   | Medium   |            | Python; Config                        |
 
-- ⬜ M1: All data sources and specific data fields fully identified and documented in `project_plan.md`. (Target: YYYY-MM-DD)
-- ⬜ M2: Web scraping scripts for HKJC racecards developed and robustly tested. (Target: YYYY-MM-DD)
-- ⬜ M3: Web scraping scripts for HKJC race results developed and robustly tested. (Target: YYYY-MM-DD)
-- ⬜ M4: Historical data (target: X seasons/Y race days) successfully collected. (Target: YYYY-MM-DD)
-- ⬜ M5: Initial storage solution for raw data implemented and populated. (Target: YYYY-MM-DD)
-- ⬜ M6: **Report:** `docs/phase-01-collection.md` completed and reviewed. (Target: YYYY-MM-DD)
 
 ---
 
 ## Phase 2: Data Cleansing & Preprocessing
-*(Objective: To transform raw data into a clean, consistent, and usable format - see `project_plan.md` for details)*
+*(Objective: To transform raw data into a clean, consistent, and usable format - see `master-plan.md` for details)*
 
 **Major Milestones:**
 
-- ⬜ M1: Data quality issues from raw data fully profiled and documented. (Target: YYYY-MM-DD)
-- ⬜ M2: Comprehensive data cleansing rules and procedures defined. (Target: YYYY-MM-DD)
-- ⬜ M3: Scripts for all data type conversions and value standardizations developed. (Target: YYYY-MM-DD)
-- ⬜ M4: Strategy for handling missing values and outliers defined and implemented. (Target: YYYY-MM-DD)
-- ⬜ M5: Cleansed dataset validated against defined quality criteria and schema. (Target: YYYY-MM-DD)
-- ⬜ M6: **Report:** `docs/phase-02-cleansing.md` completed and reviewed. (Target: YYYY-MM-DD)
+M1: Define Phase 2 tasks & milestones by reviewing the General Setup Plan and Phase 1 details in `master-plan.md`.
 
+### Task and Issues
+
+| Status | Task / Issue Description                                       | Milestone | Notes / Resolution                                                                                                | Priority | Date Due   | Tags                                  |
+|--------|----------------------------------------------------------------|-----------|-------------------------------------------------------------------------------------------------------------------|----------|------------|---------------------------------------|
+| ⬜     | review phase 1 in master-plan.md          |   M1      |                                                                                                                   | High     |            | doc review                        |
 ---
-
-## Phase 3: Exploratory Data Analysis (EDA)
-*(Objective: To understand data patterns, relationships, and formulate initial hypotheses - see `project_plan.md` for details)*
-
-**Major Milestones:**
-
-- ⬜ M1: Descriptive statistics generated and analyzed for all key variables. (Target: YYYY-MM-DD)
-- ⬜ M2: Key visualizations (distributions, correlations, time series) created and interpreted. (Target: YYYY-MM-DD)
-- ⬜ M3: Significant patterns, anomalies, and relationships documented. (Target: YYYY-MM-DD)
-- ⬜ M4: Initial hypotheses about predictive factors formulated and listed. (Target: YYYY-MM-DD)
-- ⬜ M5: **Report:** `docs/phase-03-eda.md` completed and reviewed. (Target: YYYY-MM-DD)
-
----
-
-## Phase 4: Feature Engineering
-*(Objective: To create new predictive features from the cleansed data - see `project_plan.md` for details)*
-
-**Major Milestones:**
-
-- ⬜ M1: List of potential engineered features brainstormed and prioritized. (Target: YYYY-MM-DD)
-- ⬜ M2: Initial set of ~20-30 engineered features designed and documented. (Target: YYYY-MM-DD)
-- ⬜ M3: Scripts to generate these engineered features implemented and tested. (Target: YYYY-MM-DD)
-- ⬜ M4: Engineered feature set validated and stored. (Target: YYYY-MM-DD)
-- ⬜ M5: **Report:** `docs/phase-04-features.md` completed and reviewed. (Target: YYYY-MM-DD)
-
----
-
-## Phase 5: Model Development
-*(Objective: To train and select predictive models - see `project_plan.md` for details)*
-*(Structure: Major Milestones list, then Detailed Tasks & Issues table)*
-... *(Content to be filled similarly)* ...
-
----
-
-## Phase 6: Model Evaluation
-*(Objective: To rigorously assess model performance and potential profitability - see `project_plan.md` for details)*
-*(Structure: Major Milestones list, then Detailed Tasks & Issues table)*
-... *(Content to be filled similarly)* ...
-
----
-
-## Phase 7: Deployment
-*(Objective: To set up a system for generating predictions on new races - see `project_plan.md` for details)*
-*(Structure: Major Milestones list, then Detailed Tasks & Issues table)*
-... *(Content to be filled similarly)* ...
-
----
-
-## Phase 8: Ongoing Management & Iteration
-*(Objective: To maintain the system, monitor performance, and plan for future improvements - see `project_plan.md` for details)*
-*(Structure: Major Milestones list, then Detailed Tasks & Issues table)*
-... *(Content to be filled similarly)* ...
-
-----
-
-## Detailed Tasks & Issues:
-<!-- TASKS_START -->
-| **Task / Issue Description**                                       | **Milestone**   | **Notes / Resolution**                                      | Date Due   |
-|--------------------------------------------------------------------|-----------------|-------------------------------------------------------------|------------|
-| ***Genaral Project Setup***                                        |                 |                                                             |            |
-|                                                                    |                 |                                                             |            |
-| Draft initial project_plan.md content.                             | M2              | Moved content from Google Doc.                              |            |
-| Final review and sign-off on project_plan.md.                      | M2              |                                                             |            |
-| Rename docs/index.md to project_plan.md.                           | M2              |                                                             |            |
-| Update nav section in mkdocs.yml.                                  | M3              | Point home to project_plan.md.                              |            |
-| Delete old docs/milestones.md.                                     | M6              |                                                             |            |
-| Rename phase files (e.g., phase-01-collection.md)                  | M4              | Reflect new numbering & report focus.                       |            |
-|                                                                    |                 |                                                             |            |
-| ***Phase 1: Data Collection and Storage***                         |                 |                                                             |            |
-|                                                                    |                 |                                                             |            |
-| Draft structure for docs/phase-01-collection.md report.            | M6              |                                                             |            |
-| Research and select Python library for web scraping.               | M2              | Options: BeautifulSoup, Playwright, Scrapy.                 |            |
-| Implement scrape_race_dates() function.                            | M2              |                                                             |            |
-| Implement scrape_racecard(race_date_url) function.                 | M2              |                                                             |            |
-| Implement scrape_results(race_date_url) function.                  | M3              |                                                             |            |
-| Define error handling and retry logic for scrapers.                | M7              | E.g., for network issues, unexpected page structure.        |            |
-| Test scrapers on a diverse sample of 5-10 race days.               | M8              | Include different tracks, number of races.                  |            |
-| Address Issue: Potential for IP blocking during scraping.          | You             | Monitor, implement delays, consider proxy/VPN if necessary. |            |
-| Define schema for raw racecard data (JSON/CSV).                    | M9              |                                                             |            |
-| Define schema for raw results data (JSON/CSV).                     | M10             |                                                             |            |
-|                                                                    |                 |                                                             |            |
-| ***Phase 2: Data Cleansing and Preprocessing***                    |                 |                                                             |            |
-|                                                                    |                 |                                                             |            |
-| Draft structure for docs/phase-02-cleansing.md report.             | M6              |                                                             |            |
-| Perform data profiling on raw collected data (from Phase 1).       | M1              | Use Pandas Profiling or custom scripts.                     |            |
-| Develop script for converting date/time fields.                    | M3              | Ensure consistent YYYY-MM-DD HH:MM:SS format.               |            |
-| Script to standardize categorical values (e.g., track conditions). | M3              |                                                             |            |
-| Research and select imputation techniques for HORSE_WEIGHT.        | M4              | Mean, median, model-based?                                  |            |
-| Implement chosen imputation for HORSE_WEIGHT.                      | M4              |                                                             |            |
-| Identify and handle outliers in FINISH_TIME.                       | M4              | E.g., Capping, removal based on IQR.                        |            |
-|                                                                    |                 |                                                             |            |
-| ***Phase 3: Exploratory Data Analysis (EDA)***                     |                 |                                                             |            |
-|                                                                    |                 |                                                             |            |
-| Draft structure for docs/phase-03-eda.md report.                   | M5              |                                                             |            |
-| Set up EDA Jupyter notebook (notebooks/01-race-eda.ipynb).         | M1              | Load cleansed data.                                         |            |
-| Generate histograms and density plots for numerical features.      | M2              | E.g., FINISH_TIME, STARTING_ODDS.                           |            |
-| Create bar charts for categorical feature frequencies.             | M2              | E.g., COURSE, GOING.                                        |            |
-| Calculate and visualize correlation matrix.                        | M2              | Identify highly correlated features.                        |            |
-| Box plots for numerical features grouped by key categories.        | M2              | E.g., FINISH_TIME by CLASS.                                 |            |
-| Investigate any surprising findings from initial plots.            | M3              |                                                             |            |
-|                                                                    |                 |                                                             |            |
-| ***Phase 4: Feature Engineering***                                 |                 |                                                             |            |
-|                                                                    |                 |                                                             |            |
-| Draft structure for docs/phase-04-features.md report.              | M5              |                                                             |            |
-| Create rolling average features for horse past performance.        | M3              | E.g., avg finish pos last 3/5 races.                        |            |
-| Calculate speed figures based on time and distance.                | M3              |                                                             |            |
-| Encode categorical variables (e.g., one-hot, target encoding).     | M3              |                                                             |            |
-| Create interaction features (e.g., jockey-trainer win rate).       | M3              |                                                             |            |
-<!-- TASKS_END -->
 
 ---</file>
