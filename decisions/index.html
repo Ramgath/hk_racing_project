@@ -227,6 +227,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Decisions
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -238,6 +251,34 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#2025-05-11-refinement-of-data-scope-and-storage-for-phase-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2025-05-11: Refinement of Data Scope and Storage for Phase 1
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -461,6 +502,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#2025-05-11-refinement-of-data-scope-and-storage-for-phase-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2025-05-11: Refinement of Data Scope and Storage for Phase 1
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -489,105 +547,113 @@
 </thead>
 <tbody>
 <tr>
-<td>2025-05-04</td>
-<td>Use MkDocs + Material theme for docs site</td>
-<td>Documentation</td>
-<td>GitHub Pages from <code>/docs</code>, Jekyll</td>
-<td>Better theming, built-in nav sidebar</td>
+<td>2025-05-10</td>
+<td>Define primary development environment roles: VS Code for core development, Google Colab for EDA &amp; intensive ML.</td>
+<td>Development Environment</td>
+<td>Using only Colab; Using only VS Code.</td>
+<td>Leverages VS Code's strengths for project management &amp; script development, and Colab's strengths for experimentation &amp; hardware acceleration. Clear separation of concerns.</td>
 </tr>
 <tr>
-<td>2025-05-04</td>
-<td>Deploy docs via GitHub Actions to <code>gh-pages</code></td>
-<td>CI/CD</td>
-<td>Manual Pages from <code>/docs</code> folder</td>
-<td>Full control over build, future plugins</td>
+<td>2025-05-10</td>
+<td>Adopt direct Python-to-BigQuery for raw data ingestion.</td>
+<td>Data Ingestion</td>
+<td>Google Sheets as intermediary for raw data; Local files then upload to BQ.</td>
+<td>Increases robustness, scalability, and efficiency of the automated scraping pipeline. Reduces manual steps and potential points of failure associated with Sheets intermediary.</td>
 </tr>
 <tr>
-<td>2025-05-05</td>
-<td>Design repo for AI-only assistance; skip human-centric features</td>
-<td>Repository Setup</td>
-<td>Public repo setup, contributor templates, open-source guidelines</td>
-<td>Ensures proprietary strategies remain private, limits liability; sharing steps can be added later</td>
+<td>2025-05-10</td>
+<td>Implement data corrections in BigQuery via Python scripts.</td>
+<td>Data Management</td>
+<td>Direct manual edits in BQ console; Google Sheet as a UI for triggering updates.</td>
+<td>Scripted corrections are version-controllable, auditable, and more robust. A GSheet for <em>logging</em> corrections could be a future UI enhancement if needed.</td>
 </tr>
 <tr>
-<td>2025-05-06</td>
-<td>Configure pre-commit hooks for code and notebooks</td>
-<td>Tooling</td>
-<td>Manual formatting, commit-by-commit cleaning</td>
-<td>Automate code style enforcement and strip notebook outputs</td>
+<td>2025-05-10</td>
+<td>Use Google Cloud Storage (GCS) for storing trained model artifacts.</td>
+<td>Model Management</td>
+<td>Google Drive; Storing models directly in the Git repository (not suitable for larger models).</td>
+<td>GCS offers better versioning, programmatic access, and integration with MLOps tools (like Vertex AI Model Registry). Likely free/low-cost for project scale.</td>
 </tr>
 <tr>
-<td>2025-05-06</td>
-<td>Add GitHub Actions workflows for CI and docs deploy</td>
-<td>CI/CD</td>
-<td>Manual test and docs builds</td>
-<td>Automatically lint, test, and deploy docs on push</td>
+<td>2025-05-10</td>
+<td>Utilize Vertex AI Model Registry for model versioning and metadata.</td>
+<td>Model Management</td>
+<td>Manual tracking in spreadsheets; Custom solution.</td>
+<td>Provides a centralized, free (for registration) service for managing model lifecycle, improving organization and reproducibility. Points to models in GCS.</td>
 </tr>
 <tr>
-<td>2025-05-06</td>
-<td>Establish branch protection rules on main</td>
-<td>Process</td>
-<td>Unrestricted direct pushes</td>
-<td>Ensure all changes are reviewed and pass CI before merge</td>
+<td>2025-05-10</td>
+<td>Defer dashboarding; consider Streamlit for future results presentation.</td>
+<td>Visualization / UI</td>
+<td>Dash; Custom HTML/JS; GitHub Pages for static reports.</td>
+<td>Focus on core pipeline first. Streamlit offers a Python-native way to quickly build interactive UIs when predictions are ready.</td>
 </tr>
 <tr>
-<td>2025-05-06</td>
-<td>Create GitHub issue and PR templates</td>
-<td>Process</td>
-<td>Freeform issues and PR descriptions</td>
-<td>Standardize issue reporting and PR reviews</td>
+<td>2025-05-10</td>
+<td>Implement <code>config/</code> directory with <code>config.yaml</code> (gitignored) and <code>config.yaml.example</code> for project settings.</td>
+<td>Configuration Management</td>
+<td>Hardcoding configurations; Environment variables only.</td>
+<td>Centralizes configuration, improves clarity, facilitates different environments (if needed later), and keeps secrets out of version control.</td>
 </tr>
 <tr>
-<td>2025-05-06</td>
-<td>Scaffold Makefile and setup scripts for environment</td>
-<td>Developer DX</td>
-<td>Manual venv creation and pip installs</td>
-<td>Provide reproducible one-command environment bootstrapping</td>
+<td>2025-05-10</td>
+<td>Create <code>src/common/config_loader.py</code> for loading YAML configurations.</td>
+<td>Configuration Management</td>
+<td>Ad-hoc loading in multiple scripts.</td>
+<td>Provides a standardized, reusable way to access configurations throughout the project.</td>
 </tr>
 <tr>
-<td>2025-05-06</td>
-<td>Rolled back branch protection rules for personal repo</td>
-<td>Process</td>
-<td>Enforced PR and status checks</td>
-<td>Simplify workflow for solo development; allow direct pushes</td>
-</tr>
-<tr>
-<td>2025-05-08</td>
-<td>Updated GitHub Pages setup and streamlined milestone tracking</td>
-<td>Documentation, Project Management</td>
-<td>Manual tracking, individual project boards</td>
-<td>Simplify the process with GitHub Issues and checkboxes for clarity and task management</td>
-</tr>
-<tr>
-<td>2025-05-08</td>
-<td>Remove GitHub Project board and house issues in Markdown</td>
-<td>Process</td>
-<td>Online project board</td>
-<td>Centralize issue tracking within repository docs</td>
-</tr>
-<tr>
-<td>2025-05-09</td>
-<td>Consolidate all phases plans into 1 master plan</td>
-<td>Project Managment</td>
-<td>Have each phase plan in each phase md file</td>
-<td>Centralize plan</td>
-</tr>
-<tr>
-<td>2025-05-09</td>
-<td>Phase .md files to house reports and findings only</td>
+<td>2025-05-11</td>
+<td>Manage <code>project-status.md</code> manually instead of script-based generation from Google Sheets for detailed tasks.</td>
 <td>Project Management</td>
-<td>Treat each phase as a separate project with a dedicated plan</td>
-<td>Separates plan from results.</td>
-</tr>
-<tr>
-<td>2025-05-XX</td>
-<td>(future decision)</td>
-<td></td>
-<td></td>
-<td></td>
+<td>Python script to generate phase-specific task tables; Python script for single task table.</td>
+<td>User preference for direct Markdown editing and control. Simplifies tooling if more comfortable with manual updates.</td>
 </tr>
 </tbody>
 </table>
+<h3 id="2025-05-11-refinement-of-data-scope-and-storage-for-phase-1">2025-05-11: Refinement of Data Scope and Storage for Phase 1</h3>
+<ul>
+<li>
+<p><strong>Decision:</strong> <strong>Exclude pre-2008 historical data from the project scope.</strong></p>
+<ul>
+<li><strong>Rationale:</strong><ol>
+<li>Data is error-prone and difficult to load/validate in BigQuery.</li>
+<li>Significant missing values for critical data points (win odds, horse weights, HKJC ratings).</li>
+<li>Absence of sectional timings, and concerns about the accuracy of overall finish times.</li>
+<li>Inconsistent false rail configurations prior to the 2008 GPS tracking system introduction, making comparisons with modern data unreliable.</li>
+<li>Lack of advanced timing systems (e.g., precision to two decimal places).</li>
+<li>The effort to cleanse and integrate this data outweighs the potential benefits, and focusing on 2008+ data ensures higher quality and relevance.</li>
+</ol>
+</li>
+<li><strong>Impact:</strong> Simplifies Phase 1 data collection and Phase 2 cleansing efforts. The <code>hk_racing_historical_raw</code> BigQuery dataset will not be created.</li>
+</ul>
+</li>
+<li>
+<p><strong>Decision:</strong> <strong>Refine BigQuery Dataset Strategy for Phase 1.</strong></p>
+<ul>
+<li><strong><code>hk_racing_dataset</code> (Main Dataset):</strong><ul>
+<li>Will store processed historical data (2008 - November 2023) ingested from user-provided Google Sheets.</li>
+<li>Target schemas for tables (<code>results</code>, <code>racecard</code>, <code>race_details</code>, <code>horse_register</code>) are defined by the user in <code>BQ_TABLES - bq tables.csv</code>.</li>
+<li>This dataset will also be the target for fully cleansed and integrated analytical data in later phases.</li>
+</ul>
+</li>
+<li><strong><code>hk_racing_scraped_raw</code> (Staging/Raw Dataset):</strong><ul>
+<li>Will store raw data collected from the HKJC website (December 2023 onwards) after preliminary Python-based formatting.</li>
+<li>Table structures will initially mirror the scraped data structure.</li>
+</ul>
+</li>
+<li><strong>Rationale:</strong> Clear separation of already processed historical data from newly scraped raw data. Facilitates a focused approach for Phase 1 collection and prepares for Phase 2 cleansing and integration.</li>
+<li><strong>Impact:</strong> <code>config/config.yaml</code> to be updated with <code>bq_main_dataset_id</code> and <code>bq_scraped_raw_dataset_id</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Decision:</strong> <strong>Confirm target schemas for <code>hk_racing_dataset</code> tables.</strong></p>
+<ul>
+<li><strong>Source:</strong> The structure and field definitions provided by the user in the <code>BQ_TABLES - bq tables.csv</code> file (uploaded 2025-05-11) are adopted as the definitive schemas for the <code>results</code>, <code>racecard</code>, <code>race_details</code>, and <code>horse_register</code> tables within the <code>hk_racing_dataset</code>.</li>
+<li><strong>Impact:</strong> Provides clear targets for the ingestion of processed Google Sheets data. These schemas will be documented in Appendix A of <code>master-plan.md</code>.</li>
+</ul>
+</li>
+</ul>
 
 
 
