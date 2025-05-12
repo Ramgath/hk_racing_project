@@ -73,31 +73,69 @@ The initially chosen workflow utilized a hybrid approach: Google Sheets (for eas
 ---
 
 ## Phase 1: Data Collection and Storage
-*(This phase focuses on acquiring all necessary raw data and establishing initial storage.)*
 
-### 1.1. Data Sources
-* **Primary Source**: Hong Kong Jockey Club (HKJC) official website.
-* **Data Types**: Racecards (upcoming races), race results (historical), horse details, trackwork records, stewards' reports, etc.
-* **Historical Data Consideration**: An initial dataset was acquired from a third-party vendor (pre-December 2023) with known minor inconsistencies. Data from December 2023 onwards is to be scraped directly. The project will prioritize direct scraping for ongoing data integrity.
+Revised 2025-05-11
 
-### 1.2. Data Acquisition Methodology
-* **Primary Method**: Web scraping using Python libraries (e.g., Beautiful Soup, potentially Playwright/Selenium if needed for dynamic content) executed in Google Colab or local scripts.
-* **API Limitations**: HKJC does not offer a public API for comprehensive race data, necessitating web scraping.
-* **Scope per Session**: Scraping will likely be batched (e.g., per race day) to manage load and avoid detection.
-* **Maintenance**: Scraping scripts will require ongoing maintenance due to potential HKJC website changes.
+**Objective:** To acquire all relevant raw and processed historical data from 2008 onwards and establish a structured and robust initial storage solution in Google BigQuery. This phase focuses on ingesting previously processed data and setting up the capability to collect ongoing race data.
 
-### 1.3. Preliminary Data Formatting (Post-Scraping)
-* **Environment**: Google Colab or local Python scripts.
-* **Objective**: Ensure consistency, accuracy, and control over data format before storage. Includes data type enforcement, string manipulation, and basic structural validation.
-* **Rationale**: Python scripts provide reproducibility and can handle complex logic more robustly than manual formatting or simple spreadsheet functions.
+**1. Data Sources:**
 
-### 1.4. Data Storage Strategy
-* **Raw Data Storage**: Initially, scraped data might be stored in flat files (JSON, CSV) in Google Cloud Storage or locally.
-* **Structured Data Storage**: Google BigQuery will serve as the primary data warehouse for cleansed and structured data.
-    * **Schema Definition**: A detailed data dictionary (see Appendix A) will define table structures and field types in BigQuery.
-* **Intermediary Storage (Original Plan)**: Google Sheets was considered as an editable central repository before loading to BigQuery. This may be revised for a more direct GCS/local files to BigQuery pipeline.
-* **Partitioning**: For BigQuery tables, partitioning (e.g., by race date/year) will be considered if data volume grows significantly, to optimize query performance and costs. Not planned initially given projected data sizes.
-* **Update Frequency**: New race data will be collected and processed typically twice weekly, aligned with the HKJC racing calendar. The process will be automated as much as possible.
+* **Primary Historical Processed Data (2008 - November 2023):**
+    * **Source:** User-provided Google Sheets from a 3rd party source. This data has undergone previous processing and error correction by the user.
+    * **Content:** Includes race results, race cards, race details, and horse register information.
+    * **Period:** From 2008 (coinciding with GPS tracking implementation) up to November 2023.
+* **Primary Ongoing Raw Data (December 2023 onwards):**
+    * **Source:** Hong Kong Jockey Club (HKJC) official website (`https://racing.hkjc.com/`).
+    * **Content:** Racecards (for upcoming races), race results (historical, post-race), horse details, trackwork records, stewards' reports, and any other relevant data available.
+    * **Period:** From December 2023 onwards.
+
+**2. Historical Data Consideration (Pre-2008):**
+
+* Data prior to 2008, while available in CSV format, has been deemed **out of scope** for this project.
+* **Rationale for Exclusion:**
+    * Significant data quality issues (error-prone, missing values for critical fields like win odds, horse weights, and HKJC ratings).
+    * Absence of sectional timings and less accurate overall finish times.
+    * Fundamental differences in track configurations (e.g., false rail positions) before the consistent GPS tracking system was implemented in 2008.
+    * Lack of advanced timing systems (e.g., precision to two decimal places for finish and sectional times).
+* Focusing on data from 2008 onwards ensures higher quality, consistency, and relevance to current racing conditions.
+
+**3. Data Acquisition Methodology:**
+
+* **Processed Historical Data (Google Sheets):**
+    * **Method:** Python scripts utilizing libraries such as `gspread` and `pandas` to read data directly from the user's Google Sheets.
+    * **Environment:** Local Python environment or Google Colab.
+* **Ongoing Raw Data (HKJC Website):**
+    * **Primary Method:** Web scraping using Python libraries (e.g., `requests`, `Beautiful Soup`, and potentially `Playwright` or `Selenium` if dynamic content rendering is a significant factor).
+    * **Environment:** Scripts will be developed locally or in Google Colab and designed for potential future deployment in an automated environment (e.g., Google Cloud Functions).
+    * **API Limitations:** The HKJC does not offer a public API, necessitating web scraping.
+    * **Scope per Session:** Scraping will be batched, likely per race day or specific data types (e.g., all results for a given day, all upcoming racecards).
+    * **Race Calendar:** The `src/ingestion/race_calendar.py` script, which reads race meeting dates from a Google Sheet, will be utilized to guide the scraping schedule for race-specific data.
+    * **Maintenance:** To ensure the scraping scripts continue to function correctly despite potential modifications to the HKJC website, they will need consistent oversight and upkeep. Health status updates for the scraping system will be generated and recorded in `phase-01-collection.md`.
+
+**4. Preliminary Data Formatting (Post-Scraping - for HKJC Data):**
+
+* **Environment:** Python scripts (local or Colab).
+* **Objective:** For newly scraped data, perform initial transformations to ensure basic consistency before storage in the raw BigQuery dataset. This includes:
+    * Data type enforcement (e.g., converting strings to numbers or dates where appropriate).
+    * Basic string manipulation (trimming whitespace, standardizing case for certain fields).
+    * Structural validation to ensure essential fields are present.
+* **Rationale:** Python scripts provide reproducibility, version control, and robust error handling for these initial formatting steps.
+
+**5. Data Storage Strategy:**
+
+* **Primary Data Warehouse:** Google BigQuery.
+* **BigQuery Datasets:**
+    * **`hk_racing_dataset` (Main Dataset):**
+        * **Purpose:** To store the processed historical data (2008 - November 2023) from Google Sheets. This dataset will also serve as the target for fully cleansed, integrated, and modeled analytical data in later phases.
+        * **Schema:** Tables (`results`, `racecard`, `race_details`, `horse_register`) will adhere to the structures defined by the user (see Appendix A: Data Dictionary, based on `BQ_TABLES - bq tables.csv`).
+    * **`hk_racing_scraped_raw` (Staging/Raw Dataset):**
+        * **Purpose:** To store the raw data collected from the HKJC website (December 2023 onwards) after preliminary formatting.
+        * **Schema:** Table structures in this dataset will initially mirror the scraped data structure closely. Data will be transformed and loaded into the main `hk_racing_dataset` during Phase 2 (Cleansing and Preprocessing).
+* **Data Ingestion Pipeline:**
+    * **Sheets to BigQuery:** Python scripts will read from Google Sheets and load data directly into the corresponding tables in `hk_racing_dataset`.
+    * **HKJC Scrapes to BigQuery:** Python scraping scripts will perform preliminary formatting and then load data directly into tables within `hk_racing_scraped_raw`. Temporary local file storage (e.g., JSON, CSV) or GCS may be used as an intermediate step during the scraping and loading process if beneficial for batching or error handling.
+* **Configuration:** GCP project ID, BigQuery dataset IDs, and other relevant parameters will be managed via `config/config.yaml` and accessed using `src/common/config_loader.py`.
+* **Update Frequency:** New race data from HKJC will be collected and processed typically twice weekly, aligned with the HKJC racing calendar. Automation of this collection is a future goal (Phase 4).
 
 ---
 
@@ -330,98 +368,123 @@ The dataset will encompass:
 
 ---
 
-## Appendix A: Data Dictionary
-*(This defines the planned schema for data stored in BigQuery. It may evolve.)*
+**Appendix A: Phase 1 Data Dictionary**
 
-### A.1. Table: `race_details`
-*(Contains details specific to each race event)*
+*The following tables are from the `hk_racing_dataset`*
 
-| Column Name      | Data Type | Description                                                                  | Notes/Example                                                                                              |
-|------------------|-----------|------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
-| `RACE_ID`        | INTEGER   | Unique identifier for each race.                                             | Format: `YYYYMMDD` + `RACE_NUM_SEASON` (e.g., `20240414581`). Seasonal race number is 3 digits (e.g., `581`). |
-| `DATE`           | DATE      | Date the race was held.                                                      | Format: `YYYY-MM-DD`                                                                                       |
-| `COURSE`         | STRING    | Racecourse where the race took place.                                        | Values: `Sha Tin`, `Sha Tin (AWT)`, `Happy Valley`                                                           |
-| `RACE_NUM_SEASON`| INTEGER   | The sequential number of the race within the racing season.                    | e.g., `581`                                                                                                |
-| `CLASS`          | STRING    | The class of the race.                                                       | e.g., `Class 1`, `Group 1`, `Griffin`                                                                      |
-| `DISTANCE`       | INTEGER   | The race distance in meters.                                                 | e.g., `1200`, `1650`                                                                                       |
-| `RANKING`        | STRING    | The rating bracket for the race.                                             | e.g., `85-60`                                                                                              |
-| `GOING`          | STRING    | Description of surface going.                                                | e.g., `GOOD`, `YIELDING (WET SLOW)`                                                                        |
-| `RACE_DESCRIPTION`| STRING   | The official title or name of the race.                                      | e.g., `THE HONG KONG EXCHANGES CHALLENGE CUP HANDICAP`                                                     |
-| `TRACK_CONFIG`   | STRING    | The track configuration for the race.                                        | e.g., `TURF - "C" Course`, `ALL WEATHER TRACK`                                                             |
-| `PRIZE`          | INTEGER   | The total prize money in HKD for the race.                                   |                                                                                                            |
-| `PEN_READING`    | FLOAT     | Penetrometer reading (turf) or Clegg hammer reading (all-weather track).   |                                                                                                            |
+#### A.1. `hk_racing_dataset.race_details`
 
-### A.2. Table: `race_card` (or `runners`)
-*(Contains details for each horse participating in a race, pre-race information)*
+| Column Name           | Data Type | Description                                                                             | Notes / Example                         |
+| --------------------- | --------- | --------------------------------------------------------------------------------------- | --------------------------------------- |
+| **RACE\_ID**          | INTEGER   | **Primary key.** Unique identifier for each race, combining date and seasonal sequence. | e.g. `20240414581` (YYYYMMDD + `581`)   |
+| **DATE**              | DATE      | Calendar date when the race was held.                                                   | `2024-04-14`                            |
+| **VENUE**             | STRING    | Name of the racecourse.                                                                 | `Sha Tin`, `Happy Valley`               |
+| **SURFACE**           | STRING    | Track surface type.                                                                     | `Turf` or `AWT` (all-weather track)     |
+| **RACE\_NUM\_SEASON** | INTEGER   | Sequence number of this race in the current season (3-digit).                           | `581`                                   |
+| **CLASS**             | STRING    | Classification of the race by quality/conditions.                                       | `Class 1`, `Group 1`, `Griffin`         |
+| **DISTANCE**          | INTEGER   | Race distance in metres.                                                                | `1200`, `1650`                          |
+| **RANKING**           | STRING    | Official rating bracket for eligibility (upper-lower).                                  | `85-60`, `100-85`                       |
+| **GOING**             | STRING    | Turf going description, or condition of AWT.                                            | `GOOD`, `YIELDING (WET SLOW)`, `AWT`    |
+| **RACE\_DESCRIPTION** | STRING    | Official race title.                                                                    | `THE HONG KONG EXCHANGES CHALLENGE CUP` |
+| **TRACK\_CONFIG**     | STRING    | Course layout variant (e.g., inside rail offsets).                                      | `A`, `C+2`, `AWT`                       |
+| **PRIZE**             | INTEGER   | Total purse awarded (in HKD).                                                           | `1200000`                               |
+| **PEN\_READING**      | FLOAT     | Penetrometer reading for turf (strength) or Clegg hammer reading for AWT.               | `2.72` (turf), `8.4` (AWT)              |
 
-| Column Name    | Data Type | Description                                                                    | Notes/Example                                                                                             |
-|----------------|-----------|--------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
-| `RUNNER_ID`    | STRING    | Unique identifier for a horse in a specific race.                              | Format: `RACE_ID` + `*` + `HORSE_ID` (e.g., `20240414581*CLEARWIN*H255`)                                    |
-| `RACE_ID`      | INTEGER   | Foreign key referencing `race_details.RACE_ID`.                                |                                                                                                             |
-| `HORSE_ID`     | STRING    | Unique identifier for the horse (stable across races).                         | Format: `HORSE_NAME` (no spaces/special chars) + `*` + `HORSE_CODE` (e.g., `CLEARWIN*H255`)                 |
-| `HORSE_NUM`    | INTEGER   | The number assigned to the horse for that race (usually printed on saddle cloth).| e.g., `1`, `2`, ... `14`                                                                                    |
-| `WEIGHT`       | INTEGER   | Total weight carried by the horse (lbs), including jockey and gear.            |                                                                                                             |
-| `HORSE_WEIGHT` | INTEGER   | Declared weight of the horse (lbs), usually taken a day or two before the race.|                                                                                                             |
-| `DRAW`         | INTEGER   | Starting gate (barrier) number.                                                | Lower numbers are closer to the inside rail.                                                                |
-| `JOCKEY`       | STRING    | Jockey's name.                                                                 |                                                                                                             |
-| `TRAINER`      | STRING    | Trainer's name.                                                                |                                                                                                             |
-| `RATING`       | STRING    | Official HKJC rating of the horse at the time of the race.                     | Numeric string, or `UNRATED` (overseas), `GRIFFIN` (novices).                                               |
-| `REST_DAYS`    | STRING    | Number of days since the horse's last run.                                     | Numeric string, or `DEBUT` (first run in HK or ever).                                                       |
-| `RACE_AGE`     | STRING    | Age of the horse at the time of the race.                                      | Numeric string, or `UNKNOWN`.                                                                               |
-| `GEAR`         | STRING    | Symbols representing gear used by the horse.                                   | e.g., `PC/XB/TT`. See Gear Key below.                                                                     |
+---
 
-**Gear Key (Example - to be confirmed from HKJC source):**
+#### A.2. `hk_racing_dataset.race_card`
 
-* `B`: Blinkers
-* `CP`: Sheepskin Cheek Pieces
-* `TT`: Tongue Tie
-* `XB`: Crossed Nose Band
-* `P`: Pacifier
-* `V`: Visor
-* `H`: Hood
-* `E`: Ear Plugs
-* `1` (suffix): First time using this gear.
+| Column Name       | Data Type | Description                                                      | Notes / Example             |
+| ----------------- | --------- | ---------------------------------------------------------------- | --------------------------- |
+| **RUNNER\_ID**    | STRING    | **Primary key.** Uniquely identifies a horse in a specific race. | `20240414581*CLEARWIN*H255` |
+| **RACE\_ID**      | INTEGER   | **Foreign key →** `race_details.RACE_ID`.                        | `20240414581`               |
+| **HORSE\_ID**     | STRING    | **Foreign key →** `horse_register.HORSE_ID`.                     | `CLEARWIN*H255`             |
+| **WEIGHT**        | INTEGER   | Total impost carried (jockey + equipment), in pounds.            | `126`                       |
+| **HORSE\_WEIGHT** | INTEGER   | Declared bodyweight of the horse (taken pre-race), in pounds.    | `1180`                      |
+| **DRAW**          | INTEGER   | Barrier (gate) number at start.                                  | `1` (inside rail)           |
+| **JOCKEY**        | STRING    | Name of the jockey riding this runner.                           | `Z Purton`                  |
+| **TRAINER**       | STRING    | Name of the trainer responsible for this runner.                 | `D J Whyte`                 |
+| **RATING**        | INTEGER   | Official HKJC rating at time of race.                            | `112`                       |
+| **DEBUT\_BOOL**   | BOOLEAN   | Indicates if this was the horse’s first-ever start in Hong Kong. | `TRUE`, `FALSE`             |
+| **REST\_DAYS**    | INTEGER   | Days elapsed since the horse’s previous run.                     | `21`                        |
+| **RACE\_AGE**     | INTEGER   | Age of the horse on race day, in years.                          | `6`                         |
+| **GEAR**          | STRING    | Codes for equipment fitted (see Gear Key below).                 | `PC/XB/TT`, `E`, `H1`       |
 
-### A.3. Table: `race_results`
-*(Contains the official results for each horse in a race)*
+**Gear Key (HKJC standard abbreviations):**
 
-| Column Name     | Data Type | Description                                                              | Notes/Example                                                              |
-|-----------------|-----------|--------------------------------------------------------------------------|------------------------------------------------------------------------------|
-| `RUNNER_ID`     | STRING    | Foreign key referencing `race_card.RUNNER_ID`.                           |                                                                              |
-| `RACE_ID`       | INTEGER   | Foreign key referencing `race_details.RACE_ID`.                          |                                                                              |
-| `HORSE_ID`      | STRING    | Foreign key referencing horse identity.                                  |                                                                              |
-| `FINISH_POS`    | INTEGER   | Final official finishing position.                                       | `1` for winner, `2` for second, etc. May include codes for non-finishers.  |
-| `STARTING_ODDS` | FLOAT     | Decimal odds of the horse just before race start.                        | e.g., `1.8`, `10.5`                                                          |
-| `PLACE_PAYOUTS` | FLOAT     | Decimal odds payout for a successful place bet.                            | `0` or `NULL` if unplaced or no payout.                                      |
-| `FINISH_TIME`   | FLOAT     | Finishing time of the horse in seconds.                                  | e.g., `71.52`                                                                |
-| `SEC_TIME_1`    | FLOAT     | Time taken to finish section 1 (seconds).                                |                                                                              |
-| `SEC_TIME_2`    | FLOAT     | Time taken to finish section 2 (seconds).                                |                                                                              |
-| `SEC_TIME_3`    | FLOAT     | Time taken to finish section 3 (seconds).                                |                                                                              |
-| `SEC_TIME_4`    | FLOAT     | Time taken to finish section 4 (seconds).                                | (Sectional times depend on race distance and course)                         |
-| `SEC_TIME_5`    | FLOAT     | Time taken to finish section 5 (seconds).                                |                                                                              |
-| `SEC_TIME_6`    | FLOAT     | Time taken to finish section 6 (seconds).                                |                                                                              |
-| `DIST_BEATEN`   | FLOAT     | Distance beaten by the winner, in lengths (approx).                      | `0` for winner.                                                              |
-| `INCIDENTS`     | STRING    | Notes on any racing incidents involving the horse during the race.         | e.g., "Bumped at start", "Checked near 800m"                               |
+| Code | Meaning                     | Notes              |
+| ---- | --------------------------- | ------------------ |
+| B    | Blinkers                    |                    |
+| BO   | Blinker (one cowl)          |                    |
+| CC   | Cornell Collar              |                    |
+| CP   | Sheepskin Cheek Pieces      |                    |
+| CO   | Sheepskin (one side)        |                    |
+| E    | Ear Plugs                   |                    |
+| H    | Hood                        |                    |
+| P    | Pacifier                    |                    |
+| PC   | Pacifier + cowls            |                    |
+| PS   | Pacifier (one cowl)         |                    |
+| SB   | Sheepskin Browband          |                    |
+| SR   | Shadow Roll                 |                    |
+| TT   | Tongue Tie                  |                    |
+| V    | Visor                       |                    |
+| VO   | Visor (one cowl)            |                    |
+| XB   | Crossed Nose Band           |                    |
+| \*1  | First time use of that gear | Suffix, e.g. `H1`  |
+| \*2  | Gear replaced               | Suffix, e.g. `B2`  |
+| -\*  | Gear removed                | Suffix, e.g. `CC-` |
 
-### A.4. Table: `horse_register`
-*(Contains static details for all registered horses)*
+---
 
-| Column Name         | Data Type | Description                                                              | Notes/Example                                                   |
-|---------------------|-----------|--------------------------------------------------------------------------|-----------------------------------------------------------------|
-| `HORSE_ID`          | STRING    | Unique identifier for the horse.                                         | Format: `HORSE_NAME` (no spaces/specials) + `*` + `HORSE_CODE`  |
-| `HORSE_CODE`        | STRING    | Unique code assigned by HKJC to differentiate horses (esp. same names).  | e.g., `H255`, `D466`                                            |
-| `HORSE_NAME`        | STRING    | Official name of the horse.                                              | Raw name, e.g., "DEAN'S ANGEL"                                  |
-| `SEX`               | STRING    | Horse's sex.                                                             | `Gelding`, `Mare`, `Colt`, `Filly`, `Horse`, `Rig`              |
-| `COLOR`             | STRING    | Color of the horse.                                                      | e.g., `Bay`, `Chestnut`                                         |
-| `COUNTRY_OF_ORIGIN` | STRING    | Country where the horse was born.                                        | e.g., `AUS`, `NZ`, `IRE`                                        |
-| `IMPORT_TYPE`       | STRING    | Category of entry into Hong Kong racing.                                 | `PP` (Privately Purchased), `PPG` (Privately Purchased Griffin), `ISG` (International Sale Griffin), `VIS` (Visitor) |
-| `SIRE`              | STRING    | The horse's father (sire).                                               |                                                                 |
-| `DAM`               | STRING    | The horse's mother (dam).                                                |                                                                 |
-| `DAM_SIRE`          | STRING    | The sire of the horse's dam (maternal grandsire).                        |                                                                 |
-| `OWNER`             | STRING    | Name(s) of the horse's owner(s).                                         |                                                                 |
+#### A.3. `hk_racing_dataset.race_results`
 
-**Import Type Key (Example):**
+| Column Name        | Data Type | Description                                                                                     | Notes / Example             |
+| ------------------ | --------- | ----------------------------------------------------------------------------------------------- | --------------------------- |
+| **RUNNER\_ID**     | STRING    | **Foreign key →** `race_card.RUNNER_ID`. Matches each runner to its card entry.                 | `20240414581*CLEARWIN*H255` |
+| **RACE\_ID**       | INTEGER   | **Foreign key →** `race_details.RACE_ID`.                                                       | `20240414581`               |
+| **HORSE\_ID**      | STRING    | **Foreign key →** `horse_register.HORSE_ID`.                                                    | `CLEARWIN*H255`             |
+| **FINISH\_POS**    | INTEGER   | Official finishing position. Codes ≥90 may indicate non-finishers (e.g. DNS, UR).               | `1`, `2`, `DNF`             |
+| **STARTING\_ODDS** | FLOAT     | Decimal odds at race start.                                                                     | `1.8`, `10.5`               |
+| **PLACE\_PAYOUTS** | FLOAT     | Dividend payout for a successful “place” bet. `0` or `NULL` if unplaced or no payout available. | `2.5`, `NULL`               |
+| **FINISH\_TIME**   | FLOAT     | Winner’s official finishing time in seconds.                                                    | `71.52`                     |
+| **SEC\_TIME\_1**   | FLOAT     | Sectional time for first segment (varies by course layout).                                     | `22.15`                     |
+| **SEC\_TIME\_2**   | FLOAT     | Sectional time for second segment.                                                              | `23.00`                     |
+| **SEC\_TIME\_3**   | FLOAT     | Sectional time for third segment.                                                               | `26.37`                     |
+| **SEC\_TIME\_4**   | FLOAT     | Sectional time for fourth segment (if applicable).                                              | —                           |
+| **SEC\_TIME\_5**   | FLOAT     | Sectional time for fifth segment (if race >1,600 m).                                            | —                           |
+| **SEC\_TIME\_6**   | FLOAT     | Sectional time for sixth segment (if race >2,200 m).                                            | —                           |
+
+---
+
+#### A.4. `hk_racing_dataset.horse_register`
+
+| Column Name             | Data Type | Description                                                           | Notes / Example                                    |
+| ----------------------- | --------- | --------------------------------------------------------------------- | -------------------------------------------------- |
+| **HORSE\_ID**           | STRING    | **Primary key.** Stable identifier for each horse across all races.   | `DEANSANGEL*D123`                                  |
+| **HORSE\_CODE**         | STRING    | Unique alphanumeric code assigned by HKJC (distinguishes duplicates). | `D466`, `H255`                                     |
+| **HORSE\_NAME**         | STRING    | Official registered name of the horse.                                | `DEAN’S ANGEL`                                     |
+| **SEX**                 | STRING    | Gender classification.                                                | `MALE`,`FEMALE` |
+| **COLOR**               | STRING    | Coat colour.                                                          | `Bay`, `Chestnut`                                  |
+| **COUNTRY\_OF\_ORIGIN** | STRING    | Country where the horse was foaled (ISO 3-letter code).               | `AUS`, `NZ`, `IRE`                                 |
+| **IMPORT\_TYPE**        | STRING    | Means by which horse entered HK racing.                               | `PP`, `PPG`, `ISG`, `VIS`                          |
+| **SIRE**                | STRING    | Registered name of the horse’s father.                                | `ALL TOO HARD`                                     |
+| **DAM**                 | STRING    | Registered name of the horse’s mother.                                | `ANGEL IN MY HEART`                                |
+| **DAM\_SIRE**           | STRING    | Registered sire of the dam (maternal grandsire).                      | `SEBRING`                                          |
+| **OWNER**               | STRING    | Name(s) of the owner(s) as recorded by HKJC.                          | `Mr & Mrs John Smith`                              |
+
+---
+
+**Key relationship summary:**
+
+* `race_details.RACE_ID` → parent of both `race_card` and `race_results`.
+* `race_card.RUNNER_ID` → referenced by `race_results.RUNNER_ID`.
+* `horse_register.HORSE_ID` → parent of both `race_card.HORSE_ID` and `race_results.HORSE_ID`.
+
+
+**Import Type Key:**
+
 * `PP`: Privately Purchased Horses (previously raced elsewhere).
 * `PPG`: Privately Purchased Griffins (unraced young horses).
 * `ISG`: International Sale Griffins (unraced horses from approved sales).
 * `VIS`: Visiting Invitational Horses (invited for specific major races).
+---
