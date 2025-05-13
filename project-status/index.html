@@ -363,9 +363,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#task-and-issues" class="md-nav__link">
+  <a href="#ongoing-task-and-issues" class="md-nav__link">
     <span class="md-ellipsis">
-      Task and Issues
+      Ongoing Task and Issues
     </span>
   </a>
   
@@ -660,9 +660,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#task-and-issues" class="md-nav__link">
+  <a href="#ongoing-task-and-issues" class="md-nav__link">
     <span class="md-ellipsis">
-      Task and Issues
+      Ongoing Task and Issues
     </span>
   </a>
   
@@ -693,9 +693,9 @@
 <p><strong>Last Manually Updated:</strong> 2025-05-11</p>
 <p><strong>Overall Project Health:</strong> Green</p>
 <p><strong>Current Phase:</strong> Phase 1: Data Collection and Storage</p>
-<p><em>Genaral Project Setupis complete. Phase 1 set to begin</em></p>
+<p><em>Genaral Project Setup is complete. Phase 1 set to begin</em></p>
 <p><strong>Key Focus for This Week (ending 2005-05-17):</strong></p>
-<p>M0.1: Define Phase 1 tasks &amp; milestones by reviewing the General Setup Plan and Phase 1 details in <code>master-plan.md</code>.</p>
+<p>Milestone 1.1: BigQuery Environment Setup &amp; Configuration</p>
 <hr />
 <h2 id="0-general-project-setup">0. General Project Setup</h2>
 <p><em>(Tasks related to overall project infrastructure, documentation, planning, and core technical setup before specific data work begins)</em></p>
@@ -784,7 +784,7 @@
 <p><em>Opened: 08 May 2025</em>
 <em>Closed: 11 May 2025</em></p>
 <hr />
-<h3 id="task-and-issues">Task and Issues</h3>
+<h3 id="ongoing-task-and-issues">Ongoing Task and Issues</h3>
 <table>
 <thead>
 <tr>
@@ -800,7 +800,7 @@
 <tbody>
 <tr>
 <td>✅</td>
-<td>No current tassks or issues</td>
+<td>No current tasks or issues</td>
 <td>All completed</td>
 <td></td>
 <td></td>
@@ -816,11 +816,17 @@
 <h2 id="milestone-11-bigquery-environment-setup-configuration">Milestone 1.1: BigQuery Environment Setup &amp; Configuration</h2>
 <ul>
 <li><strong>Objective:</strong> Ensure BigQuery datasets are created and project configuration is updated.</li>
-<li><strong>Tasks/Issues:</strong><ul>
-<li>[ ] <strong>Task P1.1.1:</strong> Create the <code>hk_racing_dataset</code> BigQuery dataset in the designated GCP project (if not already fully confirmed from general setup).</li>
-<li>[ ] <strong>Task P1.1.2:</strong> Create the <code>hk_racing_scraped_raw</code> BigQuery dataset in the designated GCP project.</li>
-<li>[ ] <strong>Task P1.1.3:</strong> Update <code>config/config.yaml</code> (and <code>config.yaml.example</code>) to include <code>bq_main_dataset_id: "hk_racing_dataset"</code> and <code>bq_scraped_raw_dataset_id: "hk_racing_scraped_raw"</code>.</li>
-<li>[ ] <strong>Task P1.1.4:</strong> Verify <code>src/common/config_loader.py</code> correctly loads these new dataset IDs.</li>
+</ul>
+<p><strong>Accomplishments</strong>:</p>
+<ul>
+<li>
+<p>✅ The <code>hk_racing_dataset</code> and <code>hk_racing_scraped_raw</code> BigQuery datasets are in the designated GCP project.</p>
+</li>
+<li>
+<p><strong>Tasks/Issues:</strong></p>
+<ul>
+<li>✅  <strong>Task P1.1.3:</strong> Update <code>config/config.yaml</code> (and <code>config.yaml.example</code>) to include <code>bq_main_dataset_id: "hk_racing_dataset"</code> and <code>bq_scraped_raw_dataset_id: "hk_racing_scraped_raw"</code>.</li>
+<li>✅ <strong>Task P1.1.4:</strong> Verify <code>src/common/config_loader.py</code> correctly loads these new dataset IDs.</li>
 <li>[ ] <strong>Task P1.1.5:</strong> Document the purpose and intended content of each BigQuery dataset in <code>docs/phase-01-collection.md</code> (or a dedicated data architecture document).</li>
 </ul>
 </li>

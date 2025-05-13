@@ -268,9 +268,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#2025-05-11-refinement-of-data-scope-and-storage-for-phase-1" class="md-nav__link">
+  <a href="#week-1-2025-05-04" class="md-nav__link">
     <span class="md-ellipsis">
-      2025-05-11: Refinement of Data Scope and Storage for Phase 1
+      WEEK 1: 2025-05-04
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#week-2-2025-05-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      WEEK 2: 2025-05-11
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#week-3-2025-05-18" class="md-nav__link">
+    <span class="md-ellipsis">
+      WEEK 3: 2025-05-18
     </span>
   </a>
   
@@ -509,9 +527,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#2025-05-11-refinement-of-data-scope-and-storage-for-phase-1" class="md-nav__link">
+  <a href="#week-1-2025-05-04" class="md-nav__link">
     <span class="md-ellipsis">
-      2025-05-11: Refinement of Data Scope and Storage for Phase 1
+      WEEK 1: 2025-05-04
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#week-2-2025-05-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      WEEK 2: 2025-05-11
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#week-3-2025-05-18" class="md-nav__link">
+    <span class="md-ellipsis">
+      WEEK 3: 2025-05-18
     </span>
   </a>
   
@@ -534,85 +570,68 @@
 
 
 <h1 id="key-project-decisions">Key Project Decisions</h1>
-<p>This document tracks the major design and process decisions for the HK Racing Project, along with context, alternatives considered, and rationale.</p>
-<table>
-<thead>
-<tr>
-<th>Date</th>
-<th>Decision</th>
-<th>Aspect</th>
-<th>Alternatives Considered</th>
-<th>Rationale / Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>2025-05-10</td>
-<td>Define primary development environment roles: VS Code for core development, Google Colab for EDA &amp; intensive ML.</td>
-<td>Development Environment</td>
-<td>Using only Colab; Using only VS Code.</td>
-<td>Leverages VS Code's strengths for project management &amp; script development, and Colab's strengths for experimentation &amp; hardware acceleration. Clear separation of concerns.</td>
-</tr>
-<tr>
-<td>2025-05-10</td>
-<td>Adopt direct Python-to-BigQuery for raw data ingestion.</td>
-<td>Data Ingestion</td>
-<td>Google Sheets as intermediary for raw data; Local files then upload to BQ.</td>
-<td>Increases robustness, scalability, and efficiency of the automated scraping pipeline. Reduces manual steps and potential points of failure associated with Sheets intermediary.</td>
-</tr>
-<tr>
-<td>2025-05-10</td>
-<td>Implement data corrections in BigQuery via Python scripts.</td>
-<td>Data Management</td>
-<td>Direct manual edits in BQ console; Google Sheet as a UI for triggering updates.</td>
-<td>Scripted corrections are version-controllable, auditable, and more robust. A GSheet for <em>logging</em> corrections could be a future UI enhancement if needed.</td>
-</tr>
-<tr>
-<td>2025-05-10</td>
-<td>Use Google Cloud Storage (GCS) for storing trained model artifacts.</td>
-<td>Model Management</td>
-<td>Google Drive; Storing models directly in the Git repository (not suitable for larger models).</td>
-<td>GCS offers better versioning, programmatic access, and integration with MLOps tools (like Vertex AI Model Registry). Likely free/low-cost for project scale.</td>
-</tr>
-<tr>
-<td>2025-05-10</td>
-<td>Utilize Vertex AI Model Registry for model versioning and metadata.</td>
-<td>Model Management</td>
-<td>Manual tracking in spreadsheets; Custom solution.</td>
-<td>Provides a centralized, free (for registration) service for managing model lifecycle, improving organization and reproducibility. Points to models in GCS.</td>
-</tr>
-<tr>
-<td>2025-05-10</td>
-<td>Defer dashboarding; consider Streamlit for future results presentation.</td>
-<td>Visualization / UI</td>
-<td>Dash; Custom HTML/JS; GitHub Pages for static reports.</td>
-<td>Focus on core pipeline first. Streamlit offers a Python-native way to quickly build interactive UIs when predictions are ready.</td>
-</tr>
-<tr>
-<td>2025-05-10</td>
-<td>Implement <code>config/</code> directory with <code>config.yaml</code> (gitignored) and <code>config.yaml.example</code> for project settings.</td>
-<td>Configuration Management</td>
-<td>Hardcoding configurations; Environment variables only.</td>
-<td>Centralizes configuration, improves clarity, facilitates different environments (if needed later), and keeps secrets out of version control.</td>
-</tr>
-<tr>
-<td>2025-05-10</td>
-<td>Create <code>src/common/config_loader.py</code> for loading YAML configurations.</td>
-<td>Configuration Management</td>
-<td>Ad-hoc loading in multiple scripts.</td>
-<td>Provides a standardized, reusable way to access configurations throughout the project.</td>
-</tr>
-<tr>
-<td>2025-05-11</td>
-<td>Manage <code>project-status.md</code> manually instead of script-based generation from Google Sheets for detailed tasks.</td>
-<td>Project Management</td>
-<td>Python script to generate phase-specific task tables; Python script for single task table.</td>
-<td>User preference for direct Markdown editing and control. Simplifies tooling if more comfortable with manual updates.</td>
-</tr>
-</tbody>
-</table>
-<h3 id="2025-05-11-refinement-of-data-scope-and-storage-for-phase-1">2025-05-11: Refinement of Data Scope and Storage for Phase 1</h3>
+<p>This document tracks the major design and process decisions for the HK Racing Project, along with context and rationale.</p>
+<hr />
+<h3 id="week-1-2025-05-04">WEEK 1: 2025-05-04</h3>
 <ul>
+<li>
+<p><strong>Decision:</strong> <strong>Define primary development environment roles: VS Code for core development, Google Colab for EDA &amp; intensive ML.</strong></p>
+<ul>
+<li><strong>Rationale:</strong> Leverages VS Code's strengths for project management &amp; script development, and Colab's strengths for experimentation &amp; hardware acceleration. Clear separation of concerns. (Alternatives: Using only Colab; Using only VS Code).</li>
+</ul>
+</li>
+<li>
+<p><strong>Decision:</strong> <strong>Adopt direct Python-to-BigQuery for raw data ingestion.</strong></p>
+<ul>
+<li><strong>Rationale:</strong> Increases robustness, scalability, and efficiency of the automated scraping pipeline. Reduces manual steps and potential points of failure associated with Sheets intermediary. (Alternatives: Google Sheets as intermediary for raw data; Local files then upload to BQ).</li>
+</ul>
+</li>
+<li>
+<p><strong>Decision:</strong> <strong>Implement data corrections in BigQuery via Python scripts.</strong></p>
+<ul>
+<li><strong>Rationale:</strong> Scripted corrections are version-controllable, auditable, and more robust. A GSheet for <em>logging</em> corrections could be a future UI enhancement if needed. (Alternatives: Direct manual edits in BQ console; Google Sheet as a UI for triggering updates).</li>
+</ul>
+</li>
+<li>
+<p><strong>Decision:</strong> <strong>Use Google Cloud Storage (GCS) for storing trained model artifacts.</strong></p>
+<ul>
+<li><strong>Rationale:</strong> GCS offers better versioning, programmatic access, and integration with MLOps tools (like Vertex AI Model Registry). Likely free/low-cost for project scale. (Alternatives: Google Drive; Storing models directly in the Git repository).</li>
+</ul>
+</li>
+<li>
+<p><strong>Decision:</strong> <strong>Utilize Vertex AI Model Registry for model versioning and metadata.</strong></p>
+<ul>
+<li><strong>Rationale:</strong> Provides a centralized, free (for registration) service for managing model lifecycle, improving organization and reproducibility. Points to models in GCS. (Alternatives: Manual tracking in spreadsheets; Custom solution).</li>
+</ul>
+</li>
+<li>
+<p><strong>Decision:</strong> <strong>Defer dashboarding; consider Streamlit for future results presentation.</strong></p>
+<ul>
+<li><strong>Rationale:</strong> Focus on core pipeline first. Streamlit offers a Python-native way to quickly build interactive UIs when predictions are ready. (Alternatives: Dash; Custom HTML/JS; GitHub Pages for static reports).</li>
+</ul>
+</li>
+<li>
+<p><strong>Decision:</strong> <strong>Implement <code>config/</code> directory with <code>config.yaml</code> (gitignored) and <code>config.yaml.example</code> for project settings.</strong></p>
+<ul>
+<li><strong>Rationale:</strong> Centralizes configuration, improves clarity, facilitates different environments (if needed later), and keeps secrets out of version control. (Alternatives: Hardcoding configurations; Environment variables only).</li>
+</ul>
+</li>
+<li>
+<p><strong>Decision:</strong> <strong>Create <code>src/common/config_loader.py</code> for loading YAML configurations.</strong></p>
+<ul>
+<li><strong>Rationale:</strong> Provides a standardized, reusable way to access configurations throughout the project. (Alternatives: Ad-hoc loading in multiple scripts).</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="week-2-2025-05-11">WEEK 2: 2025-05-11</h3>
+<ul>
+<li>
+<p><strong>Decision:</strong> <strong>Manage <code>project-status.md</code> manually instead of script-based generation from Google Sheets for detailed tasks.</strong></p>
+<ul>
+<li><strong>Rationale:</strong> User preference for direct Markdown editing and control. Simplifies tooling if more comfortable with manual updates. (Alternatives: Python script to generate phase-specific task tables; Python script for single task table).</li>
+</ul>
+</li>
 <li>
 <p><strong>Decision:</strong> <strong>Exclude pre-2008 historical data from the project scope.</strong></p>
 <ul>
@@ -633,7 +652,7 @@
 <ul>
 <li><strong><code>hk_racing_dataset</code> (Main Dataset):</strong><ul>
 <li>Will store processed historical data (2008 - November 2023) ingested from user-provided Google Sheets.</li>
-<li>Target schemas for tables (<code>results</code>, <code>racecard</code>, <code>race_details</code>, <code>horse_register</code>) are defined by the user in <code>BQ_TABLES - bq tables.csv</code>.</li>
+<li>Target schemas for tables (<code>results</code>, <code>racecard</code>, <code>race_details</code>, <code>horse_register</code>) are defined by the user in <code>Appendix A: Phase 1 Data Dictionary</code> of the <code>master-plan</code></li>
 <li>This dataset will also be the target for fully cleansed and integrated analytical data in later phases.</li>
 </ul>
 </li>
@@ -649,11 +668,21 @@
 <li>
 <p><strong>Decision:</strong> <strong>Confirm target schemas for <code>hk_racing_dataset</code> tables.</strong></p>
 <ul>
-<li><strong>Source:</strong> The structure and field definitions provided by the user in the <code>BQ_TABLES - bq tables.csv</code> file (uploaded 2025-05-11) are adopted as the definitive schemas for the <code>results</code>, <code>racecard</code>, <code>race_details</code>, and <code>horse_register</code> tables within the <code>hk_racing_dataset</code>.</li>
+<li><strong>Source:</strong> The structure and field definitions provided by the user are adopted as the definitive schemas for the <code>results</code>, <code>racecard</code>, <code>race_details</code>, and <code>horse_register</code> tables within the <code>hk_racing_dataset</code>.</li>
 <li><strong>Impact:</strong> Provides clear targets for the ingestion of processed Google Sheets data. These schemas will be documented in Appendix A of <code>master-plan.md</code>.</li>
 </ul>
 </li>
+<li>
+<p><strong>Decision:</strong> <strong>Evaluate Google Cloud Dataform for SQL transformation management in future phases.</strong></p>
+<ul>
+<li><strong>Rationale:</strong> For phases involving significant SQL-based data transformations within BigQuery (e.g., Phase 2: Cleansing, Phase 4: Features), Dataform offers potential benefits for version control, dependency management, testing, and orchestration of SQL workflows. This will be assessed as SQL complexity grows.</li>
+<li><strong>Impact:</strong> No immediate change to Phase 1. Local Git repository remains the primary version control for all project assets. Dataform exploration is a consideration for later stages.</li>
 </ul>
+</li>
+</ul>
+<hr />
+<h3 id="week-3-2025-05-18">WEEK 3: 2025-05-18</h3>
+<hr />
 
 
 
