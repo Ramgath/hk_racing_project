@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
+         <loc>https://ramgath.github.io/hk_racing_project/</loc>
+         <lastmod>2025-05-13</lastmod>
+    </url>
+    <url>
          <loc>https://ramgath.github.io/hk_racing_project/decisions/</loc>
          <lastmod>2025-05-13</lastmod>
     </url>
