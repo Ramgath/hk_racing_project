@@ -1,4 +1,5 @@
 site_name: HK Racing Project
+site_url: https://ramgath.github.io/hk_racing_project/
 docs_dir: docs
 theme:
   name: material
