@@ -1,13 +1,41 @@
-/* docs/css/overrides.css */
+/* ================================
+   Pin both sidebars to the viewport
+   ================================ */
 
-/* Original custom styles for headers */
-h1 { color: #5e4fa2 !important; }   /* Indigo - strong for project title */
-h2 { color: #377eb8 !important; }   /* Blue - clear for section headers */
-h3 { color: #f7811f !important; }   /* Orange - good contrast for sub-sections */
-h4 { color: #4daf4a !important; }   /* Green - gentle for finer detail */
-
-/* New styles to adjust sidebar widths */
+/* Define your widths in one place */
 :root {
-  --md-nav-width: 150px;  /* Default was 300px (18.75rem) */
-  --md-toc-width: 180px;  /* Default was 240px (15rem)  */
-}
+    --sidebar-primary-width: var(--md-nav-width);
+    --sidebar-secondary-width: var(--md-toc-width);
+  }
+
+/*----------------------------------------
+ Pin both sidebars flush to the viewport
+-----------------------------------------*/
+
+/* Primary (left) sidebar */
+[data-md-sidebar="primary"] {
+    position: fixed !important;
+    top:    0 !important; /* Changed from var(--md-header-height) */
+    left:   0 !important;
+    bottom: 0 !important;
+    width:  var(--md-nav-width) !important;
+    z-index: 1000 !important;
+    background-color: #2D3748 !important;
+  }
+
+  /* Secondary (TOC) sidebar */
+  [data-md-sidebar="secondary"] {
+    position: fixed !important;
+    top:     0 !important;  /* Changed from var(--md-header-height) */
+    right:   0 !important;
+    bottom:  0 !important;
+    width:   var(--md-toc-width) !important;
+    z-index: 1000 !important;
+    background-color: #b8d861 !important;
+  }
+
+  /* Shift the main content over so nothing sits underneath */
+  .md-main {
+    margin-left:  var(--md-nav-width) !important;
+    margin-right: var(--md-toc-width) !important;
+  }
