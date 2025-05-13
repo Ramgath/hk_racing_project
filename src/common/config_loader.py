@@ -2,11 +2,9 @@
 import yaml
 from pathlib import Path
 
-# import os # We need os for os.environ.get, os.path.isfile, os.path.expanduser
-
 # Define the absolute path to the project root directory.
 # This assumes 'config_loader.py' is in 'src/common/'.
-PROJECT_ROOT = Path(__file__).parent.parent.parent
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 
 # Define the path to the actual configuration file (not the example)
 CONFIG_FILE_NAME = "config.yaml"
@@ -27,11 +25,12 @@ def load_config() -> dict:
         FileNotFoundError: If config.yaml is not found. It advises the user
                            to copy and configure config.yaml.example.
         yaml.YAMLError: If there's an error parsing the YAML file.
+        RuntimeError: For other unexpected errors during loading.
 
     Returns:
         dict: The loaded configuration.
     """
-    if not CONFIG_FILE_PATH.exists():  # Path.exists() is fine
+    if not CONFIG_FILE_PATH.exists():
         error_message = (
             f"Configuration file not found at: {CONFIG_FILE_PATH}\n"
             f"Please create it by copying the example file "
@@ -51,56 +50,61 @@ def load_config() -> dict:
         error_message = (
             f"Error parsing YAML configuration file '{CONFIG_FILE_PATH}': {e}"
         )
+        # Re-raise as YAMLError to be specific, but include original exception
         raise yaml.YAMLError(error_message) from e
     except Exception as e:
+        # Catch any other unexpected errors during file operations or loading
         error_message = f"An unexpected error occurred while loading configuration from '{CONFIG_FILE_PATH}': {e}"
         raise RuntimeError(error_message) from e
 
 
 # Example of how to use the loader (you would typically do this in other scripts)
 if __name__ == "__main__":
-    # The F401 for 'os' at the top of the file (line 4) implies 'os' might not be used.
-    # However, the original version of this example block might have used os.path or os.environ
-    # For now, 'os' is kept for os.environ.get() if you plan to use it for credentials.
-    # If you don't use os.environ.get() or any other os functions in this file, remove 'import os'.
-
-    print(
-        f"Attempting to load configuration from: {CONFIG_FILE_PATH}"
-    )  # This f-string has a placeholder
+    print(f"Attempting to load configuration from: {CONFIG_FILE_PATH}")
     try:
         config = load_config()
 
-        google_cloud_config = config.get("google_cloud", {})
+        # Access Google Cloud configurations safely
+        google_cloud_config = config.get(
+            "google_cloud", {}
+        )  # Default to empty dict if 'google_cloud' key is missing
+
         project_id = google_cloud_config.get("project_id")
-        dataset_id = google_cloud_config.get("bq_dataset_id")
+        main_dataset_id = google_cloud_config.get("bq_main_dataset_id")
+        scraped_raw_dataset_id = google_cloud_config.get("bq_scraped_raw_dataset_id")
 
-        if project_id:
-            # Line 76: F541 fix
+        if not config:  # Checks if the loaded config is empty
+            print("  Configuration loaded, but it's empty.")
+        else:
             print("  Successfully loaded configuration.")
-            print(f"  GCP Project ID: {project_id}")  # This f-string has a placeholder
-        else:
-            # Line 79: F541 fix
-            # For E713 on line 79: check if there's a 'not ... in ...' condition nearby or within this block.
-            # If the error was for a line like 'if not key in dict:', change to 'if key not in dict:'.
-            print("  GCP Project ID not found in configuration or config is empty.")
 
-        if dataset_id:
-            print(
-                f"  BigQuery Dataset ID: {dataset_id}"
-            )  # This f-string has a placeholder
-        else:
-            # Line 84: F541 fix
-            # For E713 on line 84: similar to above, check for 'not ... in ...'.
-            print("  BigQuery Dataset ID not found in configuration.")
+            if project_id:
+                print(f"  GCP Project ID: {project_id}")
+            else:
+                print("  GCP Project ID not found in configuration.")
 
-    except FileNotFoundError as e:
-        print(f"ERROR: {e}")  # This f-string has a placeholder
-        print("Please ensure your 'config/config.yaml' file is set up correctly.")
-    except yaml.YAMLError as e:
-        print(f"YAML PARSING ERROR: {e}")  # This f-string has a placeholder
-    except RuntimeError as e:
-        print(f"RUNTIME ERROR: {e}")  # This f-string has a placeholder
-    except Exception as e:
+            if main_dataset_id:
+                print(f"  BigQuery Main Dataset ID: {main_dataset_id}")
+            else:
+                print("  BigQuery Main Dataset ID (bq_main_dataset_id) not found.")
+
+            if scraped_raw_dataset_id:
+                print(f"  BigQuery Scraped Raw Dataset ID: {scraped_raw_dataset_id}")
+            else:
+                print(
+                    "  BigQuery Scraped Raw Dataset ID (bq_scraped_raw_dataset_id) not found."
+                )
+
+    except FileNotFoundError as e_fnf:
+        print(f"ERROR: {e_fnf}")
         print(
-            f"An unexpected error occurred during the example usage: {e}"
-        )  # This f-string has a placeholder
+            f"Please ensure your '{CONFIG_DIR_NAME}/{CONFIG_FILE_NAME}' file is set up correctly."
+        )
+    except yaml.YAMLError as e_yml:
+        print(f"YAML PARSING ERROR: {e_yml}")
+    except RuntimeError as e_rt:
+        print(f"RUNTIME ERROR: {e_rt}")
+    except (
+        Exception
+    ) as e_exc:  # Catch-all for any other unexpected errors during example execution
+        print(f"An unexpected error occurred during the example usage: {e_exc}")

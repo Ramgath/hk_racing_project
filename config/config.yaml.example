@@ -3,7 +3,5 @@
 
 google_cloud:
   project_id: "your-gcp-project-id-goes-here"
+  bq_dataset_id_: "your_bq_dataset_name"
   bq_dataset_id: "your_bq_dataset_name"
-  bq_races_table_id: "races_table_name"
-  # Add other GCP related configs as you identify them
-  # e.g., gcs_bucket_name: "your-gcs-bucket-for-data"

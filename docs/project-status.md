@@ -6,11 +6,11 @@
 
 **Current Phase:** Phase 1: Data Collection and Storage
 
-*Genaral Project Setupis complete. Phase 1 set to begin*
+*Genaral Project Setup is complete. Phase 1 set to begin*
 
 **Key Focus for This Week (ending 2005-05-17):**
 
-M0.1: Define Phase 1 tasks & milestones by reviewing the General Setup Plan and Phase 1 details in `master-plan.md`.
+Milestone 1.1: BigQuery Environment Setup & Configuration
 
 ---
 ## 0. General Project Setup
@@ -131,11 +131,11 @@ M0.1: Define Phase 1 tasks & milestones by reviewing the General Setup Plan and 
 
 ---
 
-### Task and Issues
+### Ongoing Task and Issues
 
 | Status | Task / Issue Description                                       | Milestone | Notes / Resolution                                                                                                | Priority | Date Due   | Tags                                  |
 |--------|----------------------------------------------------------------|-----------|-------------------------------------------------------------------------------------------------------------------|----------|------------|-------------------------------------                    |
-| ✅     | No current tassks or issues          | All completed |   |   |   |
+| ✅     | No current tasks or issues          | All completed |   |   |   |
 
 
 
@@ -150,11 +150,15 @@ M0.1: Define Phase 1 tasks & milestones by reviewing the General Setup Plan and 
 ## Milestone 1.1: BigQuery Environment Setup & Configuration
 
 * **Objective:** Ensure BigQuery datasets are created and project configuration is updated.
+
+**Accomplishments**:
+
+ * ✅ The `hk_racing_dataset` and `hk_racing_scraped_raw` BigQuery datasets are in the designated GCP project.
+
 * **Tasks/Issues:**
-    * [ ] **Task P1.1.1:** Create the `hk_racing_dataset` BigQuery dataset in the designated GCP project (if not already fully confirmed from general setup).
-    * [ ] **Task P1.1.2:** Create the `hk_racing_scraped_raw` BigQuery dataset in the designated GCP project.
-    * [ ] **Task P1.1.3:** Update `config/config.yaml` (and `config.yaml.example`) to include `bq_main_dataset_id: "hk_racing_dataset"` and `bq_scraped_raw_dataset_id: "hk_racing_scraped_raw"`.
-    * [ ] **Task P1.1.4:** Verify `src/common/config_loader.py` correctly loads these new dataset IDs.
+
+    * ✅  **Task P1.1.3:** Update `config/config.yaml` (and `config.yaml.example`) to include `bq_main_dataset_id: "hk_racing_dataset"` and `bq_scraped_raw_dataset_id: "hk_racing_scraped_raw"`.
+    * ✅ **Task P1.1.4:** Verify `src/common/config_loader.py` correctly loads these new dataset IDs.
     * [ ] **Task P1.1.5:** Document the purpose and intended content of each BigQuery dataset in `docs/phase-01-collection.md` (or a dedicated data architecture document).
 
 ---
