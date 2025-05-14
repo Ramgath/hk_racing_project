@@ -6,13 +6,10 @@ docs_dir: docs
 # Theme configuration
 theme:
   name: material
-  palette:
-    scheme: slate  # Optional: Matches the dark grey aesthetic of side panels
-    primary: blue  # Matches the header color scheme from your document
 
 # Extra CSS for custom styles (e.g., sidebar widths and dark grey panels)
 extra_css:
-  - css/overrides.css
+ - css/overrides.css
 
 
 # Navigation Structure
@@ -24,7 +21,7 @@ nav:
       - Project Status: project-status.md
       - Accomplishments: project-accomplishments.md
   - Phases:
-      - Phase 1: phase-01-collection.md
+      - P1-collection: phase-01-collection.md
       - Phase 2: phase-02-cleansing.md
       - Phase 3: phase-03-eda.md
       - Phase 4: phase-04-features.md

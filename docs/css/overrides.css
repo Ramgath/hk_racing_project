@@ -1,41 +1,69 @@
-/* ================================
-   Pin both sidebars to the viewport
-   ================================ */
-
-/* Define your widths in one place */
+/* ——— PANEL LAYOUT (unchanged) ——— */
 :root {
-    --sidebar-primary-width: var(--md-nav-width);
-    --sidebar-secondary-width: var(--md-toc-width);
-  }
+  --md-nav-width: 8rem;
+  --md-toc-width: 10rem;
+  --md-content-max-width: none;
+}
 
-/*----------------------------------------
- Pin both sidebars flush to the viewport
------------------------------------------*/
+.md-sidebar--primary {
+  position: fixed;
+  top: var(--md-header-height);
+  left: 0;
+  bottom: 0;
+  width: var(--md-nav-width);
+  z-index: 1000;
+}
 
-/* Primary (left) sidebar */
-[data-md-sidebar="primary"] {
-    position: fixed !important;
-    top:    0 !important; /* Changed from var(--md-header-height) */
-    left:   0 !important;
-    bottom: 0 !important;
-    width:  var(--md-nav-width) !important;
-    z-index: 1000 !important;
-    background-color: #2D3748 !important;
-  }
+.md-sidebar--secondary {
+  position: fixed;
+  top: var(--md-header-height);
+  right: 0;
+  bottom: 0;
+  width: var(--md-toc-width);
+  z-index: 1000;
+}
 
-  /* Secondary (TOC) sidebar */
-  [data-md-sidebar="secondary"] {
-    position: fixed !important;
-    top:     0 !important;  /* Changed from var(--md-header-height) */
-    right:   0 !important;
-    bottom:  0 !important;
-    width:   var(--md-toc-width) !important;
-    z-index: 1000 !important;
-    background-color: #b8d861 !important;
-  }
+.md-main {
+  margin-left: var(--md-nav-width) !important;
+  margin-right: var(--md-toc-width) !important;
+}
 
-  /* Shift the main content over so nothing sits underneath */
-  .md-main {
-    margin-left:  var(--md-nav-width) !important;
-    margin-right: var(--md-toc-width) !important;
+@media screen and (min-width: 76.25em) {
+  .md-main__inner {
+    display: flex;
+    gap: 0.3rem !important;
   }
+}
+
+/* ——— HEADER COLORS ——— */
+:root {
+  /* Vibrant Heading Levels with Traditional Orange */
+  --hdr-1: #8A2BE2;  /* Blue Violet - strong, vivid, engaging */
+  --hdr-2: #1E90FF;  /* Dodger Blue - bright, clear, dynamic */
+  --hdr-3: #FFA500;  /* Orange - vivid, warm, attention-grabbing */
+  --hdr-4: #32CD32;  /* Lime Green - lively, fresh accent */
+}
+
+
+
+.md-content h1 {
+  color: var(--hdr-1);
+  border-bottom: 2px solid var(--hdr-1);
+  padding-bottom: 0.3em;
+}
+
+.md-content h2 {
+  color: var(--hdr-2);
+  border-bottom: 1px solid var(--hdr-2);
+  padding-bottom: 0.25em;
+}
+
+.md-content h3 {
+  color: var(--hdr-3);
+  font-weight: bold;
+}
+
+.md-content h4 {
+  color: var(--hdr-4);
+  font-style: italic;
+}
