@@ -6,11 +6,11 @@
 
 **Current Phase:** Phase 1: Data Collection and Storage
 
-*Genaral Project Setup is complete. Phase 1 set to begin*
+BQ Setup is completed and data is loaded.
 
 **Key Focus for This Week (ending 2005-05-17):**
 
-Milestone 1.1: BigQuery Environment Setup & Configuration
+M1.3: Development of HKJC Web Scraping Capability: Develop Python scripts to scrape required data types (racecards, results, horse details, etc.) from the HKJC website for data from 19 March 2025 onwards.
 
 ---
 ## 0. General Project Setup
@@ -48,15 +48,15 @@ Milestone 1.1: BigQuery Environment Setup & Configuration
 
 **Overall Phase Objective:** To acquire all relevant raw and processed historical data from 2008 onwards and establish a structured and robust initial storage solution in Google BigQuery. This involves ingesting previously processed data (2008-Nov 2023 from Google Sheets) and developing the capability to collect ongoing race data (Dec 2023 onwards from HKJC website).
 
-**Current Status:** In Progress (Milestone 1.1 Complete, Milestone 1.2 In Progress)
+**Current Status:** In Progress
 
 ---
 
 ## Phase 1 Milestones
 
-* **M1.1: BigQuery Environment Setup & Configuration:** Ensure BigQuery datasets are created and project configuration is updated.
-* **M1.2: Ingestion of Processed Historical Data (Google Sheets to BigQuery):** Transfer the user's existing processed and error-corrected data (2008 - November 2023) from Google Sheets into the `hk_racing_dataset` in BigQuery, matching schemas defined in Appendix A of `master-plan.md`.
-* **M1.3: Development of HKJC Web Scraping Capability:** Develop Python scripts to scrape required data types (racecards, results, horse details, etc.) from the HKJC website for data from December 2023 onwards.
+* **✅ M1.1: BigQuery Environment Setup & Configuration:** Ensure BigQuery datasets are created and project configuration is updated.
+* **✅ M1.2: Ingestion of Processed Historical Data (Google Sheets to BigQuery):** Transfer the user's existing processed and error-corrected data (2008 - November 2023)+ and the user scraped data (Decimeber 2023 - 19 March 2025) from Google Sheets into the `hk_racing_dataset` in BigQuery, matching schemas defined in Appendix A of `master-plan.md`.
+* **M1.3: Development of HKJC Web Scraping Capability:** Develop Python scripts to scrape required data types (racecards, results, horse details, etc.) from the HKJC website for data from 19 March 2025 onwards.
 * **M1.4: Initial Ingestion of Scraped HKJC Data into BigQuery:** Load an initial batch of scraped HKJC data (e.g., December 2023 - current date) into the `hk_racing_scraped_raw` BigQuery dataset.
 * **M1.5: Phase 1 Documentation and Review:** Ensure all Phase 1 activities, designs, and processes are documented and reviewed.
 
@@ -66,11 +66,6 @@ Milestone 1.1: BigQuery Environment Setup & Configuration
 
 | ID       | Description                                                                                                | Milestone | Priority | Status | Due Date   | Notes                                                                   |
 | :------- | :--------------------------------------------------------------------------------------------------------- | :-------- | :------- | :----- | :--------- | :---------------------------------------------------------------------- |
-| **M1.2** | **Ingestion of Processed Historical Data (Google Sheets to BigQuery)** |           |          |        |            |                                                                         |
-| P1.2.2   | Develop/finalize Python scripts (`src/ingestion/load_sheets_data.py`) to read data from the specified Google Sheets. | M1.2      | High     | Open   |            | Parameterize Sheet names/IDs and target BigQuery table names. Implement robust error handling and logging. |
-| P1.2.3   | Perform a full load of the historical processed data (2008-Nov 2023) from Google Sheets into the corresponding BigQuery tables in `hk_racing_dataset`. | M1.2      | High     | Open   |            | Ensure data conforms to schemas in Appendix A.                          |
-| P1.2.4   | Validate data integrity post-ingestion (e.g., row counts, spot checks on key fields against Google Sheets source). | M1.2      | Medium   | Open   |            |                                                                         |
-| P1.2.5   | Document the Google Sheets ingestion process and script usage in `docs/phase-01-collection.md`.            | M1.2      | Medium   | Open   |            |                                                                         |
 | **M1.3** | **Development of HKJC Web Scraping Capability** |           |          |        |            |                                                                         |
 | P1.3.1   | Identify specific HKJC website URLs and page structures for each required data type (race results, race cards, horse details). | M1.3      | High     | Open   |            | Investigate if Playwright/Selenium is needed or if `requests`/`BeautifulSoup` is sufficient. |
 | P1.3.2   | Develop initial scraping script for one data type (e.g., Race Results).                                    | M1.3      | High     | Open   |            | Handle pagination, navigation. Define preliminary data formatting. Structure output for `hk_racing_scraped_raw`. |

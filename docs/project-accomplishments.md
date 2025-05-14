@@ -1,10 +1,10 @@
 ## Genaral Project Setup Accomplishments
 
 * **✅ M0.1: Project Repository and Core Structure Established:**
+
     * GitHub repository (`hk_racing_project`) initialized and configured.
     * Standardized project directory structure (`src`, `docs`, `data`, `tests`, `notebooks`, `scripts`, `config`) implemented, promoting clear separation of concerns.
     * Comprehensive `.gitignore` file established to manage version control hygiene.
-    * Initial `README.md` created, providing a project overview.
 
 * **✅ M0.2: Master Plan Document (`master-plan.md`) Finalized:**
 
@@ -61,6 +61,7 @@
     * Purpose and intended content of each BigQuery dataset documented in `docs/phase-01-collection.md` (or equivalent documentation).
 
 * **✅ M1.2: Ingestion of Processed Historical Data (Google Sheets to BigQuery)**
-    *Table schemas in `hk_racing_dataset` (for `results`, `racecard`, `race_details`, `horse_register`) are defined and documented in Appendix A of `master-plan.md`, and corresponding tables are understood to be created/creatable in BigQuery.
-
+    * Table schemas in `hk_racing_dataset` (for `results`, `racecard`, `race_details`, `horse_register`) are defined and documented in Appendix A of `master-plan.md`, and corresponding tables are understood to be created in BigQuery.
+    * The full dataset is correctly uploaded to BigQuery with the defined schemas found in Appendix A.
+    * Validate data integrity post-ingestion
 ---

@@ -7,7 +7,7 @@ description: Comprehensive plan for the Hong Kong Racing Project, covering objec
 
 This document outlines the technical plan for building a handicapping and wagering system for thoroughbred horse racing in Hong Kong, with the primary objective of achieving sustainable financial gain through data-driven strategies. It serves as the central reference for project scope, methodology, and planned execution across all phases.
 
-## 0. Project Definition and Establishment
+## Project Definition and Establishment
 
 ### 0.1. Introduction and Aims
 
@@ -74,24 +74,27 @@ The initially chosen workflow utilized a hybrid approach: Google Sheets (for eas
 
 ## Phase 1: Data Collection and Storage
 
-Revised 2025-05-11
-
 **Objective:** To acquire all relevant raw and processed historical data from 2008 onwards and establish a structured and robust initial storage solution in Google BigQuery. This phase focuses on ingesting previously processed data and setting up the capability to collect ongoing race data.
 
-**1. Data Sources:**
+### 1.1 Data Sources:
 
-* **Primary Historical Processed Data (2008 - November 2023):**
-    * **Source:** User-provided Google Sheets from a 3rd party source. This data has undergone previous processing and error correction by the user.
+* **Primary Historical Processed Data (2008 - March 2025):**
+    * **Source 1:** User-provided Google Sheets from a 3rd party source. This data has undergone previous processing and error correction by the user.
     * **Content:** Includes race results, race cards, race details, and horse register information.
     * **Period:** From 2008 (coinciding with GPS tracking implementation) up to November 2023.
-* **Primary Ongoing Raw Data (December 2023 onwards):**
+
+    * **Source 2:** User scraped data using a copy and paste method with the aid of app script for processing.
+    * **Content:** Continuation of the 3rd party data.
+    * **Period:** From Dec 2023 to 19 March 2025.
+
+* **Primary Ongoing Raw Data (March 2025 onwards):**
     * **Source:** Hong Kong Jockey Club (HKJC) official website (`https://racing.hkjc.com/`).
     * **Content:** Racecards (for upcoming races), race results (historical, post-race), horse details, trackwork records, stewards' reports, and any other relevant data available.
-    * **Period:** From December 2023 onwards.
+    * **Period:** From March 2025 onwards.
 
-**2. Historical Data Consideration (Pre-2008):**
+### 1.2. Historical Data Consideration (Pre-2008):
 
-* Data prior to 2008, while available in CSV format, has been deemed **out of scope** for this project.
+* Data prior to 2008, from the 3rd party source, while available in CSV format, has been deemed **out of scope** for this project.
 * **Rationale for Exclusion:**
     * Significant data quality issues (error-prone, missing values for critical fields like win odds, horse weights, and HKJC ratings).
     * Absence of sectional timings and less accurate overall finish times.
@@ -99,7 +102,7 @@ Revised 2025-05-11
     * Lack of advanced timing systems (e.g., precision to two decimal places for finish and sectional times).
 * Focusing on data from 2008 onwards ensures higher quality, consistency, and relevance to current racing conditions.
 
-**3. Data Acquisition Methodology:**
+### 1.3. Data Acquisition Methodology:
 
 * **Processed Historical Data (Google Sheets):**
     * **Method:** Python scripts utilizing libraries such as `gspread` and `pandas` to read data directly from the user's Google Sheets.
@@ -112,7 +115,7 @@ Revised 2025-05-11
     * **Race Calendar:** The `src/ingestion/race_calendar.py` script, which reads race meeting dates from a Google Sheet, will be utilized to guide the scraping schedule for race-specific data.
     * **Maintenance:** To ensure the scraping scripts continue to function correctly despite potential modifications to the HKJC website, they will need consistent oversight and upkeep. Health status updates for the scraping system will be generated and recorded in `phase-01-collection.md`.
 
-**4. Preliminary Data Formatting (Post-Scraping - for HKJC Data):**
+### 1.4. Preliminary Data Formatting (Post-Scraping - for HKJC Data):
 
 * **Environment:** Python scripts (local or Colab).
 * **Objective:** For newly scraped data, perform initial transformations to ensure basic consistency before storage in the raw BigQuery dataset. This includes:
@@ -121,13 +124,13 @@ Revised 2025-05-11
     * Structural validation to ensure essential fields are present.
 * **Rationale:** Python scripts provide reproducibility, version control, and robust error handling for these initial formatting steps.
 
-**5. Data Storage Strategy:**
+### 1.5. Data Storage Strategy:
 
 * **Primary Data Warehouse:** Google BigQuery.
 * **BigQuery Datasets:**
     * **`hk_racing_dataset` (Main Dataset):**
-        * **Purpose:** To store the processed historical data (2008 - November 2023) from Google Sheets. This dataset will also serve as the target for fully cleansed, integrated, and modeled analytical data in later phases.
-        * **Schema:** Tables (`results`, `racecard`, `race_details`, `horse_register`) will adhere to the structures defined by the user (see Appendix A: Data Dictionary, based on `BQ_TABLES - bq tables.csv`).
+        * **Purpose:** To store the processed historical data (2008 - March 2025) from Google Sheets. This dataset will also serve as the target for fully cleansed, integrated, and modeled analytical data in later phases.
+        * **Schema:** Tables (`results`, `racecard`, `race_details`, `horse_register`) will adhere to the structures defined by the user (see Appendix A: Data Dictionary).
     * **`hk_racing_scraped_raw` (Staging/Raw Dataset):**
         * **Purpose:** To store the raw data collected from the HKJC website (December 2023 onwards) after preliminary formatting.
         * **Schema:** Table structures in this dataset will initially mirror the scraped data structure closely. Data will be transformed and loaded into the main `hk_racing_dataset` during Phase 2 (Cleansing and Preprocessing).
