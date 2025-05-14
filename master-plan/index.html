@@ -312,13 +312,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#0-project-definition-and-establishment" class="md-nav__link">
+  <a href="#project-definition-and-establishment" class="md-nav__link">
     <span class="md-ellipsis">
-      0. Project Definition and Establishment
+      Project Definition and Establishment
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="0. Project Definition and Establishment">
+    <nav class="md-nav" aria-label="Project Definition and Establishment">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -440,6 +440,57 @@
       Phase 1: Data Collection and Storage
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Phase 1: Data Collection and Storage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-data-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Data Sources:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-historical-data-consideration-pre-2008" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2. Historical Data Consideration (Pre-2008):
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-data-acquisition-methodology" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3. Data Acquisition Methodology:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-preliminary-data-formatting-post-scraping-for-hkjc-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4. Preliminary Data Formatting (Post-Scraping - for HKJC Data):
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-data-storage-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.5. Data Storage Strategy:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1228,13 +1279,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#0-project-definition-and-establishment" class="md-nav__link">
+  <a href="#project-definition-and-establishment" class="md-nav__link">
     <span class="md-ellipsis">
-      0. Project Definition and Establishment
+      Project Definition and Establishment
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="0. Project Definition and Establishment">
+    <nav class="md-nav" aria-label="Project Definition and Establishment">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1356,6 +1407,57 @@
       Phase 1: Data Collection and Storage
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Phase 1: Data Collection and Storage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-data-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Data Sources:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-historical-data-consideration-pre-2008" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2. Historical Data Consideration (Pre-2008):
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-data-acquisition-methodology" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3. Data Acquisition Methodology:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-preliminary-data-formatting-post-scraping-for-hkjc-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4. Preliminary Data Formatting (Post-Scraping - for HKJC Data):
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-data-storage-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.5. Data Storage Strategy:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1821,7 +1923,7 @@
 
 <h1 id="hong-kong-racing-project-master-plan">Hong Kong Racing Project: Master Plan</h1>
 <p>This document outlines the technical plan for building a handicapping and wagering system for thoroughbred horse racing in Hong Kong, with the primary objective of achieving sustainable financial gain through data-driven strategies. It serves as the central reference for project scope, methodology, and planned execution across all phases.</p>
-<h2 id="0-project-definition-and-establishment">0. Project Definition and Establishment</h2>
+<h2 id="project-definition-and-establishment">Project Definition and Establishment</h2>
 <h3 id="01-introduction-and-aims">0.1. Introduction and Aims</h3>
 <h4 id="011-project-objective">0.1.1. Project Objective</h4>
 <ul>
@@ -1888,26 +1990,36 @@ The initially chosen workflow utilized a hybrid approach: Google Sheets (for eas
 </ul>
 <hr />
 <h2 id="phase-1-data-collection-and-storage">Phase 1: Data Collection and Storage</h2>
-<p>Revised 2025-05-11</p>
 <p><strong>Objective:</strong> To acquire all relevant raw and processed historical data from 2008 onwards and establish a structured and robust initial storage solution in Google BigQuery. This phase focuses on ingesting previously processed data and setting up the capability to collect ongoing race data.</p>
-<p><strong>1. Data Sources:</strong></p>
+<h3 id="11-data-sources">1.1 Data Sources:</h3>
 <ul>
-<li><strong>Primary Historical Processed Data (2008 - November 2023):</strong><ul>
-<li><strong>Source:</strong> User-provided Google Sheets from a 3rd party source. This data has undergone previous processing and error correction by the user.</li>
+<li>
+<p><strong>Primary Historical Processed Data (2008 - March 2025):</strong></p>
+<ul>
+<li><strong>Source 1:</strong> User-provided Google Sheets from a 3rd party source. This data has undergone previous processing and error correction by the user.</li>
 <li><strong>Content:</strong> Includes race results, race cards, race details, and horse register information.</li>
-<li><strong>Period:</strong> From 2008 (coinciding with GPS tracking implementation) up to November 2023.</li>
+<li>
+<p><strong>Period:</strong> From 2008 (coinciding with GPS tracking implementation) up to November 2023.</p>
+</li>
+<li>
+<p><strong>Source 2:</strong> User scraped data using a copy and paste method with the aid of app script for processing.</p>
+</li>
+<li><strong>Content:</strong> Continuation of the 3rd party data.</li>
+<li><strong>Period:</strong> From Dec 2023 to 19 March 2025.</li>
 </ul>
 </li>
-<li><strong>Primary Ongoing Raw Data (December 2023 onwards):</strong><ul>
+<li>
+<p><strong>Primary Ongoing Raw Data (March 2025 onwards):</strong></p>
+<ul>
 <li><strong>Source:</strong> Hong Kong Jockey Club (HKJC) official website (<code>https://racing.hkjc.com/</code>).</li>
 <li><strong>Content:</strong> Racecards (for upcoming races), race results (historical, post-race), horse details, trackwork records, stewards' reports, and any other relevant data available.</li>
-<li><strong>Period:</strong> From December 2023 onwards.</li>
+<li><strong>Period:</strong> From March 2025 onwards.</li>
 </ul>
 </li>
 </ul>
-<p><strong>2. Historical Data Consideration (Pre-2008):</strong></p>
+<h3 id="12-historical-data-consideration-pre-2008">1.2. Historical Data Consideration (Pre-2008):</h3>
 <ul>
-<li>Data prior to 2008, while available in CSV format, has been deemed <strong>out of scope</strong> for this project.</li>
+<li>Data prior to 2008, from the 3rd party source, while available in CSV format, has been deemed <strong>out of scope</strong> for this project.</li>
 <li><strong>Rationale for Exclusion:</strong><ul>
 <li>Significant data quality issues (error-prone, missing values for critical fields like win odds, horse weights, and HKJC ratings).</li>
 <li>Absence of sectional timings and less accurate overall finish times.</li>
@@ -1917,7 +2029,7 @@ The initially chosen workflow utilized a hybrid approach: Google Sheets (for eas
 </li>
 <li>Focusing on data from 2008 onwards ensures higher quality, consistency, and relevance to current racing conditions.</li>
 </ul>
-<p><strong>3. Data Acquisition Methodology:</strong></p>
+<h3 id="13-data-acquisition-methodology">1.3. Data Acquisition Methodology:</h3>
 <ul>
 <li><strong>Processed Historical Data (Google Sheets):</strong><ul>
 <li><strong>Method:</strong> Python scripts utilizing libraries such as <code>gspread</code> and <code>pandas</code> to read data directly from the user's Google Sheets.</li>
@@ -1934,7 +2046,7 @@ The initially chosen workflow utilized a hybrid approach: Google Sheets (for eas
 </ul>
 </li>
 </ul>
-<p><strong>4. Preliminary Data Formatting (Post-Scraping - for HKJC Data):</strong></p>
+<h3 id="14-preliminary-data-formatting-post-scraping-for-hkjc-data">1.4. Preliminary Data Formatting (Post-Scraping - for HKJC Data):</h3>
 <ul>
 <li><strong>Environment:</strong> Python scripts (local or Colab).</li>
 <li><strong>Objective:</strong> For newly scraped data, perform initial transformations to ensure basic consistency before storage in the raw BigQuery dataset. This includes:<ul>
@@ -1945,13 +2057,13 @@ The initially chosen workflow utilized a hybrid approach: Google Sheets (for eas
 </li>
 <li><strong>Rationale:</strong> Python scripts provide reproducibility, version control, and robust error handling for these initial formatting steps.</li>
 </ul>
-<p><strong>5. Data Storage Strategy:</strong></p>
+<h3 id="15-data-storage-strategy">1.5. Data Storage Strategy:</h3>
 <ul>
 <li><strong>Primary Data Warehouse:</strong> Google BigQuery.</li>
 <li><strong>BigQuery Datasets:</strong><ul>
 <li><strong><code>hk_racing_dataset</code> (Main Dataset):</strong><ul>
-<li><strong>Purpose:</strong> To store the processed historical data (2008 - November 2023) from Google Sheets. This dataset will also serve as the target for fully cleansed, integrated, and modeled analytical data in later phases.</li>
-<li><strong>Schema:</strong> Tables (<code>results</code>, <code>racecard</code>, <code>race_details</code>, <code>horse_register</code>) will adhere to the structures defined by the user (see Appendix A: Data Dictionary, based on <code>BQ_TABLES - bq tables.csv</code>).</li>
+<li><strong>Purpose:</strong> To store the processed historical data (2008 - March 2025) from Google Sheets. This dataset will also serve as the target for fully cleansed, integrated, and modeled analytical data in later phases.</li>
+<li><strong>Schema:</strong> Tables (<code>results</code>, <code>racecard</code>, <code>race_details</code>, <code>horse_register</code>) will adhere to the structures defined by the user (see Appendix A: Data Dictionary).</li>
 </ul>
 </li>
 <li><strong><code>hk_racing_scraped_raw</code> (Staging/Raw Dataset):</strong><ul>
