@@ -883,6 +883,13 @@
 <p><strong>Impact:</strong> This necessitates significant data wrangling and transformation efforts. The success of this alignment will heavily influence the analytical capabilities of the combined dataset.</p>
 </li>
 <li>
+<p><strong>Decision:</strong> <strong>Redefine <code>race_calendar.py</code> (reading from a user-managed Google Sheet) as the primary trigger for the scraping pipeline for new race meetings.</strong></p>
+<ul>
+<li><strong>Rationale:</strong> The <code>race_calendar.py</code> script currently fetches manually entered race meeting dates. By making this script the starting point of the scraping pipeline, subsequent scraping scripts (for racecards, results, horse details, etc.) can be orchestrated to run based on the dates provided by this calendar. This centralizes control over which race meetings are targeted for scraping and automates the initiation of the process.</li>
+<li><strong>Impact:</strong> The Google Sheet serving as the race calendar becomes a critical control input for the ongoing data collection pipeline. Subsequent scraping modules will be designed to consume dates/meeting information from the output of <code>race_calendar.py</code>. This decision moves the project towards a more automated and orchestrated scraping workflow for new data.</li>
+</ul>
+</li>
+<li>
 <p><strong>Decision:</strong> <strong>Incorporate "Comments on Running" reports alongside "Full Stewards' Reports" for a comprehensive incident analysis.</strong></p>
 <ul>
 <li><strong>Rationale:</strong> Initial inspection reveals that Full Stewards' Reports primarily detail the factual nature of incidents (e.g., "horse was bumped, stumbled, and lost lengths"). In contrast, "Comments on Running" often focus on the <em>implications</em> or consequences of these incidents from a performance perspective (e.g., "slow in the start"). Utilizing both report types will provide a more holistic understanding of incidents and their impact on a horse's race.</li>
@@ -949,7 +956,7 @@
 </ul>
 </li>
 </ul>
-<p><strong>Coherence Summary for Week 4:</strong> These decisions coherently outline a problem (differing report structures and the need for comprehensive incident data), a strategy to enrich incident understanding by incorporating both "Stewards' Reports" and "Comments on Running," a sophisticated proposed solution for nuanced data extraction (LLM), and a data-driven rationale for pausing that LLM solution (model unreliability and prohibitive costs identified during testing). This demonstrates a pragmatic approach to R&amp;D and data enrichment within budget constraints. The project will proceed with other alignment tasks while the LLM-dependent component is on hold, but with a clearer path for future incident data integration.</p>
+<p><strong>Coherence Summary for Week 4:</strong> These decisions coherently outline strategies for handling data heterogeneity (differing report structures, comprehensive incident data), including enriching incident understanding by incorporating both "Stewards' Reports" and "Comments on Running." A key operational decision redefines the <code>race_calendar.py</code> script as the trigger for a more orchestrated scraping pipeline. Furthermore, a sophisticated proposed solution for nuanced incident data extraction (LLM) was explored, leading to a data-driven rationale for pausing that solution due to model unreliability and prohibitive costs identified during testing. This demonstrates a pragmatic approach to R&amp;D, data enrichment, and pipeline automation within budget constraints. The project will proceed with other alignment tasks while the LLM-dependent component is on hold, but with a clearer path for future incident data integration and a more structured approach to ongoing data collection.</p>
 
 
 

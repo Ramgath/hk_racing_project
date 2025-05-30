@@ -732,12 +732,14 @@
 
 
 <h1 id="project-status">Project Status</h1>
-<p><strong>Last Manually Updated:</strong> 2025-05-13</p>
-<p><strong>Overall Project Health:</strong> Green</p>
+<p><strong>Last Manually Updated:</strong> 2025-05-30</p>
+<p><strong>Overall Project Health:</strong> YELLOW (behind schedule)</p>
 <p><strong>Current Phase:</strong> Phase 1: Data Collection and Storage</p>
-<p>BQ Setup is completed and data is loaded.</p>
+<p>BQ Setup is completed and data is loaded. Main pipeline scraping was halted to scrape historical race reports in colab (see week 4 decsions)</p>
 <p><strong>Key Focus for This Week (ending 2005-05-17):</strong></p>
-<p>M1.3: Development of HKJC Web Scraping Capability: Develop Python scripts to scrape required data types (racecards, results, horse details, etc.) from the HKJC website for data from 19 March 2025 onwards.</p>
+<p>(put on pause)
+M1.3: Development of HKJC Web Scraping Capability: Develop Python scripts to scrape required data types (racecards, results, horse details, etc.) from the HKJC website for data from 19 March 2025 onwards.</p>
+<p>the racing calander is to be scraped first as its the starting point of the scraping pipeline.</p>
 <hr />
 <h2 id="0-general-project-setup">0. General Project Setup</h2>
 <p><strong>Overall Phase Objective:</strong> Complete to overall project infrastructure, documentation, planning, and core technical setup before specific data work begins</p>
@@ -788,7 +790,10 @@
 <ul>
 <li><strong>✅ M1.1: BigQuery Environment Setup &amp; Configuration:</strong> Ensure BigQuery datasets are created and project configuration is updated.</li>
 <li><strong>✅ M1.2: Ingestion of Processed Historical Data (Google Sheets to BigQuery):</strong> Transfer the user's existing processed and error-corrected data (2008 - November 2023)+ and the user scraped data (Decimeber 2023 - 19 March 2025) from Google Sheets into the <code>hk_racing_dataset</code> in BigQuery, matching schemas defined in Appendix A of <code>master-plan.md</code>.</li>
-<li><strong>M1.3: Development of HKJC Web Scraping Capability:</strong> Develop Python scripts to scrape required data types (racecards, results, horse details, etc.) from the HKJC website for data from 19 March 2025 onwards.</li>
+<li><strong>M1.3: Development of HKJC Web Scraping Capability:</strong> Develop Python scripts to scrape required data types (racecards, results, horse details, etc.) from the HKJC website for data from 19 March 2025 onwards.<ul>
+<li><strong>M1.3.1: Scrape "Comments on Running" for Historical Data (via Colab):</strong> As per Week 4 decision, prioritize and execute the scraping of "Comments on Running" from historical reports using Google Colab. This is distinct from the ongoing HKJC website scraping for current data.</li>
+</ul>
+</li>
 <li><strong>M1.4: Initial Ingestion of Scraped HKJC Data into BigQuery:</strong> Load an initial batch of scraped HKJC data (e.g., December 2023 - current date) into the <code>hk_racing_scraped_raw</code> BigQuery dataset.</li>
 <li><strong>M1.5: Phase 1 Documentation and Review:</strong> Ensure all Phase 1 activities, designs, and processes are documented and reviewed.</li>
 </ul>
@@ -817,7 +822,16 @@
 <td style="text-align: left;"></td>
 </tr>
 <tr>
-<td style="text-align: left;">P1.3.1</td>
+<td style="text-align: left;">P1.3.1.1</td>
+<td style="text-align: left;">Develop and execute script in Google Colab to scrape "Comments on Running" from historical reports (as per Week 3 &amp; 4 decisions regarding historical data focus).</td>
+<td style="text-align: left;">M1.3.1</td>
+<td style="text-align: left;">High</td>
+<td style="text-align: left;">Open</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">This is a one-off task for historical data, separate from ongoing HKJC scraping.</td>
+</tr>
+<tr>
+<td style="text-align: left;">P1.3.2</td>
 <td style="text-align: left;">Identify specific HKJC website URLs and page structures for each required data type (race results, race cards, horse details).</td>
 <td style="text-align: left;">M1.3</td>
 <td style="text-align: left;">High</td>
@@ -826,7 +840,7 @@
 <td style="text-align: left;">Investigate if Playwright/Selenium is needed or if <code>requests</code>/<code>BeautifulSoup</code> is sufficient.</td>
 </tr>
 <tr>
-<td style="text-align: left;">P1.3.2</td>
+<td style="text-align: left;">P1.3.3</td>
 <td style="text-align: left;">Develop initial scraping script for one data type (e.g., Race Results).</td>
 <td style="text-align: left;">M1.3</td>
 <td style="text-align: left;">High</td>
@@ -835,7 +849,7 @@
 <td style="text-align: left;">Handle pagination, navigation. Define preliminary data formatting. Structure output for <code>hk_racing_scraped_raw</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left;">P1.3.3</td>
+<td style="text-align: left;">P1.3.4</td>
 <td style="text-align: left;">Develop scraping scripts for remaining data types (Race Cards, Horse Details).</td>
 <td style="text-align: left;">M1.3</td>
 <td style="text-align: left;">High</td>
@@ -844,7 +858,7 @@
 <td style="text-align: left;"></td>
 </tr>
 <tr>
-<td style="text-align: left;">P1.3.4</td>
+<td style="text-align: left;">P1.3.5</td>
 <td style="text-align: left;">Implement robust error handling, logging, and mechanisms to manage scraping responsibly (e.g., delays, user-agent).</td>
 <td style="text-align: left;">M1.3</td>
 <td style="text-align: left;">High</td>
@@ -853,7 +867,7 @@
 <td style="text-align: left;"></td>
 </tr>
 <tr>
-<td style="text-align: left;">P1.3.5</td>
+<td style="text-align: left;">P1.3.6</td>
 <td style="text-align: left;">Integrate <code>src/ingestion/race_calendar.py</code> to guide the scraping of race-specific data based on meeting dates.</td>
 <td style="text-align: left;">M1.3</td>
 <td style="text-align: left;">Medium</td>
@@ -862,7 +876,7 @@
 <td style="text-align: left;"></td>
 </tr>
 <tr>
-<td style="text-align: left;">P1.3.6</td>
+<td style="text-align: left;">P1.3.7</td>
 <td style="text-align: left;">Store scraping scripts in <code>src/ingestion/</code>.</td>
 <td style="text-align: left;">M1.3</td>
 <td style="text-align: left;">Low</td>
@@ -871,13 +885,22 @@
 <td style="text-align: left;">Code organization.</td>
 </tr>
 <tr>
-<td style="text-align: left;">P1.3.7</td>
+<td style="text-align: left;">P1.3.8</td>
 <td style="text-align: left;">Document scraper design, dependencies, and usage in <code>docs/phase-01-collection.md</code>.</td>
 <td style="text-align: left;">M1.3</td>
 <td style="text-align: left;">Medium</td>
 <td style="text-align: left;">Open</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">P1.3.9</td>
+<td style="text-align: left;">Refactor <code>src/ingestion/race_calendar.py</code> to serve as the primary trigger for the scraping pipeline, initiating subsequent scraping tasks based on fetched meeting dates.</td>
+<td style="text-align: left;">M1.3</td>
+<td style="text-align: left;">High</td>
+<td style="text-align: left;">Open</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Aligns with Week 4 decision on pipeline orchestration.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>M1.4</strong></td>
@@ -980,6 +1003,15 @@
 </tr>
 </tbody>
 </table>
+<hr />
+<h1 id="phase-2-data-cleansing-and-preprocessing">Phase 2: Data Cleansing and Preprocessing</h1>
+<p><strong>Overall Phase Objective:</strong> To transform raw collected data (from both historical CSVs and ongoing HKJC scrapes) into a clean, consistent, and usable dataset. This includes harmonizing different data structures, handling missing values, and preparing data for exploratory analysis and feature engineering.</p>
+<p><strong>Current Status:</strong> Not Started</p>
+<hr />
+<h2 id="phase-2-milestones">Phase 2 Milestones</h2>
+<ul>
+<li><strong>M2.1: Harmonize Historical and Current Incident Report Data:</strong> Address structural differences between historical comprehensive race reports and current incident-focused reports. This includes integrating "Comments on Running" with "Full Stewards' Reports" and attempting to align data for a cohesive longitudinal dataset, potentially deferring LLM-based nuanced extraction if current cost/reliability issues persist (see Week 4 Decisions).</li>
+</ul>
 <hr />
 
 
