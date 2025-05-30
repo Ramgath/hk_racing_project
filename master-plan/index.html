@@ -2034,14 +2034,23 @@ The initially chosen workflow utilized a hybrid approach: Google Sheets (for eas
 <li><strong>Processed Historical Data (Google Sheets):</strong><ul>
 <li><strong>Method:</strong> Python scripts utilizing libraries such as <code>gspread</code> and <code>pandas</code> to read data directly from the user's Google Sheets.</li>
 <li><strong>Environment:</strong> Local Python environment or Google Colab.</li>
+<li><strong>Note:</strong> While Google Sheets were the initial source for some data, the focus for acquiring bulk historical data (2008-2023), particularly for detailed race reports and "Comments on Running," has shifted to processing CSV files.</li>
+</ul>
+</li>
+<li><strong>Historical CSV Report Scraping (One-Off Task - 2008-2023):</strong><ul>
+<li><strong>Method:</strong> A one-time scraping effort was undertaken to extract detailed race reports and "Comments on Running" from historical CSV files covering the period 2008-2023. This was prioritized to secure a rich historical dataset (as per Week 3 decisions).</li>
+<li><strong>Environment:</strong> Google Colab was utilized for this bulk scraping task to mitigate risks associated with IP address blocking during the large, one-off data extraction.</li>
+<li><strong>Code Management:</strong> The Python scripts developed for this specific one-off historical CSV scraping task are intentionally excluded from the main project repository (<code>hk_racing_project</code>). This decision keeps the main repository focused on the ongoing, automated data collection pipeline and avoids cluttering it with code for a completed, non-recurring task (as per Week 3 decisions).</li>
 </ul>
 </li>
 <li><strong>Ongoing Raw Data (HKJC Website):</strong><ul>
+<li><strong>Status Note:</strong> Collection of ongoing raw data from the HKJC website was temporarily paused (as per Week 3 decisions) to prioritize the acquisition of bulk historical reports data (2008-2023) from CSVs. Development of the automated scraping pipeline for new data will resume based on the refined strategy below.</li>
 <li><strong>Primary Method:</strong> Web scraping using Python libraries (e.g., <code>requests</code>, <code>Beautiful Soup</code>, and potentially <code>Playwright</code> or <code>Selenium</code> if dynamic content rendering is a significant factor).</li>
+<li><strong>Primary Trigger &amp; Orchestration:</strong> The <code>src/ingestion/race_calendar.py</code> script, which reads race meeting dates from a user-managed Google Sheet, has been redefined as the primary trigger for the scraping pipeline for new race meetings (as per Week 4 decisions). This script will orchestrate subsequent scraping tasks for racecards, results, etc., based on the fetched dates.</li>
+<li><strong>Data Scope Expansion (Incident Reports):</strong> To enable a more comprehensive incident analysis for ongoing data collection, scraping will include "Comments on Running" reports in addition to "Full Stewards' Reports" (as per Week 4 decisions).</li>
 <li><strong>Environment:</strong> Scripts will be developed locally or in Google Colab and designed for potential future deployment in an automated environment (e.g., Google Cloud Functions).</li>
 <li><strong>API Limitations:</strong> The HKJC does not offer a public API, necessitating web scraping.</li>
-<li><strong>Scope per Session:</strong> Scraping will be batched, likely per race day or specific data types (e.g., all results for a given day, all upcoming racecards).</li>
-<li><strong>Race Calendar:</strong> The <code>src/ingestion/race_calendar.py</code> script, which reads race meeting dates from a Google Sheet, will be utilized to guide the scraping schedule for race-specific data.</li>
+<li><strong>Scope per Session:</strong> Scraping will be batched, likely per race day or specific data types (e.g., all results for a given day, all upcoming racecards), orchestrated by the race calendar.</li>
 <li><strong>Maintenance:</strong> To ensure the scraping scripts continue to function correctly despite potential modifications to the HKJC website, they will need consistent oversight and upkeep. Health status updates for the scraping system will be generated and recorded in <code>phase-01-collection.md</code>.</li>
 </ul>
 </li>
@@ -2086,12 +2095,11 @@ The initially chosen workflow utilized a hybrid approach: Google Sheets (for eas
 <p><em>(This phase focuses on transforming raw collected data into a clean, consistent, and usable dataset.)</em></p>
 <h3 id="21-overview-of-collected-data">2.1. Overview of Collected Data</h3>
 <p>The dataset will encompass:
-* Race identification and context (Date, Course, Race Number, Class, Distance, Going, Prize Money, etc.).
-* Horse performance metrics (Finishing Place, Finish Time, Sectional Times, Weight Carried, Draw, etc.).
-* Betting information (Win/Place Odds).
-* Jockey and Trainer details.
-* Pre-race horse information (Horse Weight, Rating, Rest Days, Gear, etc.).
-* (Refer to Appendix A: Data Dictionary for detailed schema).</p>
+*   <strong>Core Race &amp; Horse Data:</strong> As detailed in Appendix A (Data Dictionary), this includes race identification, horse performance metrics, betting information, jockey/trainer details, and pre-race horse information.
+*   <strong>Incident Report Data:</strong>
+    *   <strong>Historical (2008-2023 from CSVs):</strong> Comprehensive race reports, often including both stewards' observations and comments on running within single documents.
+    *   <strong>Ongoing (HKJC Website):</strong> More granular reports, typically separating "Full Stewards' Reports" (factual incident details) from "Comments on Running" (performance implications).
+    *   <strong>Challenge:</strong> A key task in this phase will be to address the structural differences between these historical and current report formats to enable consistent analysis (as per Week 4 decisions).</p>
 <h3 id="22-cleansing-procedure">2.2. Cleansing Procedure</h3>
 <ul>
 <li><strong>Environment</strong>: Primarily Google Colab or local Python scripts, with results stored in BigQuery.</li>
@@ -2101,6 +2109,12 @@ The initially chosen workflow utilized a hybrid approach: Google Sheets (for eas
 <li><strong>Categorical Value Standardization</strong>: Ensure consistency in fields like <code>COURSE</code>, <code>CLASS</code>, <code>GOING</code>. Map variations to standard values.</li>
 <li><strong>Handling Specific Non-Numeric/Placeholder Strings</strong>: Address values like 'UNRATED', 'GRIFFIN', 'DEBUT' in fields that are otherwise numeric or categorical.</li>
 <li><strong>Addressing Known Inconsistencies</strong>: Programmatic fixes for known issues in historical data.</li>
+<li><strong>Incident Data Integration &amp; Harmonization:</strong><ul>
+<li>Integrate "Comments on Running" with "Full Stewards' Reports" to create a more holistic view of in-race incidents and their consequences (as per Week 4 decisions).</li>
+<li>Attempt to harmonize the structure of incident data extracted from historical CSVs and ongoing HKJC website scrapes.</li>
+<li><strong>Note on LLM-based Nuanced Extraction:</strong> The plan to use LLMs (Gemini Flash 2.5, OpenAI GPT-4o mini, Gemini 2.5 Pro Preview) for detailed interpretation and categorization of incidents from textual reports is currently <strong>paused</strong>. This is due to issues encountered during Week 4 testing, including model reliability (hallucinations), unexpected processing token consumption leading to high costs, and overall cost-prohibitive API pricing for bulk historical data. For now, simpler rule-based extraction methods will be employed for incident data, or this highly nuanced extraction task will be deferred until LLM solutions become more viable.</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -2176,6 +2190,7 @@ The initially chosen workflow utilized a hybrid approach: Google Sheets (for eas
 <li><strong>Class &amp; Weight Related</strong>: Rating relative to class, weight carried relative to past or standard weights.</li>
 <li><strong>Interaction &amp; Derived Features</strong>: Jockey win rate <em>on this course</em>, horse average speed <em>at this distance</em>.</li>
 <li><strong>Lagged Variables</strong>: Performance metrics from the previous race.</li>
+<li><strong>LLM-Derived Incident Features:</strong> Utilize the Gemini 2.5 Pro Preview API to summarize, interpret, and categorize incidents from textual data in "Full Stewards' Reports" and "Comments on Running." This process aims to generate nuanced features reflecting the nature, severity, and potential impact of in-race events. (Note: Application to bulk historical data is contingent on cost-effectiveness, as explored in <code>decisions.md</code> Week 4.).</li>
 </ul>
 <h3 id="45-feature-engineering-approach">4.5. Feature Engineering Approach</h3>
 <ul>

@@ -906,7 +906,7 @@
 <p><strong>Challenges and Pausing of API-Based Solution:</strong> This central decision led to a series of sub-decisions based on empirical testing and cost analysis of different LLMs:</p>
 <ul>
 <li>
-<p><strong>Sub-Decision (Gemini Flash 1.5 Preview):</strong> Paused due to hallucination issues (specifically, it provided data related to an incorrect geographical context - South Africa - instead of using the provided Hong Kong data) and potential ongoing API costs beyond initial free tiers. This model (updated on May 20, 2025, offering 500 free prompts) was initially considered the most cost-effective and fast.</p>
+<p><strong>Sub-Decision (Gemini Flash 2.5 Preview):</strong> Paused due to hallucination issues (specifically, it provided data related to an incorrect geographical context - South Africa - instead of using the provided Hong Kong data) and potential ongoing API costs beyond initial free tiers. This model (updated on May 20, 2025, offering 500 free prompts) was initially considered the most cost-effective and fast.</p>
 <ul>
 <li><strong>API Pricing:</strong><ul>
 <li><strong>Non-thinking (per 1M tokens):</strong><ul>
@@ -937,7 +937,7 @@
 </ul>
 </li>
 <li>
-<p><strong>Sub-Decision (Gemini 2.5 Pro Preview):</strong> Paused despite being the best performer in terms of reasoning capabilities among those tested (updated May 06, 2025, offering 25 free messages per day). However, its current API costs are significantly higher than even GPT-4o mini, making it unfeasible for the bulk processing of historical incident reports at this stage.</p>
+<p><strong>Sub-Decision (Gemini 2.5 Pro Preview):</strong> While paused for <em>bulk historical processing</em> due to API costs, this model remains the best performer in terms of reasoning capabilities among those tested. The free tier (currently 25 free messages/prompts per day, as of May 06, 2025 update) will be utilized. Testing has shown the model is capable of handling a full raceday's reports within this daily free limit. Unfortunately, with over 1370 historical racedays (and growing), comprehensive processing of the entire backlog is not feasible under current free tier constraints. Once the API price comes down or free limits increase, more workload can be taken on.</p>
 <ul>
 <li><strong>API Pricing (per 1M tokens, UI remains free of charge):</strong><ul>
 <li><strong>Input:</strong><ul>
@@ -952,7 +952,7 @@
 </li>
 </ul>
 </li>
-<li><strong>Impact:</strong> Even the highest quality model tested is currently too expensive for this specific large-scale task.</li>
+<li><strong>Impact:</strong> The highest quality model tested is currently too expensive for <em>bulk historical processing</em>. However, the free tier allows for limited, ongoing processing or targeted analysis of specific race days, and increased workload adoption is contingent on future API price reductions or an increase in free tier limits.</li>
 </ul>
 </li>
 </ul>
