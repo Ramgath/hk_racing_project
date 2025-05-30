@@ -124,7 +124,7 @@ Week 4's decisions address the complexities arising from integrating the newly p
 
 **Challenges and Pausing of API-Based Solution:** This central decision led to a series of sub-decisions based on empirical testing and cost analysis of different LLMs:
 
-*   **Sub-Decision (Gemini Flash 1.5 Preview):** Paused due to hallucination issues (specifically, it provided data related to an incorrect geographical context - South Africa - instead of using the provided Hong Kong data) and potential ongoing API costs beyond initial free tiers. This model (updated on May 20, 2025, offering 500 free prompts) was initially considered the most cost-effective and fast.
+*   **Sub-Decision (Gemini Flash 2.5 Preview):** Paused due to hallucination issues (specifically, it provided data related to an incorrect geographical context - South Africa - instead of using the provided Hong Kong data) and potential ongoing API costs beyond initial free tiers. This model (updated on May 20, 2025, offering 500 free prompts) was initially considered the most cost-effective and fast.
 
     *   **API Pricing:**
         *   **Non-thinking (per 1M tokens):**
@@ -143,7 +143,7 @@ Week 4's decisions address the complexities arising from integrating the newly p
         *   Output: $4.400
     *   **Impact:** A seemingly viable alternative also became economically unfeasible.
 
-*   **Sub-Decision (Gemini 2.5 Pro Preview):** Paused despite being the best performer in terms of reasoning capabilities among those tested (updated May 06, 2025, offering 25 free messages per day). However, its current API costs are significantly higher than even GPT-4o mini, making it unfeasible for the bulk processing of historical incident reports at this stage.
+*   **Sub-Decision (Gemini 2.5 Pro Preview):** While paused for *bulk historical processing* due to API costs, this model remains the best performer in terms of reasoning capabilities among those tested. The free tier (currently 25 free messages/prompts per day, as of May 06, 2025 update) will be utilized. Testing has shown the model is capable of handling a full raceday's reports within this daily free limit. Unfortunately, with over 1370 historical racedays (and growing), comprehensive processing of the entire backlog is not feasible under current free tier constraints. Once the API price comes down or free limits increase, more workload can be taken on.
     *   **API Pricing (per 1M tokens, UI remains free of charge):**
         *   **Input:**
             *   `<=200K tokens`: $1.25
@@ -151,6 +151,6 @@ Week 4's decisions address the complexities arising from integrating the newly p
         *   **Output:**
             *   `<=200K tokens`: $10.00
             *   `> 200K tokens`: $15.00
-    *   **Impact:** Even the highest quality model tested is currently too expensive for this specific large-scale task.
+    *   **Impact:** The highest quality model tested is currently too expensive for *bulk historical processing*. However, the free tier allows for limited, ongoing processing or targeted analysis of specific race days, and increased workload adoption is contingent on future API price reductions or an increase in free tier limits.
 
 **Coherence Summary for Week 4:** These decisions coherently outline strategies for handling data heterogeneity (differing report structures, comprehensive incident data), including enriching incident understanding by incorporating both "Stewards' Reports" and "Comments on Running." A key operational decision redefines the `race_calendar.py` script as the trigger for a more orchestrated scraping pipeline. Furthermore, a sophisticated proposed solution for nuanced incident data extraction (LLM) was explored, leading to a data-driven rationale for pausing that solution due to model unreliability and prohibitive costs identified during testing. This demonstrates a pragmatic approach to R&D, data enrichment, and pipeline automation within budget constraints. The project will proceed with other alignment tasks while the LLM-dependent component is on hold, but with a clearer path for future incident data integration and a more structured approach to ongoing data collection.
