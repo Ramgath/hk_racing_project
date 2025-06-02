@@ -2316,7 +2316,8 @@ The initially chosen workflow utilized a hybrid approach: Google Sheets (for eas
 * <strong>Model Validation &amp; Profitability</strong>: Rigorous backtesting, realistic wagering simulation.
 * <strong>Data Pipeline Robustness</strong>: Error handling, logging, monitoring.
 * <strong>Data Integrity &amp; Correction</strong>: Ongoing validation checks, clear process for corrections.
-* <strong>Web Scraping Maintenance</strong>: Monitor for HKJC site changes, allocate time for script updates.</p>
+* <strong>Web Scraping Maintenance</strong>: Monitor for HKJC site changes, allocate time for script updates.
+* <strong>LLM API Integration for Nuanced Data Extraction</strong>: Initial testing with various LLM APIs (Gemini Flash 2.5, OpenAI GPT-4o mini, Gemini 2.5 Pro Preview) for interpreting textual incident reports revealed significant challenges. These included model hallucinations (providing irrelevant or incorrect information), unexpectedly high processing token consumption leading to drastically increased costs, and generally prohibitive API pricing for the bulk processing of historical data. Performance and reliability varied significantly between models. <strong>Resolution</strong>: This approach has been paused for bulk historical data processing, with simpler methods or deferral being the current strategy (as detailed in Week 4 decisions and Phase 2 planning).</p>
 <h3 id="82-data-size-projections-and-growth">8.2. Data Size Projections and Growth</h3>
 <ul>
 <li>Initial dataset (18 years, ~171k rows, 40-50 cols): ~20-50 MB.</li>
