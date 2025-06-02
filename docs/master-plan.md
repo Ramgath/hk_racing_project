@@ -345,6 +345,7 @@ The dataset will encompass:
 * **Data Pipeline Robustness**: Error handling, logging, monitoring.
 * **Data Integrity & Correction**: Ongoing validation checks, clear process for corrections.
 * **Web Scraping Maintenance**: Monitor for HKJC site changes, allocate time for script updates.
+* **LLM API Integration for Nuanced Data Extraction**: Initial testing with various LLM APIs (Gemini Flash 2.5, OpenAI GPT-4o mini, Gemini 2.5 Pro Preview) for interpreting textual incident reports revealed significant challenges. These included model hallucinations (providing irrelevant or incorrect information), unexpectedly high processing token consumption leading to drastically increased costs, and generally prohibitive API pricing for the bulk processing of historical data. Performance and reliability varied significantly between models. **Resolution**: This approach has been paused for bulk historical data processing, with simpler methods or deferral being the current strategy (as detailed in Week 4 decisions and Phase 2 planning).
 
 ### 8.2. Data Size Projections and Growth
 * Initial dataset (18 years, ~171k rows, 40-50 cols): ~20-50 MB.
