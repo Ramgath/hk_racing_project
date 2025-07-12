@@ -5,3 +5,7 @@ google_cloud:
   project_id: "your-gcp-project-id-goes-here"
   bq_dataset_id_: "your_bq_dataset_name"
   bq_dataset_id: "your_bq_dataset_name"
+
+google_sheets:
+  spreadsheet_id: "1gX48NYjjLT0WJrzbHEltbCUTVU1d9VHv3NsSRVJWLSs"
+  sheet_name: "calendar"
